@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <!-- idioma de la página -->
 <html lang='es'>
-    <!-- sección head, cabecefra, información de contro, descripción, archivos css, js -->
+<!-- sección head, cabecefra, información de contro, descripción, archivos css, js -->
+
 <head>
     <!-- charset tabla de equivalencia símbolos y números -->
     <meta charset='utf-8'>
@@ -11,8 +12,42 @@
     <link rel='stylesheet' href='main.css'>
 </head>
 <!-- sección visible dentro de la página -->
+
 <body>
- <h1>Curso de HTML y CSS</h1>
- <p>VAMOS A HACER PÁGIANAS WEB CHULAS :)</p>
+    <!-- h1 tiene que haber solo uno por página: título principal -->
+    <h1>Curso de HTML y CSS</h1>
+    <p>VAMOS A HACER PÁGIANAS WEB CHULAS :) </p>
+
+
+    <div id="seccion-html">
+        <h2>1 HTML</h2>
+        <p>HTML creamos la estructura de páginas web</p>
+        <!-- esto es una ruta absoluta -->
+        <img src="https://raw.githubusercontent.com/mdn/beginner-html-site/gh-pages/images/firefox-icon.png"
+            alt="Icono de Firefox" />
+    </div>
+
+    <div id="seccion-css">
+        <h2>2 CSS</h2>
+        <p>Damos estilo a nuestras páginas</p>
+        <!-- esto es una ruta relativa estamos en el mismo directorio -->
+        <img src="img/css.png" alt="Imagen CSS" />
+    </div>
+
+    <div>
+        <h2>ÍNDICE DE CONTENIDOS</h2>
+        <!-- unordered list lista desordenada -->
+        <ul>
+            <!-- list item -->
+            <li>
+                <a href="#seccion-html">1 HTML</a>
+            </li>
+            <li>
+                <a href="#seccion-css">2 CSS</a>
+            </li>
+        </ul>
+    </div>
+
 </body>
+
 </html>
