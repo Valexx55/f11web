@@ -1,25 +1,5 @@
-<!-- TODO: BÁSANDOSE EN ESTA PÁGINA, COMPLETAD LAS SECCIONES, AÑADIENDO:
- 
-UNA PARA JS
-OTRA PARA JAVA
-OTRA PARA BASE DE DATOS
-
-CADA SECCIÓN NUEVA (JS, JAVA, BASE DE DATOS) DEBE INCLUIR
-UNA DESCRIPCIÓN Y UNA IMAGEN
-
-Y ADEMÁS, DEBE REFERIRSE DESDE EL ÍNDICE DE CONTENIDOS
-
-AÑADID ADEMÁS UNA SECCIÓN CON ENLACES
-DE INTERÉS
-
-EXTRA HACED UNA LISTA ORDENADA (OL) DETALLANDO PARA CADA SECCIÓN ALGUNOS PUNTOS
-5 PUNTOS MÁXIMO POR EJEMPLO: HTML
-
-1. ESTRUCTURA DEL DOCUMENTO
-2. ETIQUETAS BÁSICAS
-3. ETIQUETAS AVANZADAS ...
-
-ETC
+<!-- TODO: 
+ FAVICON
 -->
 <!DOCTYPE html>
 <!-- idioma de la página -->
@@ -29,10 +9,13 @@ ETC
 <head>
     <!-- charset tabla de equivalencia símbolos y números -->
     <meta charset='utf-8'>
+    <!-- descripción del contenido de la página -->
+    <meta name="description" content="Esta página, contiene el temario del Curso de Apps de Web de la Fundación Once">
     <!-- título que aparece en la pestaña del navegador -->
     <title>Primera práctica curso web</title>
     <!-- ruta relativa (en el mismo directorio) -->
     <link rel='stylesheet' href='main.css'>
+    
 </head>
 <!-- sección visible dentro de la página -->
 
@@ -41,23 +24,103 @@ ETC
     <h1>Curso de HTML y CSS</h1>
     <p>VAMOS A HACER PÁGIANAS WEB CHULAS :) </p>
 
-
+    <!-- sección html -->
     <div id="seccion-html">
         <h2>1 HTML</h2>
-        <p>HTML creamos la estructura de páginas web</p>
         <!-- esto es una ruta absoluta -->
+
+        <p>HTML creamos la estructura de páginas web</p>
         <img src="https://raw.githubusercontent.com/mdn/beginner-html-site/gh-pages/images/firefox-icon.png"
             alt="Icono de Firefox" />
+        <div id="lista-html">
+            <ol>
+                <li>ESTRUCTURA DE UNA WEB</li>
+                <li>ETIQUETAS BÁSICAS</li>
+                <li>ENLACES</li>
+                <li>RUTAS RELATIVAS VS RUTAS ABSOLUTAS</li>
+            </ol>
+        </div>
+
+
     </div>
 
+    <!-- sección css -->
     <div id="seccion-css">
         <h2>2 CSS</h2>
         <p>Damos estilo a nuestras páginas</p>
         <!-- esto es una ruta relativa estamos en el mismo directorio -->
         <img src="img/css.png" alt="Imagen CSS" />
+        <div id="lista-css">
+            <ol>
+                <li>ELEMENTOS DE LÍNEA Y BLOQUE</li>
+                <li>SELECTORES</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- sección js -->
+    <div id="seccion-js">
+        <h2>3 JAVASCRIPT (JS)</h2>
+        <p>Con JS, damos "vida" a la página</p>
+        <!-- esto es una ruta relativa -->
+        <img src="img/js.png" alt="Icono de Javascript" />
+        <div id="lista-css">
+            <ol>
+                <li>SINTAXIS BÁSICA</li>
+                <li>SINTAXIS AVANZADA</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- sección html -->
+    <div id="seccion-java">
+        <h2>4 JAVA</h2>
+        <p>Con Java, programamos procesos en el servidor</p>
+        <!-- esto es una ruta absoluta -->
+        <img src="img/java.png" alt="Icono de Java" />
+        <div id="lista-java">
+            <ol>
+                <li>SINTAXIS BÁSICA</li>
+                <li>SINTAXIS AVANZADA</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- sección html -->
+    <div id="seccion-base-datos">
+        <h2>5 MYSQL</h2>
+        <p>Con MYSQL, guardamos los datos de la aplicación web</p>
+        <!-- esto es una ruta absoluta -->
+        <img src="img/basedatos.jpg" alt="Icono de Mysql" />
+        <div id="lista-bd">
+            <ol>
+                <li>TABLAS</li>
+                <li>CLAVES PRIMARIAS</li>
+                <li>USUARIOS</li>
+            </ol>
+        </div>
+    </div>
+
+    <div id="seccion-enlaces">
+        <h2>ENLACES EXTERNOS</h2>
+        <ul>
+            <li>
+                <!-- con target="-blank" el navegador, me abre el enlace en otra pestaña-->
+                <a href="https://www.w3schools.com/html/default.asp" target="_blank">Enlace a W3 schools</a>
+            </li>
+            <li>
+                <a href="https://developer.mozilla.org/es/docs/Web/HTML#tutoriales_para_principiantes"
+                    target="_blank">Enlace a Mozilla Developer Network MDN</a>
+            </li>
+            <li>
+                <a href="https://github.com/Valexx55/f11web" target="_blank">Enlace al repo del curso</a>
+            </li>
+        </ul>
+        </ul>
     </div>
 
 
+    <!-- sección índice -->
 
     <div>
         <h2>ÍNDICE DE CONTENIDOS</h2>
@@ -70,6 +133,16 @@ ETC
             <li>
                 <a href="#seccion-css">2 CSS</a>
             </li>
+            <li>
+                <a href="#seccion-js">3 JS</a>
+            </li>
+            <li>
+                <a href="#seccion-java">4 JAVA</a>
+            </li>
+            <li>
+                <a href="#seccion-base-datos">5 MYSQL</a>
+            </li>
+
         </ul>
     </div>
 
