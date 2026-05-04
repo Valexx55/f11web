@@ -9,6 +9,16 @@ body {
 h1 {
     color: blue;
     text-align: center;
+    background-color: white;
+
+    width: 600px;
+    height: 40px;
+    margin: 50px auto; /*50px por arriba y por abajo, y por lados, auto, centrado*/ 
+    /*margin: 50px;*/ /*por todos los sitios*/
+    padding: 60px 140px;
+    /*margin: 10px 30px 60px 90px;*/ /*arriba, derecha, abajo, izquierda*/
+    /*margin: 10px 30px */ /*por arriba y por abajo, por los lados*/
+    border: 5px solid black;
 }
 
 h2 {
