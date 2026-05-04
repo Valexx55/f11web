@@ -1,5 +1,9 @@
 /* este es la hoja de estilos, asociada a la página
 CSS EXTERNO */
+body {
+    color: blueviolet;
+    background-color: cadetblue;
+}
 
 /* h1 es el selector por el nombre la etiqueta */
 h1 {
