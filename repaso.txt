@@ -1,0 +1,12 @@
+<!-- DIVS CON SENTIDO -->
+
+<!-- header: cabecera principal de la página.
+main: contenido principal.
+section: cada bloque temático del curso. agrupación temática, depende de un contexto mayor
+nav: índice de navegación interna.
+article: entrada de blog, noticias, tajeta de producto, contenido independiente
+aside: enlaces externos de apoyo.
+footer: cierre de la página. 
+
+articulos podrías tener varias secciones
+y una sección, podría tener varias noticias independeintes-->
