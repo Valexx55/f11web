@@ -18,6 +18,31 @@
     <!-- favicon -->
     <link rel="icon" href="favicon.ico">
 
+    <!-- la sección de estilos para "maquillar a cada etiqueta" CSS interno -->
+    <!-- para referirme a las etiquetas y poder aplicarles un estilo
+     necesito seleccionarlas. Existen los selectores para ello -->
+    <!-- 
+    <style>
+        /* h1 es el selector por el nombre la etiqueta */
+        h1 {
+            color: blue;
+            text-align: center;
+        }
+        h2 {
+            color:chocolate ;
+            text-align: left;
+        }
+        /* # es el selector por el id la etiqueta */
+        #subtitulo {
+            text-align: center;
+        }
+        /*las otras p's, las quiero en verde oscuro
+        con . selecciono a todas los elementos con esa clase*/
+        .description {
+            color: darkgreen;
+        }
+
+    </style>-->
 </head>
 <!-- sección visible dentro de la página -->
 
@@ -26,8 +51,10 @@
     <!-- header cabecera principal de la página -->
     <header>
         <!-- h1 tiene que haber solo uno por página: título principal -->
+         <!-- si uso style dentro del elemento, estoy haciendo CSS en línea -->
+        <!-- <h1 style="color: blue; text-align: center;">Curso de HTML y CSS</h1> -->
         <h1>Curso de HTML y CSS</h1>
-        <p>VAMOS A HACER PÁGIANAS WEB CHULAS :) </p>
+        <p id="subtitulo">VAMOS A HACER PÁGIANAS WEB CHULAS :) </p>
     </header>
 
     <!-- índice de navegación interna, menú -->
@@ -64,7 +91,7 @@
             <h2>1 HTML</h2>
             <!-- esto es una ruta absoluta -->
 
-            <p>HTML creamos la estructura de páginas web</p>
+            <p class="description">HTML creamos la estructura de páginas web</p>
             <img src="https://raw.githubusercontent.com/mdn/beginner-html-site/gh-pages/images/firefox-icon.png"
                 alt="Icono de Firefox">
             <div id="lista-html">
@@ -82,7 +109,7 @@
         <!-- sección css -->
         <section id="seccion-css">
             <h2>2 CSS</h2>
-            <p>Damos estilo a nuestras páginas</p>
+            <p class="description">Damos estilo a nuestras páginas</p>
             <!-- esto es una ruta relativa estamos en el mismo directorio -->
             <img src="img/css.png" alt="Imagen CSS">
             <div id="lista-css">
@@ -96,7 +123,7 @@
         <!-- sección js -->
         <section id="seccion-js">
             <h2>3 JAVASCRIPT (JS)</h2>
-            <p>Con JS, damos "vida" a la página</p>
+            <p class="description">Con JS, damos "vida" a la página</p>
             <!-- esto es una ruta relativa -->
             <img src="img/js.png" alt="Icono de Javascript">
             <div id="lista-js">
@@ -110,7 +137,7 @@
         <!-- sección html -->
         <section id="seccion-java">
             <h2>4 JAVA</h2>
-            <p>Con Java, programamos procesos en el servidor</p>
+            <p class="description">Con Java, programamos procesos en el servidor</p>
             <!-- esto es una ruta absoluta -->
             <img src="img/java.png" alt="Icono de Java">
             <div id="lista-java">
@@ -124,7 +151,7 @@
         <!-- sección html -->
         <section id="seccion-base-datos">
             <h2>5 MYSQL</h2>
-            <p>Con MYSQL, guardamos los datos de la aplicación web</p>
+            <p class="description">Con MYSQL, guardamos los datos de la aplicación web</p>
             <!-- esto es una ruta absoluta -->
             <img src="img/basedatos.jpg" alt="Icono de Mysql">
             <div id="lista-bd">

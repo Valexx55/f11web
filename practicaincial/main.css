@@ -1,1 +1,24 @@
-/* este es la hoja de estilos, asociada a la página */
+/* este es la hoja de estilos, asociada a la página
+CSS EXTERNO */
+
+/* h1 es el selector por el nombre la etiqueta */
+h1 {
+    color: blue;
+    text-align: center;
+}
+
+h2 {
+    color: chocolate;
+    text-align: left;
+}
+
+/* # es el selector por el id la etiqueta */
+#subtitulo {
+    text-align: center;
+}
+
+/*las otras p's, las quiero en verde oscuro
+        con . selecciono a todas los elementos con esa clase*/
+.description {
+    color: darkgreen;
+}
