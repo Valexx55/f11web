@@ -1,0 +1,29 @@
+/* div {
+    width: 120px;
+} */
+
+.caja {
+    width: 120px;
+    height: 80px;
+    margin: 10px;
+    padding: 10px;
+    color: white;
+    text-align: center;
+    display: inline;
+}
+
+.roja {
+    background-color: red;
+}
+
+.verde {
+    background-color: green;
+}
+
+.azul {
+    background-color: blue;
+}
+
+img {
+    width: 120px;
+}
