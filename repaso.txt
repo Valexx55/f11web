@@ -1,3 +1,7 @@
+FAVICON: icono que aparece en el navegador y sirve para identificar la página, es el logo
+
+
+
 <!-- DIVS CON SENTIDO -->
 
 <!-- header: cabecera principal de la página.
