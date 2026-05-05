@@ -1,0 +1,18 @@
+.padre {
+    display: flex; /*los hijos, se van a ver de manera flexible*/
+    background-color: darksalmon;
+    width: 100vw; /*porcentaje de ancho que ve el usuario ViewPort Width*/
+    height: 100vh; /*porcentaje de alto que ve el usuario ViewPort Height*/
+    gap: 60px; /*separación entre hijos */
+    justify-content: center; /*cómo se alinean los elmentos horizontalmente*/
+    align-items: center; /* cómo se alinean los elementos verticalmente*/
+    flex-direction: row; /* decimos si se muestran por filas o columnas*/
+    flex-wrap: wrap; /* si veo que desborda, salta de línea*/
+}
+
+.hijo {
+background-color: rgb(103, 103, 206);
+padding: 20px;
+color: #ffffff;
+border-radius: 8px;
+}
