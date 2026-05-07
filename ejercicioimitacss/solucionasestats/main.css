@@ -1,0 +1,61 @@
+#padre {
+    width: 600px;
+    height: 300px;
+    display: grid;
+    grid-template-rows: 2fr 3fr 4fr 3.5fr;
+    
+}
+
+#remates {
+
+    background-color: green;
+    text-align: center;
+    color: white;
+    display: flex;
+    align-items: center ;
+    justify-content: space-between;
+}
+
+#remates img {
+    margin: 0px 0px;
+    /* height: 250px; */
+}
+
+#fuerapuerta {
+  display: flex;
+
+}
+
+#fuerapuerta1,
+#fuerapuerta2 {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+#fuerapuerta1 div,
+#fuerapuerta2 div {
+  flex: 1;
+  margin: auto 10px;
+}
+
+/* Segundo div de cada bloque pegado a la derecha */
+#fuerapuerta div div:nth-child(2) {
+  text-align: right;
+}
+
+#fuerapuertacolor {
+    display: flex;
+    gap: 0px;
+    justify-content: center;
+}
+
+#fuerapuertacolorlocal {
+    background-color: red;
+    flex: 1;
+}
+
+#fuerapuertacolorvisitante {
+    background-color: yellow;
+    flex: 1;
+}
