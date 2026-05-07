@@ -7,3 +7,11 @@ https://favicon.io/
 https://htmlcolorcodes.com/
 
 https://flukeout.github.io/
+
+https://icons.getbootstrap.com/
+
+https://flexboxfroggy.com/#es
+
+https://app.diagrams.net/
+
+https://validator.w3.org/#validate_by_input
