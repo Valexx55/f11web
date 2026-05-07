@@ -1,13 +1,22 @@
 .padre {
-    display: flex; /*los hijos, se van a ver de manera flexible*/
+    /*display: flex;*/ /*los hijos, se van a ver de manera flexible*/
     background-color: darksalmon;
     width: 100vw; /*porcentaje de ancho que ve el usuario ViewPort Width*/
     height: 100vh; /*porcentaje de alto que ve el usuario ViewPort Height*/
     gap: 60px; /*separación entre hijos */
     justify-content: center; /*cómo se alinean los elmentos horizontalmente*/
     align-items: center; /* cómo se alinean los elementos verticalmente*/
-    flex-direction: row; /* decimos si se muestran por filas o columnas*/
-    flex-wrap: wrap; /* si veo que desborda, salta de línea*/
+    
+    /* propiedades exclusivas de flex */
+    /*flex-direction: row; */ /* decimos si se muestran por filas o columnas*/
+   /* flex-wrap: wrap;*/ /* si veo que desborda, salta de línea*/
+    
+    display: grid; /*los hijos, se van a ver en filas y columnas*/
+
+    /* propiedades exclusivas de grid */
+    grid-template-columns: 1fr 2fr 1fr; /*fr : fracción : cuánto ocupa esa columna*/
+    grid-template-rows: 1fr 2fr 1fr; /*fr : fracción : cuánto ocupa esa fila*/
+    justify-items: center; /* se centra, respecto del contendor*/
 }
 
 .hijo {
