@@ -1,6 +1,7 @@
 table {
     border-collapse: collapse;
-    width: 100%;
+    width: 70vw;
+    margin: 0 auto;
 }
 caption {
     font-weight: bold;
@@ -20,3 +21,22 @@ th, td {
 .total {
     background-color: #999;
 }
+/* puedo seleccionar hijos
+con la propiedad: nth-child
+con even, es para hijos pares
+con odd, para hijos impares
+*/
+tbody tr:nth-child(even)
+{
+    background-color: blue;
+    color: #fff;
+}
+
+/* tbody tr:nth-child(odd)
+{
+    background-color: aqua;
+} */
+
+
+
+
