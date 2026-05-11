@@ -1,7 +1,3 @@
-/* div {
-    width: 120px;
-} */
-
 .caja {
     width: 120px;
     height: 80px;
@@ -9,7 +5,7 @@
     padding: 10px;
     color: white;
     text-align: center;
-    display: inline;
+    display: inline-block;
 }
 
 .roja {
@@ -25,5 +21,18 @@
 }
 
 img {
-    display: block;
+    width: 120px;
+    height: 120px;
+    display: inline-block;
 }
+
+/*para pantallas pequeñas, aplica esta regla*/
+@media (max-width: 600px)
+{
+    /*los estilos que yo defina aquí, son solo paraç
+    pantallas pequeñas, de máximo 600 px*/
+    .caja, img {
+        display: block;
+    }
+}
+
