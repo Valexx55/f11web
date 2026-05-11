@@ -15,3 +15,5 @@ https://flexboxfroggy.com/#es
 https://app.diagrams.net/
 
 https://validator.w3.org/#validate_by_input
+
+https://www.w3schools.com/html/html_blocks.asp

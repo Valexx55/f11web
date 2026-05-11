@@ -15,6 +15,13 @@ Documentación oficial y muy completa sobre HTML. Muy recomendable para consulta
 
 [https://developer.mozilla.org/es/docs/Web/HTML#tutoriales_para_principiantes](https://developer.mozilla.org/es/docs/Web/HTML#tutoriales_para_principiantes)
 
+
+### Elementos de bloque y línea - HTML
+
+Para consultar cuáles son los elementos de línea y bloque por defecto.
+
+[https://www.w3schools.com/html/html_blocks.asp](https://www.w3schools.com/html/html_blocks.asp)
+
 ## Herramientas para diseño web
 
 ### Favicon.io
