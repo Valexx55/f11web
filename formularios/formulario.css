@@ -2,6 +2,10 @@ body {
   font-family: Arial, sans-serif;
 }
 
+h1 {
+  text-align: center;
+}
+
 .formulario {
   max-width: 600px;
   margin: 40px auto;
@@ -21,7 +25,8 @@ body {
   flex: 1 1 200px;
 }
 
-.campo label {
+.campo label,
+.campo legend {
   display: block;
   margin-bottom: 6px;
   font-weight: bold;
@@ -51,12 +56,51 @@ body {
   border-color: #4a90e2;
 }
 
+/* Grupo de radios */
+
+.campo-radio {
+  border: none;
+  padding: 0;
+}
+
+.opciones-radio {
+  display: flex;
+  gap: 24px;
+}
+
+.opcion-radio {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.opcion-radio input {
+  width: auto;
+}
+
+.opcion-radio label {
+  margin-bottom: 0;
+  font-weight: normal;
+}
+
+/* Checkbox */
+
 .campo-check {
   display: flex;
   gap: 8px;
   align-items: center;
   margin-bottom: 16px;
 }
+
+.campo-check input {
+  width: auto;
+}
+
+.campo-check label {
+  font-weight: normal;
+}
+
+/* Botones */
 
 button {
   padding: 10px 18px;
