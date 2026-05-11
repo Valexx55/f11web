@@ -31,7 +31,7 @@
         <mxCell id="Bg0MN6LxKNgp3d6irOTa-5" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Enviar Factura por E-mail" vertex="1">
           <mxGeometry height="30" width="170" x="400" y="300" as="geometry" />
         </mxCell>
-        <mxCell id="Bg0MN6LxKNgp3d6irOTa-6" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="A/B/M Clientes" vertex="1">
+        <mxCell id="Bg0MN6LxKNgp3d6irOTa-6" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="A/B/M Clientes" vertex="1">
           <mxGeometry height="30" width="150" x="400" y="350" as="geometry" />
         </mxCell>
         <mxCell id="Bg0MN6LxKNgp3d6irOTa-7" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Crear QR Link Factura" vertex="1">
