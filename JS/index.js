@@ -47,3 +47,12 @@ function mostrarInfoPantalla() {
     botonpantalla.style.backgroundColor = "green";
      botonpantalla.style.color = "white";
 }
+
+function ocultarBotones() {
+    //TODO: ocultar los botones de saluda y info
+    let botonsaluda = document.getElementById("btnsaluda");
+    let botoninfo = document.getElementById("btninfo");
+    //ocultarlos
+    botonsaluda.style.display = "none";
+    botoninfo.style.display = "none";
+}
