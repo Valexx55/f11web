@@ -18,8 +18,7 @@ console.log("HOLA desde fuera");
 let botonsaludo = document.getElementById("btnsaluda");
 console.log(botonsaludo.id);
 
-function saludar ()
-{
+function saludar() {
     console.log("Hola desde adentro");
     //llamada a la función
     //TODO: Haced un botón nuevo, llamado Mostrar Info
@@ -27,13 +26,13 @@ function saludar ()
     let botonsaludo = document.getElementById("btnsaluda");
     console.log(botonsaludo.id);
     botonsaludo.style.backgroundColor = "red";
+    botonsaludo.style.color = "white";
 
 }
 
 //nomenclatura camelCase en el nombre de funciones
-function mostrarInfoPantalla () 
-{
-   //declaro una variable, que se llama ubicación
+function mostrarInfoPantalla() {
+    //declaro una variable, que se llama ubicación
     //y cuyo valor es window.location.href
     let ubicacion = window.location.href;
     console.log(window.location.href);
@@ -42,4 +41,9 @@ function mostrarInfoPantalla ()
     console.log(window.innerWidth);
     let alto = window.innerHeight;
     console.log(window.innerHeight);
+
+    let botonpantalla = document.getElementById("btninfo");
+    console.log(botonpantalla.id);
+    botonpantalla.style.backgroundColor = "green";
+     botonpantalla.style.color = "white";
 }
