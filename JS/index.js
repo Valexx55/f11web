@@ -1,6 +1,7 @@
 //VARIABLES PREDEFINIDAS
 //window
 //console
+//document DOM
 
 //variables PROPIAS
 //número de goles a favor
@@ -12,11 +13,27 @@
 //log
 
 console.log("HOLA desde fuera");
+//vamos a obtener, a través del document, el botón
+//de saludar
+let botonsaludo = document.getElementById("btnsaluda");
+console.log(botonsaludo.id);
 
 function saludar ()
 {
     console.log("Hola desde adentro");
-    //declaro una variable, que se llama ubicación
+    //llamada a la función
+    //TODO: Haced un botón nuevo, llamado Mostrar Info
+    //para que se ejecute la función mostrarInfoPantalla
+    let botonsaludo = document.getElementById("btnsaluda");
+    console.log(botonsaludo.id);
+    botonsaludo.style.backgroundColor = "red";
+
+}
+
+//nomenclatura camelCase en el nombre de funciones
+function mostrarInfoPantalla () 
+{
+   //declaro una variable, que se llama ubicación
     //y cuyo valor es window.location.href
     let ubicacion = window.location.href;
     console.log(window.location.href);
