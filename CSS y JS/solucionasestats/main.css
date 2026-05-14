@@ -1,0 +1,127 @@
+#padre {
+    width: 600px;
+    background-color: #f4f4f4;
+    border: 1px solid #fffbfb;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    padding-bottom: 10px;
+    margin: 0 auto;
+}
+
+#remates {
+    background-color: #38761d;
+    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 15px;
+    font-weight: bold;
+}
+
+#remates img { height: 60px; 
+   justify-content: flex-end;
+   padding: 1px 1px;
+}
+
+/* Etiquetas superiores alineadas con las barras */
+#fuerapuerta {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 14px; /* Ajustado para que el texto no se salga */
+    font-size: 11px;
+    font-weight: bold;
+    color: #080808;
+}
+
+#fuerapuerta1, #fuerapuerta2 {
+    display: flex;
+    justify-content: space-between;
+    flex-basis: 48%; /* Alineación con las barras de abajo */
+}
+
+#fuerapuertacolor {
+    display: flex;
+    height: 70px;
+    gap: 4px;
+    padding: 0 5px;
+}
+
+#fuerapuertacolorlocal, #fuerapuertacolorvisitante {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    font-size: 22px;
+}
+
+#fuerapuertacolorlocal {
+    background-color: #c60e1d;
+    justify-content: space-between;
+}
+
+#fuerapuertacolorvisitante {
+    background-color: #f8a116;
+    justify-content: space-between;
+}
+
+/* --- RECUADROS BLANCOS --- */
+
+/* Recuadro para el 6 del Bayern (derecha del bloque rojo) */
+#fuerapuertacolorlocal .num-der {
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    height: 80%;
+    width: 55%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    background-color: #b1000e;
+    box-sizing: border-box;
+}
+
+/* Recuadro para el 7 del PSG (izquierda del bloque naranja) */
+#fuerapuertacolorvisitante .num-izq {
+    border: 1px solid rgba(255, 255, 255, 0.884);
+    height: 80%;
+    width: 55%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 10px;
+    background-color: #e69138;
+    box-sizing: border-box;
+}
+
+/* --- SECCIÓN INFERIOR --- */
+
+#disparos {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.titulo-bloqueados {
+    font-size: 11px;
+    color: #000000;
+    margin-bottom: 5px;
+}
+
+.valores-bloqueados {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    font-weight: bold;
+    font-size: 24px;
+    color: #333;
+}
+
+.lineas-contenedor {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 8px;
+}
+
+.linea-roja { width: 110px; height: 5px; background-color: #c60e1d; }
+.linea-naranja { width: 110px; height: 5px; background-color: #f8a116; }

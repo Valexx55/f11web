@@ -20,4 +20,5 @@ dejamos pasar si la contraseña es fuerte. Una contraseña es
 fuerte si tiene longitud mayor a 6, tiene mayúsuclas, 
 minusculas, algún número y algún caracter especial
 Si no supera la contraseña fuerte, debemos marcar el 
-input en rojo e indicar cómo debe ser la contraseña
+input de contraseña en rojo e indicar cómo 
+debe ser la contraseña
