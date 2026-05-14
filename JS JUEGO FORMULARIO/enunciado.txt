@@ -8,3 +8,9 @@ Cuando el usuario clique en dar de alta, le pasamos a la siguiente página (del 
 
 En el tablero, cuando toque un cuadrado de color, se volverá a negro. Y cuando todos los 
 cuadrados de colores se hayan pasado a negro, debo mostrar un alert con "Fin de Juego"
+
+EXTRAS
+
+1) SÓLO PUEDE PASAR DE LA PRIMERA PANTALLA
+SÍ, ES MAYOR DE 18 AÑOS. USAD LA FECHA DE nacimiento
+PARA EL CÁLCULO
