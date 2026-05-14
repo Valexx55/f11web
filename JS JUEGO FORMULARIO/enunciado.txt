@@ -14,3 +14,10 @@ EXTRAS
 1) SÓLO PUEDE PASAR DE LA PRIMERA PANTALLA
 SÍ, ES MAYOR DE 18 AÑOS. USAD LA FECHA DE nacimiento
 PARA EL CÁLCULO
+
+2) La contraseña del usuario debe ser evaluada. Y sólo le 
+dejamos pasar si la contraseña es fuerte. Una contraseña es 
+fuerte si tiene longitud mayor a 6, tiene mayúsuclas, 
+minusculas, algún número y algún caracter especial
+Si no supera la contraseña fuerte, debemos marcar el 
+div en rojo e indicar cómo debe ser la contraseña
