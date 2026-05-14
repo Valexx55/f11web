@@ -1,4 +1,5 @@
 //VARIABLES PREDEFINIDAS
+//ÁMBITO GLOBAL
 //window
 //console
 //document DOM
@@ -11,14 +12,26 @@
 //FUNCIONES
 //alert
 //log
+//TODO: vamos a llevar la cuenta de cuántas veces ha tocado un botón
+//y después, cuando haya tocado 3 veces, sacamos un alert
+//informando al usuario
+let cuentaClicks=0;
 
+//ÁMBITO GLOBAL (SCOPE)
 console.log("HOLA desde fuera");
 //vamos a obtener, a través del document, el botón
 //de saludar
 let botonsaludo = document.getElementById("btnsaluda");
 console.log(botonsaludo.id);
 
-function saludar() {
+
+
+//ÁMBITO LOCAL (SCOPE)
+//VARIABLES LOCALES: QUE SE DECLARAN DENTRO DE UNA FUNCIÓN
+//Y SÓLO EXISTEN AHÍ, MIENTRAS SE EJECUTA LA FUNCIÓN
+//CUANDO LA FUNCIÓN ACABA, LA VARIABLE NO EXISTE
+//PEJ: botonsaludo
+function saludar() {//INICIO FUNCIÓN
     console.log("Hola desde adentro");
     //llamada a la función
     //TODO: Haced un botón nuevo, llamado Mostrar Info
@@ -27,8 +40,14 @@ function saludar() {
     console.log(botonsaludo.id);
     botonsaludo.style.backgroundColor = "red";
     botonsaludo.style.color = "white";
-
-}
+    cuentaClicks=cuentaClicks+1;
+    //CONCATENAR = UNIR PALABRAS +
+    console.log("Cuenta = "+cuentaClicks);
+    //alert("Llevas "+ cuentaClicks + " clicks");
+    if (cuentaClicks==3) {
+        alert("Llevas "+ cuentaClicks + " clicks");
+    }
+}//FIN DE LA FUNCIÓN
 
 //nomenclatura camelCase en el nombre de funciones
 function mostrarInfoPantalla() {
@@ -45,7 +64,13 @@ function mostrarInfoPantalla() {
     let botonpantalla = document.getElementById("btninfo");
     console.log(botonpantalla.id);
     botonpantalla.style.backgroundColor = "green";
-     botonpantalla.style.color = "white";
+    botonpantalla.style.color = "white";
+
+    cuentaClicks=cuentaClicks+1;
+    console.log("Cuenta = "+cuentaClicks);
+    if (cuentaClicks==3) {
+        alert("Llevas "+ cuentaClicks + " clicks");
+    }
 }
 
 function ocultarBotones() {
@@ -55,4 +80,9 @@ function ocultarBotones() {
     //ocultarlos
     botonsaluda.style.display = "none";
     botoninfo.style.display = "none";
+    cuentaClicks=cuentaClicks+1;
+     console.log("Cuenta = "+cuentaClicks);
+     if (cuentaClicks==3) {
+        alert("Llevas "+ cuentaClicks + " clicks");
+    }
 }

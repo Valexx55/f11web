@@ -14,3 +14,21 @@ footer: cierre de la página.
 
 articulos podrías tener varias secciones
 y una sección, podría tener varias noticias independeintes-->
+
+
+JAVASCRIPT:
+
+La parte DINÁMICA 
+Html y CSS la estática
+
+//PARA QUÉ SIRVA JAVASCRIPT
+/*
+CAMBIAR LOS ESTILOS CSS DINÁMICAMENTE
+OCULTAR ELEMENTOS WEB DE LA PÁGINA
+AÑADIR ELEMENTOS WEB DE LA PÁGINA
+MODIFICAR EL CONTENIDO DE LA PÁGINA
+REACCIONAR A EVENTOS
+    EVENTOS DEL USUARIO
+    EVENTOS DEL NAVEGADOR
+PARA COMUNICARME CON EL SERVIDOR
+*/
