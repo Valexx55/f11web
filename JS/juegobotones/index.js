@@ -110,8 +110,13 @@ function ocultarYMostrarBotones() {
         console.log('Estoy en mostrar');
         //SI NO, (PONE MOSTRAR)
         //COJO LOS BOTONES
+        let botonInfo = document.getElementById('btninfo');
+        let botonSaluda = document.getElementById('btnsaluda');
         //LOS PONGO A DISPLAY INLINE-BLOCK
+        botonInfo.style.display = 'inline-block';
+        botonSaluda.style.display = 'inline-block';
         //CAMBIAR DE MOSTRAR A OCULTAR
+        botonOcultar.textContent = 'Ocultar';
     }
     
 
