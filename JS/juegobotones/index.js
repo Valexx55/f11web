@@ -15,7 +15,7 @@
 //TODO: vamos a llevar la cuenta de cuántas veces ha tocado un botón
 //y después, cuando haya tocado 3 veces, sacamos un alert
 //informando al usuario
-let cuentaClicks=0;
+let cuentaClicks = 0;
 
 //ÁMBITO GLOBAL (SCOPE)
 console.log("HOLA desde fuera");
@@ -40,12 +40,12 @@ function saludar() {//INICIO FUNCIÓN
     console.log(botonsaludo.id);
     botonsaludo.style.backgroundColor = "red";
     botonsaludo.style.color = "white";
-    cuentaClicks=cuentaClicks+1;
+    cuentaClicks = cuentaClicks + 1;
     //CONCATENAR = UNIR PALABRAS +
-    console.log("Cuenta = "+cuentaClicks);
+    console.log("Cuenta = " + cuentaClicks);
     //alert("Llevas "+ cuentaClicks + " clicks");
-    if (cuentaClicks==3) {
-        alert("Llevas "+ cuentaClicks + " clicks");
+    if (cuentaClicks == 3) {
+        alert("Llevas " + cuentaClicks + " clicks");
     }
 }//FIN DE LA FUNCIÓN
 
@@ -66,10 +66,10 @@ function mostrarInfoPantalla() {
     botonpantalla.style.backgroundColor = "green";
     botonpantalla.style.color = "white";
 
-    cuentaClicks=cuentaClicks+1;
-    console.log("Cuenta = "+cuentaClicks);
-    if (cuentaClicks==3) {
-        alert("Llevas "+ cuentaClicks + " clicks");
+    cuentaClicks = cuentaClicks + 1;
+    console.log("Cuenta = " + cuentaClicks);
+    if (cuentaClicks == 3) {
+        alert("Llevas " + cuentaClicks + " clicks");
     }
 }
 
@@ -80,9 +80,42 @@ function ocultarBotones() {
     //ocultarlos
     botonsaluda.style.display = "none";
     botoninfo.style.display = "none";
-    cuentaClicks=cuentaClicks+1;
-     console.log("Cuenta = "+cuentaClicks);
-     if (cuentaClicks==3) {
-        alert("Llevas "+ cuentaClicks + " clicks");
+    cuentaClicks = cuentaClicks + 1;
+    console.log("Cuenta = " + cuentaClicks);
+    if (cuentaClicks == 3) {
+        alert("Llevas " + cuentaClicks + " clicks");
     }
 }
+
+
+function ocultarYMostrarBotones() {
+    //SI PONE OCULTAR
+    let botonOcultar = document.getElementById('btnocultar');
+    let textoBoton = botonOcultar.textContent;
+    if (textoBoton == 'Ocultar') {
+        console.log('Estoy en ocultar');
+        //COJO LOS BOTONES
+        let botonInfo = document.getElementById('btninfo');
+        let botonSaluda = document.getElementById('btnsaluda');
+        //LOS PONGO A DISPLAY NONE
+        botonInfo.style.display = 'none';
+        botonSaluda.style.display = 'none';
+        //CAMBIO DE OCULTAR A MOSTRAR
+        botonOcultar.textContent = 'Mostrar';
+
+    }
+
+    else {
+        //TODO: COMPLETAR EL EJERCICIO
+        console.log('Estoy en mostrar');
+        //SI NO, (PONE MOSTRAR)
+        //COJO LOS BOTONES
+        //LOS PONGO A DISPLAY INLINE-BLOCK
+        //CAMBIAR DE MOSTRAR A OCULTAR
+    }
+    
+
+}
+
+
+
