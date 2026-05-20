@@ -1,24 +1,44 @@
 <!DOCTYPE html>
 <html lang='en'>
+
 <head>
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <title>Page Title</title>
     <link rel='stylesheet' href='main.css'>
-    <script src="solucion.js" ></script>
+    <script src="solucion.js"></script>
 </head>
+
 <body>
 
-    <div>
     <!-- 4) HACED UNA PÁGINA QUE PIDA AL USUARIO SU EDAD Y DIGA SI ES MAYOR DE EDAD O No -->
-    <label for="edad">INTRO EDAD: </label> 
-    <input type="number" id="edad">
-    <button onclick="mayorEdad ()">MAYOR</button>
-    </div>
-    <!-- 3) HACED UNA PÁGINA QUE PIDA UN NÚMERO AL USUARIO Y DIGA SI ES PAR O No -->
-    <div>
+    <!-- <div>
+        
+        <label for="edad">INTRO EDAD: </label>
+        <input type="number" id="edad">
+        <button onclick="mayorEdad ()">MAYOR</button>
+    </div> -->
+    <!-- 3) 1) HACED UNA PÁGINA QUE PIDA UN STRING AL USAURIO Y UNA LETRA Y DIGA 
+CON UN ALERT SI ESA LETRA PERTENECE AL STRING O No . PISTA: Usad indexOf -->
+    <!-- <div>
 
+        <label for="edad">INTRO Palabra: </label>
+        <input type="text" id="palabra">
+        <label for="edad">INTRO letra: </label>
+        <input type="text" id="letra">
+        <button onclick="buscarLetra ()">BUSCAR</button>
+    </div> -->
+    <!-- 5) HACED UNA PÁGINA QUE PERMITA AL USUARIO INTRODUCIR UNA NOTA DE 0 A 10 Y DIGA SI 
+EQUIVALE A SUSPENSO, APROBADO 5, BIEN 6, NOTABLE /7,8 O SOBRESALIENTE (9,10)
+ -->
+    <div>
+        <label for="edad">INTRO NOTA: </label>
+        <input type="number" id="nota" min="0" max="10" placeholder="Nota">
+        <br>
+        <button onclick="mostrarNotaIf()">NOTA IF</button>
+        <button onclick="mostrarNotaSwitch()">NOTA SWITCH</button>
     </div>
-    
+
 </body>
+
 </html>
