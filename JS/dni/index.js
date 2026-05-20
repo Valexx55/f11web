@@ -12,6 +12,7 @@ function validarDni() {
     console.log('resto = ' + resto);
     //3 comprobamos la letra 
     let letraCalculada = SECUENCIA_LETRAS_DNI.charAt(resto);
+    SECUENCIA_LETRAS_DNI.endsWith
     console.log('Letra calculada = ' + letraCalculada);
     //4 informar
     if (letra==letraCalculada){
