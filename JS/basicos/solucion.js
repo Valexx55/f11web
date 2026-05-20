@@ -42,8 +42,29 @@ function mostrarNotaIf() {
     }
 }
 
-function mostrarNotaSwitch()
-{
+function mostrarNotaSwitch() {
     //TODO: haced el mismo cálculo de nota, pero con Switch
     //ayuda: https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/switch
+    let nota = document.getElementById('nota').value;
+    let notan = parseInt(nota);//nota texto a nota numero
+    switch (notan) {
+        case 0:
+        case 1:
+        case 2:
+        case 3:
+        case 4: window.alert('SUSPENSO');
+            break;//final del if, siempre hay que ponero
+        case 5: window.alert('APROBADO');
+            break;
+        case 6: window.alert('BIEN');
+            break;
+        case 7:
+        case 8: window.alert('NOTABLE');
+            break;
+        case 9:
+        case 10: window.alert('SOBRESALIENTE');
+            break;
+        default: window.alert('NOTA INCORRECTA');
+
+    }
 }
