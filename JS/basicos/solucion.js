@@ -46,7 +46,7 @@ function mostrarNotaSwitch() {
     //TODO: haced el mismo cálculo de nota, pero con Switch
     //ayuda: https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/switch
     let nota = document.getElementById('nota').value;
-    let notan = parseInt(nota);//nota texto a nota numero
+    let notan = parseInt(nota);//nota texto a nota numero -castear: cambiar de tipos "casting"
     switch (notan) {
         case 0:
         case 1:
@@ -67,4 +67,28 @@ function mostrarNotaSwitch() {
         default: window.alert('NOTA INCORRECTA');
 
     }
+}
+
+function mostrarMayor() {
+    console.log('Ha tocado calcular mayor');
+    //TODO: calcular el mayor de los 3
+    let num1 = document.getElementById("num1").value;
+    let num2 = document.getElementById("num2").value;
+    let num3 = document.getElementById("num3").value;
+
+    if (num1 > num2) {
+        if (num1 > num3) {
+            window.alert("El mayor es N1");
+        } else {
+            window.alert("El mayor es N3");
+        }
+
+    } else /*if (num2 > num1)*/ {
+        if (num2 > num3) {
+            window.alert("El mayor es N2");
+        } else {
+            window.alert("El mayor es N3");
+        }
+    }
+
 }
