@@ -26,6 +26,62 @@ function buscarLetra() {
     }
 }
 
+
+function buscarLetraFor() {
+    let encontrado = false;
+    //coger la palabra
+    let palabra = document.getElementById('palabra').value;
+    //coger la letra
+    let letra = document.getElementById('letra').value;
+
+    for (let posicion = 0; posicion < palabra.length; posicion = posicion + 1) {
+        let letraActual = palabra.charAt(posicion);
+        console.log(letraActual);
+        if (letraActual == letra) {
+            //alert('Pertenece');
+            encontrado = true;
+        }
+    }
+
+    if (encontrado)//(encontrado==true)
+    {
+        alert('La letra pertenece')
+    } else {
+        alert('la letra no pertenece')
+    }
+}
+
+
+function buscarLetraWhile() {
+    let encontrado = false;
+    //coger la palabra
+    let palabra = document.getElementById('palabra').value;
+    //coger la letra
+    let letra = document.getElementById('letra').value;
+
+    let posicion = 0;
+    let longitud = palabra.length;
+    let letraActual = "";//cadena vacía
+
+    while ((encontrado == false) && (posicion < longitud)) {
+        letraActual = palabra.charAt(posicion);
+        if (letraActual == letra) {
+            encontrado = true;
+        } else {
+            posicion = posicion + 1;
+        }
+    }
+    if (encontrado)//(encontrado==true)
+    {
+        alert('La letra pertenece')
+    } else {
+        alert('la letra no pertenece')
+    }
+
+}
+
+
+
 function mostrarNotaIf() {
     //leer nota
     let nota = document.getElementById('nota').value;
@@ -94,8 +150,17 @@ function mostrarMayor() {
 }
 
 function mostrarSecuencia() {
-    
+
     for (let n = 3; n <= 99; n = n + 3) {
         window.alert(n);
     }
+}
+
+
+function mostrarSecuenciapar() {
+
+    for (let n = 2; n <= 50; n = n + 2) {
+        window.alert(n)
+    }
+
 }
