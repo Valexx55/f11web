@@ -92,3 +92,10 @@ function mostrarMayor() {
     }
 
 }
+
+function mostrarSecuencia() {
+    
+    for (let n = 3; n <= 99; n = n + 3) {
+        window.alert(n);
+    }
+}
