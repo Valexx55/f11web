@@ -52,6 +52,8 @@ function buscarLetraFor() {
 }
 
 
+
+
 function buscarLetraWhile() {
     let encontrado = false;
     //coger la palabra
@@ -163,4 +165,51 @@ function mostrarSecuenciapar() {
         window.alert(n)
     }
 
+}
+
+function contarLetras (){
+    //coger la palabra
+    let palabra = document.getElementById('palabra1').value;
+    //coger la letra
+    let letra = document.getElementById('letra1').value;
+
+    let contador = 0;
+
+     for (let posicion = 0; posicion < palabra.length; posicion = posicion + 1) {
+        let letraActual = palabra.charAt(posicion);//palabra[posicion]
+        console.log(letraActual);
+        if (letra == letraActual)
+        {
+            contador = contador + 1; //contador++
+        }
+       
+    }
+
+    window.alert("La letra aparece " + contador + " veces");
+
+}
+
+function daleLaVuelta(palabraOrignal)
+{
+    let palabraReves = "";
+
+    //TODO: ingeniarmelas, para dar la vuelta a palabraOrignal
+        for (let i = palabraOrignal.length-1; i>=0; i--)
+        {
+            console.log(palabraOrignal[i]);
+            let letraActual = palabraOrignal[i]
+            palabraReves = palabraReves + letraActual;
+
+        }
+
+    return palabraReves;
+}
+
+function cadenaReves() {
+    //COGER LA PALABRA
+    let palabraUsuario = document.getElementById('palabrareves').value;
+    //DARLE LA VUELTA
+    let palabraReves = daleLaVuelta(palabraUsuario);
+    //MOSTRAR EL RESULTADO
+    alert('La palabra al revés es ' + palabraReves);
 }
