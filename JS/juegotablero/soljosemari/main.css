@@ -1,0 +1,148 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#eef1f6;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:40px;
+}
+
+/* CONTENEDOR */
+
+.formulario{
+    width:700px;
+    background:white;
+    padding:45px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* TITULOS */
+
+.formulario h1{
+    text-align:center;
+    font-size:60px;
+    color:#081633;
+    margin-bottom:15px;
+}
+
+.formulario p{
+    text-align:center;
+    color:#6b7280;
+    font-size:24px;
+    margin-bottom:35px;
+}
+
+.linea{
+    height:1px;
+    background:#d9dee7;
+    margin-bottom:40px;
+}
+
+/* GRUPOS */
+
+.grupo{
+    margin-bottom:30px;
+}
+
+.grupo label{
+    display:block;
+    margin-bottom:12px;
+    font-size:30px;
+    font-weight:bold;
+    color:#111827;
+}
+
+/* INPUTS */
+
+.campo{
+    position:relative;
+}
+
+.campo input{
+    width:100%;
+    height:75px;
+    border:2px solid #d9dee7;
+    border-radius:12px;
+    padding-left:65px;
+    padding-right:60px;
+    font-size:24px;
+    outline:none;
+    color:#374151;
+}
+
+.campo input:focus{
+    border-color:#2563eb;
+}
+
+/* ICONOS */
+
+.icono{
+    position:absolute;
+    left:20px;
+    top:50%;
+    transform:translateY(-50%);
+    color:#8a94a6;
+    font-size:28px;
+}
+
+.icono-derecha{
+    position:absolute;
+    right:20px;
+    top:50%;
+    transform:translateY(-50%);
+    color:#8a94a6;
+    font-size:28px;
+    cursor:pointer;
+}
+
+/* CHECKBOX */
+
+.condiciones{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:35px;
+}
+
+.condiciones input{
+    width:25px;
+    height:25px;
+}
+
+.condiciones label{
+    font-size:28px;
+    color:#1f2937;
+}
+
+.condiciones a{
+    color:#2563eb;
+    text-decoration:none;
+}
+
+/* BOTON */
+
+button{
+    width:100%;
+    height:80px;
+    border:none;
+    border-radius:14px;
+    background:linear-gradient(to right,#2563eb,#1d4ed8);
+    color:white;
+    font-size:34px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(37,99,235,0.3);
+}
