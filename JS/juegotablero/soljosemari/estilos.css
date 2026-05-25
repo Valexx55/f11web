@@ -26,6 +26,9 @@ body{
     cursor: pointer; 
     border: 5px solid black;
     border-radius: 5px;
+    color: white;
+    text-align: center;
+    font-size: xxx-large;
     
 }
 
