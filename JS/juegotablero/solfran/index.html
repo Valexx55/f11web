@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego Formulario</title>
+    <!-- Iconos de Bootstrap Icons, la web de iconos del profesor. -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <!-- Seccion visible del formulario de alta. -->
+    <section class="form-section">
+
+        <h1>Alta de usuario</h1>
+        <h5>Completa el siguiente formulario para crear tu cuenta.</h5>
+        <form id="altaForm">
+            <!-- Datos del nombre de usuario. -->
+            <div class="campo">
+                <label for="nombre">Nombre de usuario</label>
+                <div class="control">
+                    <!-- Icono del usuario. -->
+                    <span class="icono-caja">
+                        <i class="bi bi-person icono"></i>
+                    </span>
+                    <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre de usuario" required>
+                </div>
+            </div>
+            <!-- Datos de la contrasena y control para verla. -->
+            <div class="campo">
+                <label for="contrasena">Contraseña</label>
+                <div class="control">
+                    <!-- Icono del candado. -->
+                    <span class="icono-caja">
+                        <i class="bi bi-lock icono"></i>
+                    </span>
+                    <input type="password" id="contrasena" name="contrasena" placeholder="Ingresa tu contraseña" required>
+                    <button class="toggle-password" id="togglePassword" type="button" aria-label="Mostrar contraseña" onclick="mostrarContrasena()">
+                        <!-- Icono para mostrar u ocultar la contrasena. -->
+                        <i id="iconoPassword" class="bi bi-eye"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Fecha usada por JavaScript para comprobar la mayoria de edad. -->
+            <div class="campo">
+                <label for="fechaNacimiento">Fecha de nacimiento</label>
+                <div class="control">
+                    <!-- Icono del calendario. -->
+                    <span class="icono-caja">
+                        <i class="bi bi-calendar icono"></i>
+                    </span>
+                    <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
+                </div>
+            </div>
+            <!-- Confirmacion obligatoria de condiciones. -->
+            <label class="condiciones" for="condiciones">
+                <input type="checkbox" id="condiciones" name="condiciones" required>
+                <span>He leído y acepto las <a href="#">condiciones</a></span>
+            </label>
+            <button class="submit-button" type="button" onclick="validarFormulario()">Dar de alta</button>
+        </form>
+    </section>
+
+    <!-- Logica de validacion y navegacion del formulario. -->
+    <script src="./script.js"></script>
+</body>
+
+</html>
