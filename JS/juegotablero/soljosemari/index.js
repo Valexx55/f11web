@@ -29,7 +29,8 @@ function estanTodosEnNegro ()
     return todosEnNegro;
 }
 
-window.onload = pintarNumeracion;//sin paréntesis, se programa la llamada futura    
+//window.onload = pintarNumeracion;//sin paréntesis, se programa la llamada futura    
+window.onload = pintarNumeracion();//sin paréntesis, se programa la llamada futura    
 
 function pintarNumeracion ()
 {
