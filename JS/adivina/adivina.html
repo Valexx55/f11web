@@ -13,19 +13,29 @@
  *
  *Se pide:
  *
- *1) Adivinar la funcionalidad del método adivinaQueHace
- *2) Una vez descubierto, aplicar un nombre apropiado al método
+ *1) Adivinar la funcionalidad del método adivinaQueHace x EXAMINA LA PALABRA INTRDOUCIDA Y NOS INFORMA SI ES PALÍNDROMA O NO
+ *2) Una vez descubierto, aplicar un nombre apropiado al método x  esPalindroma
  *3) Idear un método equivalente, pero distinto. Es decir, crear un método
  *que haga lo mismo que adivinaQueHace, pero de otra manera.
  *4) EXTRA: Sólo si resolviste los puntos anteriores, implementa una versión recursiva
 -->
     <script language="javascript">
 
+        function daleLaVuelta(palabraOrignal) {
+            let palabraReves = "";
 
+            //TODO: ingeniarmelas, para dar la vuelta a palabraOrignal
+            for (let i = palabraOrignal.length - 1; i >= 0; i--) {
+                console.log(palabraOrignal[i]);
+                let letraActual = palabraOrignal[i]
+                palabraReves = palabraReves + letraActual;
 
+            }
 
+            return palabraReves;
+        }
 
-        function adivinaQueHace() {
+        function esPalindroma() {
             var bd = true;
             var cad = document.getElementById("palabra").value;
             var i = 0;
@@ -41,8 +51,25 @@
                 j--;
             }
 
-   console.log ("bd = " + bd);
+            console.log("bd = " + bd);
             return bd;
+        }
+
+        function esPalindroma2() {
+            let capicua = false;
+            //1 coger la palabra
+            let palabra = document.getElementById('palabra').value;
+            //2 llamar a la función daleLaVuelta y obtengo el resultado
+            let palabraReves = daleLaVuelta(palabra);
+            //3 comparo palabra con PalabraReves
+            if (palabra == palabraReves) {
+                //true
+                capicua = true;
+            } else {// falso}
+                capicua = false;
+            }
+            console.log('La palabra es palíndoma  = ' + capicua);
+            return capicua;
         }
 
     </script>
@@ -51,7 +78,8 @@
 <body>
     <label for="palabra">PALABRA</label>
     <input type="text" id="palabra">
-    <button onclick="adivinaQueHace();">Empieza</button>
+    <!-- <button onclick="esPalindroma();">Empieza</button> -->
+    <button onclick="esPalindroma2();">Empieza</button>
     <p id="p1"></p>
 </body>
 
