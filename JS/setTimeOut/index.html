@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Page Title</title>
+    <script>
+
+        /** FORMA 1, FUNCIÓN FLECHA (ARROW), ANÓNIMA */
+        setTimeout(
+            (nombre) => {
+                alert('HOLA ' + nombre);
+            },
+            5000,
+            "VALE");
+
+
+        /** FORMA 2, FUNCIÓN CLÁSICA */
+        //parámetro actual "VALE"
+        setTimeout(saluda, 5000, "VALE");
+
+        //parámetro formal: nombre
+        function saluda(nombre) {
+            alert('HOLA ' + nombre);
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
