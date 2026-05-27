@@ -57,6 +57,8 @@ function addAlumno()
     let columnaCurso = document.createElement('td');
     let columnaEmail = document.createElement('td');
     
+    
+    
     columnaNombre.textContent = alumnos[0].nombre;
     columnaEdad.textContent = alumnos[0].edad;
     columnaCurso.textContent = alumnos[0].curso;
@@ -66,6 +68,7 @@ function addAlumno()
     filanueva.appendChild(columnaEdad);
     filanueva.appendChild(columnaCurso);
     filanueva.appendChild(columnaEmail);
+    
     //AÑADIR LA FILA A LA TABLA
     bodytabla.appendChild(filanueva);
 }
@@ -80,7 +83,12 @@ function addUnAlumno(alumno)
     let columnaEdad = document.createElement('td');
     let columnaCurso = document.createElement('td');
     let columnaEmail = document.createElement('td');
-    
+    //añadimos COLUMNA botón BORRAR
+    let columnaBorrar = document.createElement('td');
+    let botonBorrar = document.createElement('button');
+    botonBorrar.textContent = 'BORRAR';
+    columnaBorrar.appendChild(botonBorrar);
+
     columnaNombre.textContent = alumno.nombre;
     columnaEdad.textContent = alumno.edad;
     columnaCurso.textContent = alumno.curso;
@@ -90,6 +98,8 @@ function addUnAlumno(alumno)
     filanueva.appendChild(columnaEdad);
     filanueva.appendChild(columnaCurso);
     filanueva.appendChild(columnaEmail);
+    //añadimos columna borrar
+    filanueva.appendChild(columnaBorrar);
     //AÑADIR LA FILA A LA TABLA
     bodytabla.appendChild(filanueva);
 }
@@ -107,4 +117,22 @@ function addAlumnos ()
             addUnAlumno(alumno);
         }
     )
+}
+
+function calcularMediaEdad () {
+    let media = 0;
+
+    //TODO: calcular la media
+    return media;
+}
+
+//CALLBACK : llamada por detrás: otro programa, llama a mi código
+
+
+function estadisticasEdad (){
+    //1 CALCULO MEDIA DE EDAD
+
+    //2 CALCULO MAYOR EDAD
+    //3 CALCULO MENOR EDAD 
+
 }
