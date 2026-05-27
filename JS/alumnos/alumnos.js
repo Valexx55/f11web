@@ -96,8 +96,15 @@ function addUnAlumno(alumno)
 
 function addAlumnos ()
 {
-    for (let nalumno=0; nalumno < alumnos.length; nalumno++)
-    {
-        addUnAlumno(alumnos[nalumno]);
-    }
+    //FOR TRADICIONAL
+    // for (let nalumno=0; nalumno < alumnos.length; nalumno++)
+    // {
+    //     addUnAlumno(alumnos[nalumno]);
+    // }
+    //FOR EACH
+    alumnos.forEach(
+        (alumno) => {
+            addUnAlumno(alumno);
+        }
+    )
 }
