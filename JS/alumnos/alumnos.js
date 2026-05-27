@@ -1,4 +1,15 @@
 //corchetes [] -- varios -- Array, lista, colección
+/*
+TODO: añadir un botón a la página alumno.html
+con el texto Añadir todos
+Cuando demos a ese botón, se deben mostrar
+en la tabla (inicialmente vacía) todos los alumnos
+del array alumnos
+
+Además, añadid, un atributo nuevo a cada alumno
+que es el id. Empezando por el 1 y siguiendo
+por el 2, 3, 4, etc.
+*/
 let alumnos = [
     {
         nombre: "Ana",
