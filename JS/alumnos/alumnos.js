@@ -121,8 +121,14 @@ function addAlumnos ()
 
 function calcularMediaEdad () {
     let media = 0;
+    let suma = 0;
 
-    //TODO: calcular la media
+        for (let n=0; n<alumnos.length; n++)
+        {
+            suma = suma + alumnos[n].edad;
+        }
+         media = suma / alumnos.length;
+    
     return media;
 }
 
@@ -131,7 +137,9 @@ function calcularMediaEdad () {
 
 function estadisticasEdad (){
     //1 CALCULO MEDIA DE EDAD
-
+    let media = calcularMediaEdad();
+    console.log("Media = " +media);
+    console.log(`Media = ${media}`);
     //2 CALCULO MAYOR EDAD
     //3 CALCULO MENOR EDAD 
 
