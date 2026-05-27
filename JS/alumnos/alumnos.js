@@ -69,3 +69,35 @@ function addAlumno()
     //AÑADIR LA FILA A LA TABLA
     bodytabla.appendChild(filanueva);
 }
+
+function addUnAlumno(alumno) 
+{
+    let bodytabla = document.getElementById('bodytabla');
+    //CREAR UNA FILA
+    let filanueva = document.createElement('tr');
+    //CREAR 4 COLUMNAS
+    let columnaNombre = document.createElement('td');
+    let columnaEdad = document.createElement('td');
+    let columnaCurso = document.createElement('td');
+    let columnaEmail = document.createElement('td');
+    
+    columnaNombre.textContent = alumno.nombre;
+    columnaEdad.textContent = alumno.edad;
+    columnaCurso.textContent = alumno.curso;
+    columnaEmail.textContent = alumno.email;
+    //A CADA COLUMNA LE TENGO QUE PONER LOS DATOS DEL ALUMNO
+    filanueva.appendChild(columnaNombre);
+    filanueva.appendChild(columnaEdad);
+    filanueva.appendChild(columnaCurso);
+    filanueva.appendChild(columnaEmail);
+    //AÑADIR LA FILA A LA TABLA
+    bodytabla.appendChild(filanueva);
+}
+
+function addAlumnos ()
+{
+    for (let nalumno=0; nalumno < alumnos.length; nalumno++)
+    {
+        addUnAlumno(alumnos[nalumno]);
+    }
+}
