@@ -15,25 +15,29 @@ let alumnos = [
         nombre: "Ana",
         edad: 22,
         curso: "Desarrollo Web",
-        email: "ana@email.com"
+        email: "ana@email.com",
+        id:1
     },
     {
         nombre: "Luis",
         edad: 25,
         curso: "JavaScript",
-        email: "luis@email.com"
+        email: "luis@email.com",
+        id:2
     },
     {
         nombre: "Marta",
         edad: 21,
         curso: "HTML y CSS",
-        email: "marta@email.com"
+        email: "marta@email.com",
+        id:3
     },
     {
         nombre: "Carlos",
         edad: 28,
         curso: "React",
-        email: "carlos@email.com"
+        email: "carlos@email.com",
+        id:4
     }
 ]
 
