@@ -132,6 +132,23 @@ function calcularMediaEdad () {
     return media;
 }
 
+
+function calcularMayorEdad()
+{
+    let mayor = 0;
+
+        for (let nalumno=0; nalumno<alumnos.length;nalumno++)
+        {
+            //si la edad del alumno actual es mayor que mayor, actulizo el nuevo mayor
+            if (alumnos[nalumno].edad > mayor) {
+                mayor = alumnos[nalumno].edad;
+            }
+        }
+ 
+    return mayor;
+}
+
+
 //CALLBACK : llamada por detrás: otro programa, llama a mi código
 
 
@@ -141,6 +158,11 @@ function estadisticasEdad (){
     console.log("Media = " +media);
     console.log(`Media = ${media}`);
     //2 CALCULO MAYOR EDAD
+    let mayorEdad = calcularMayorEdad();
+    console.log(`Mayor de edad = ${mayorEdad}`);
     //3 CALCULO MENOR EDAD 
+    let menorEdad = calcularMenorEdad();
+    console.log(`Mayor de edad = ${mayorEdad}`);
+    console.log(`La media de edad es ${media} la mayor edad es ${mayorEdad}  y la menor edad es ${menorEdad}`);
 
 }
