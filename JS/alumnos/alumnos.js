@@ -209,3 +209,20 @@ function estadisticasEdad (){
     console.log(`La media de edad es ${media} la mayor edad es ${mayorEdad}  y la menor edad es ${menorEdad}`);
     mostrarEstadisticas(media, mayorEdad, menorEdad)
 }
+
+function borrarTodos ()
+{
+    
+    let bodytabla = document.getElementById('bodytabla');
+    bodytabla.innerHTML="";
+
+
+    //OBTENGO EL PADRE LAS FILAS TR 
+    //SOLUCION DE ÁNGEL FUNCIONA
+    /*let bodytabla = document.getElementById('bodytabla');
+    while (bodytabla.firstChild)
+    {
+        bodytabla.removeChild(bodytabla.firstChild);
+    }*/
+
+}
