@@ -41,7 +41,7 @@ let alumnos = [
     }
 ]
 
-console.log(alumnos[1].email);
+//console.log(alumnos[1].email);
 //TODO: haced un método, que reciba la lista de 
 // alumnos por parámetro y devuelva
 //el nombre del alumno con mayor edad
@@ -226,3 +226,26 @@ function borrarTodos ()
     }*/
 
 }
+
+let arrayPalabras = ["paco", "fotografía", "lechuga", "madrid"];
+console.table(arrayPalabras);
+arrayPalabras.sort();
+console.table(arrayPalabras);
+arrayPalabras.sort(
+    (palabra1, palabra2) => {
+        let numeroResultado = 0;
+        //vamos a ordenar por la longitud
+            if (palabra1.length > palabra2.length)
+            {
+                numeroResultado = 1;
+            } else if (palabra1.length < palabra2.length) 
+            {
+                numeroResultado = -1
+            } else {
+                numeroResultado = 0;
+            }
+
+        return numeroResultado;
+    }
+);
+console.table(arrayPalabras);
