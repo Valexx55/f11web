@@ -90,9 +90,24 @@ function addUnAlumno(alumno)
     columnaBorrar.appendChild(botonBorrar);
 
     botonBorrar.addEventListener("click", ()=> {
-        alert("TOCÓ BORRAR");
+        let confirmado = confirm('¿Quiere borrar este registro?');
+        if (confirmado)
+        {
+            console.log('confirmó borrar');
+            filanueva.remove();
+        } else {
+             console.log('canceló borrar');
+        }
+    })
+/*
+    botonBorrar.addEventListener("mouseover", ()=> {
+        console.log("pasó por encima");
     })
 
+    botonBorrar.addEventListener("mouseout", ()=> {
+        console.log("deja de estar encima");
+    })
+*/
     columnaNombre.textContent = alumno.nombre;
     columnaEdad.textContent = alumno.edad;
     columnaCurso.textContent = alumno.curso;
