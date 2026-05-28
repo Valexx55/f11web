@@ -95,6 +95,7 @@ function addUnAlumno(alumno)
         {
             console.log('confirmó borrar');
             filanueva.remove();
+            //TODO: borrar de verdad, del array y de la base de datos
         } else {
              console.log('canceló borrar');
         }
@@ -186,6 +187,14 @@ function calcularMenorEdad ()
     return menor;
 }
 
+function mostrarEstadisticas (media, mayorEdad, menorEdad)
+{
+ //4 mostrar
+    let divstats = document.getElementById('stats');
+    divstats.textContent = `La media de edad es ${media} la mayor edad es ${mayorEdad}  y la menor edad es ${menorEdad}`;
+
+}
+
 function estadisticasEdad (){
     //1 CALCULO MEDIA DE EDAD
     let media = calcularMediaEdad();
@@ -198,8 +207,5 @@ function estadisticasEdad (){
     let menorEdad = calcularMenorEdad();
     console.log(`Mayor de edad = ${mayorEdad}`);
     console.log(`La media de edad es ${media} la mayor edad es ${mayorEdad}  y la menor edad es ${menorEdad}`);
-    //4 mostrar
-    let divstats = document.getElementById('stats');
-    divstats.textContent = `La media de edad es ${media} la mayor edad es ${mayorEdad}  y la menor edad es ${menorEdad}`;
-
+    mostrarEstadisticas(media, mayorEdad, menorEdad)
 }
