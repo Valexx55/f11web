@@ -89,6 +89,10 @@ function addUnAlumno(alumno)
     botonBorrar.textContent = 'BORRAR';
     columnaBorrar.appendChild(botonBorrar);
 
+    botonBorrar.addEventListener("click", ()=> {
+        alert("TOCÓ BORRAR");
+    })
+
     columnaNombre.textContent = alumno.nombre;
     columnaEdad.textContent = alumno.edad;
     columnaCurso.textContent = alumno.curso;
