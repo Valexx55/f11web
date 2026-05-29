@@ -317,6 +317,13 @@ window.onload = () => {
             console.log(`textoIntroducido = ${textoIntroducido}`);
             //TODO: filtrar para que sólo me aparezcan en la tabla
             //los alumnos que empicen por ese nombre
+            //PISTA ÁNGEL
+            /*
+            let nombre="JUANITO";
+            console.log(nombre.startsWith("J")); TRUE
+            console.log(nombre.startsWith("JU")); TRUE
+            console.log(nombre.startsWith("Js")); FALSE
+            */
         }
     )
 }
