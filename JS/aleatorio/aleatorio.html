@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Page Title</title>
+    <link rel='stylesheet' href='main.css'>
+    <script>
+        /*
+        ESTA FUNCIÓN, GENERA UN NUMERO ALEATORIO
+        ENTRE 0, 1 ó 2. ES IDEAL, PARA SIMULAR LA ELECCIÓN DE LA
+        MÁQUINA. LUEGO TENDRÍA QUE IR UN IF 
+        */
+        function generarAleatorio() {
+            let aleatorio = 0;
+            
+                let numero1 = Math.random() * 3;
+                aleatorio = Math.floor(numero1);
+
+            return aleatorio;
+        }
+
+        generarAleatorio();
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
