@@ -255,3 +255,24 @@ arrayPalabras.sort(
 );
 console.table('ARRAY ORDENADO POR LONGITUD DE PALABRA (de mayor a menor)');
 console.table(arrayPalabras);
+
+
+function ordenarPorNombre() {
+    //1 ORDENAR
+    alumnos.sort(
+        (alumno1, alumno2) => {
+            let resultado = 0;
+
+                if (alumno1.nombre > alumno2.nombre)
+                   { resultado = 1;}
+                else if (alumno2.nombre > alumno1.nombre)
+                    {resultado = -1;}
+
+            return resultado;
+        }
+    );
+    //2 BORRAR LA TABLA
+    borrarTodos ();
+    //3 PINTAR LA TABLA
+    addAlumnos ();
+}
