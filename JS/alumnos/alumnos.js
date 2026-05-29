@@ -1,14 +1,7 @@
 //corchetes [] -- varios -- Array, lista, colección
 /*
-TODO: añadir un botón a la página alumno.html
-con el texto Añadir todos
-Cuando demos a ese botón, se deben mostrar
-en la tabla (inicialmente vacía) todos los alumnos
-del array alumnos
-
-Además, añadid, un atributo nuevo a cada alumno
-que es el id. Empezando por el 1 y siguiendo
-por el 2, 3, 4, etc.
+TODO: HACED QUE CUANDO TOQUE LA COLUMNA NOMBRE, LA TABLA SE MUESTRE ORDENADO POR NOMBRE (de menor a mayor)
+HACED QUE CUANDO TOQUE LA COLUMNA DE EDAD, LA TABLA SE MUESTRE ORDENADA POR LA EDAD (de menor a mayor)
 */
 let alumnos = [
     {
@@ -228,10 +221,12 @@ function borrarTodos ()
 }
 
 let arrayPalabras = ["paco", "fotografía", "lechuga", "madrid"];
+console.table('ARRAY ORIGINAL');
 console.table(arrayPalabras);
 arrayPalabras.sort();
+console.table('ARRAY ORDENADO ALFABÉTICAMENTE (SIN FUNCIÓN) .sort');
 console.table(arrayPalabras);
-arrayPalabras.sort(
+/*arrayPalabras.sort(
     (palabra1, palabra2) => {
         let numeroResultado = 0;
         //vamos a ordenar por la longitud
@@ -247,5 +242,16 @@ arrayPalabras.sort(
 
         return numeroResultado;
     }
+);*/
+
+arrayPalabras.sort(
+    (palabra1, palabra2) => palabra1.length - palabra2.length
 );
+console.table('ARRAY ORDENADO POR LONGITUD DE PALABRA (de menor a mayor)');
+console.table(arrayPalabras);
+
+arrayPalabras.sort(
+    (palabra1, palabra2) => palabra2.length - palabra1.length
+);
+console.table('ARRAY ORDENADO POR LONGITUD DE PALABRA (de mayor a menor)');
 console.table(arrayPalabras);
