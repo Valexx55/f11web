@@ -3,44 +3,85 @@
 TODO: HACED QUE CUANDO TOQUE LA COLUMNA NOMBRE, LA TABLA SE MUESTRE ORDENADO POR NOMBRE (de menor a mayor)
 HACED QUE CUANDO TOQUE LA COLUMNA DE EDAD, LA TABLA SE MUESTRE ORDENADA POR LA EDAD (de menor a mayor)
 */
-let alumnos = [
+const alumnos = [
     {
+        id: 1,
         nombre: "Ana",
         edad: 22,
         curso: "Desarrollo Web",
-        email: "ana@email.com",
-        id:1
+        email: "ana@email.com"
     },
     {
+        id: 2,
         nombre: "Luis",
         edad: 25,
         curso: "JavaScript",
-        email: "luis@email.com",
-        id:2
+        email: "luis@email.com"
     },
     {
+        id: 3,
         nombre: "Marta",
         edad: 21,
         curso: "HTML y CSS",
-        email: "marta@email.com",
-        id:3
+        email: "marta@email.com"
     },
     {
+        id: 4,
         nombre: "Carlos",
         edad: 28,
         curso: "React",
-        email: "carlos@email.com",
-        id:4
+        email: "carlos@email.com"
+    },
+    {
+        id: 5,
+        nombre: "Lucía",
+        edad: 24,
+        curso: "Angular",
+        email: "lucia@email.com"
+    },
+    {
+        id: 6,
+        nombre: "Pedro",
+        edad: 30,
+        curso: "Java",
+        email: "pedro@email.com"
+    },
+    {
+        id: 7,
+        nombre: "Sofía",
+        edad: 23,
+        curso: "Bases de Datos",
+        email: "sofia@email.com"
+    },
+    {
+        id: 8,
+        nombre: "Javier",
+        edad: 27,
+        curso: "Docker",
+        email: "javier@email.com"
+    },
+    {
+        id: 9,
+        nombre: "Elena",
+        edad: 26,
+        curso: "Git y GitHub",
+        email: "elena@email.com"
+    },
+    {
+        id: 10,
+        nombre: "Miguel",
+        edad: 29,
+        curso: "Node.js",
+        email: "miguel@email.com"
     }
-]
+];
 
 //console.log(alumnos[1].email);
 //TODO: haced un método, que reciba la lista de 
 // alumnos por parámetro y devuelva
 //el nombre del alumno con mayor edad
 
-function addAlumno() 
-{
+function addAlumno() {
     let bodytabla = document.getElementById('bodytabla');
     //CREAR UNA FILA
     let filanueva = document.createElement('tr');
@@ -49,9 +90,9 @@ function addAlumno()
     let columnaEdad = document.createElement('td');
     let columnaCurso = document.createElement('td');
     let columnaEmail = document.createElement('td');
-    
-    
-    
+
+
+
     columnaNombre.textContent = alumnos[0].nombre;
     columnaEdad.textContent = alumnos[0].edad;
     columnaCurso.textContent = alumnos[0].curso;
@@ -61,13 +102,12 @@ function addAlumno()
     filanueva.appendChild(columnaEdad);
     filanueva.appendChild(columnaCurso);
     filanueva.appendChild(columnaEmail);
-    
+
     //AÑADIR LA FILA A LA TABLA
     bodytabla.appendChild(filanueva);
 }
 
-function addUnAlumno(alumno) 
-{
+function addUnAlumno(alumno) {
     let bodytabla = document.getElementById('bodytabla');
     //CREAR UNA FILA
     let filanueva = document.createElement('tr');
@@ -82,26 +122,25 @@ function addUnAlumno(alumno)
     botonBorrar.textContent = 'BORRAR';
     columnaBorrar.appendChild(botonBorrar);
 
-    botonBorrar.addEventListener("click", ()=> {
+    botonBorrar.addEventListener("click", () => {
         let confirmado = confirm('¿Quiere borrar este registro?');
-        if (confirmado)
-        {
+        if (confirmado) {
             console.log('confirmó borrar');
             filanueva.remove();
             //TODO: borrar de verdad, del array y de la base de datos
         } else {
-             console.log('canceló borrar');
+            console.log('canceló borrar');
         }
     })
-/*
-    botonBorrar.addEventListener("mouseover", ()=> {
-        console.log("pasó por encima");
-    })
-
-    botonBorrar.addEventListener("mouseout", ()=> {
-        console.log("deja de estar encima");
-    })
-*/
+    /*
+        botonBorrar.addEventListener("mouseover", ()=> {
+            console.log("pasó por encima");
+        })
+    
+        botonBorrar.addEventListener("mouseout", ()=> {
+            console.log("deja de estar encima");
+        })
+    */
     columnaNombre.textContent = alumno.nombre;
     columnaEdad.textContent = alumno.edad;
     columnaCurso.textContent = alumno.curso;
@@ -117,8 +156,7 @@ function addUnAlumno(alumno)
     bodytabla.appendChild(filanueva);
 }
 
-function addAlumnos ()
-{
+function addAlumnos() {
     //FOR TRADICIONAL
     // for (let nalumno=0; nalumno < alumnos.length; nalumno++)
     // {
@@ -132,66 +170,60 @@ function addAlumnos ()
     )
 }
 
-function calcularMediaEdad () {
+function calcularMediaEdad() {
     let media = 0;
     let suma = 0;
 
-        for (let n=0; n<alumnos.length; n++)
-        {
-            suma = suma + alumnos[n].edad;
-        }
-         media = suma / alumnos.length;
-    
+    for (let n = 0; n < alumnos.length; n++) {
+        suma = suma + alumnos[n].edad;
+    }
+    media = suma / alumnos.length;
+
     return media;
 }
 
 
-function calcularMayorEdad()
-{
+function calcularMayorEdad() {
     let mayor = 0;
 
-        for (let nalumno=0; nalumno<alumnos.length;nalumno++)
-        {
-            //si la edad del alumno actual es mayor que mayor, actulizo el nuevo mayor
-            if (alumnos[nalumno].edad > mayor) {
-                mayor = alumnos[nalumno].edad;
-            }
+    for (let nalumno = 0; nalumno < alumnos.length; nalumno++) {
+        //si la edad del alumno actual es mayor que mayor, actulizo el nuevo mayor
+        if (alumnos[nalumno].edad > mayor) {
+            mayor = alumnos[nalumno].edad;
         }
- 
+    }
+
     return mayor;
 }
 
 
 //CALLBACK : llamada por detrás: otro programa, llama a mi código
 
-function calcularMenorEdad ()
-{
+function calcularMenorEdad() {
     let menor = alumnos[0].edad;
 
-    
-        for (let nalumno=1; nalumno<alumnos.length;nalumno++)
-        {
-            //si la edad del alumno actual es mayor que mayor, actulizo el nuevo mayor
-            if (alumnos[nalumno].edad < menor) {
-                menor = alumnos[nalumno].edad;
-            }
+
+    for (let nalumno = 1; nalumno < alumnos.length; nalumno++) {
+        //si la edad del alumno actual es mayor que mayor, actulizo el nuevo mayor
+        if (alumnos[nalumno].edad < menor) {
+            menor = alumnos[nalumno].edad;
         }
+    }
 
     return menor;
 }
 
-function mostrarEstadisticas (media, mayorEdad, menorEdad)
-{
- //4 mostrar
+function mostrarEstadisticas(media, mayorEdad, menorEdad) {
+    //4 mostrar
     let divstats = document.getElementById('stats');
     divstats.textContent = `La media de edad es ${media} la mayor edad es ${mayorEdad}  y la menor edad es ${menorEdad}`;
 
 }
 
-function estadisticasEdad (){
+function estadisticasEdad() {
     //1 CALCULO MEDIA DE EDAD
     let media = calcularMediaEdad();
-    console.log("Media = " +media);
+    console.log("Media = " + media);
     console.log(`Media = ${media}`);
     //2 CALCULO MAYOR EDAD
     let mayorEdad = calcularMayorEdad();
@@ -203,11 +235,10 @@ function estadisticasEdad (){
     mostrarEstadisticas(media, mayorEdad, menorEdad)
 }
 
-function borrarTodos ()
-{
-    
+function borrarTodos() {
+
     let bodytabla = document.getElementById('bodytabla');
-    bodytabla.innerHTML="";
+    bodytabla.innerHTML = "";
 
 
     //OBTENGO EL PADRE LAS FILAS TR 
@@ -263,16 +294,29 @@ function ordenarPorNombre() {
         (alumno1, alumno2) => {
             let resultado = 0;
 
-                if (alumno1.nombre > alumno2.nombre)
-                   { resultado = 1;}
-                else if (alumno2.nombre > alumno1.nombre)
-                    {resultado = -1;}
+            if (alumno1.nombre > alumno2.nombre) { resultado = 1; }
+            else if (alumno2.nombre > alumno1.nombre) { resultado = -1; }
 
             return resultado;
         }
     );
     //2 BORRAR LA TABLA
-    borrarTodos ();
+    borrarTodos();
     //3 PINTAR LA TABLA
-    addAlumnos ();
+    addAlumnos();
+}
+
+//FILTRADO
+window.onload = () => {
+    let inputFiltro = document.getElementById("filtroNombre");
+
+    //cuando el usuario, introduzca un valor en el input, salta esta función
+    inputFiltro.addEventListener("input",
+        () => {
+            let textoIntroducido = inputFiltro.value;
+            console.log(`textoIntroducido = ${textoIntroducido}`);
+            //TODO: filtrar para que sólo me aparezcan en la tabla
+            //los alumnos que empicen por ese nombre
+        }
+    )
 }
