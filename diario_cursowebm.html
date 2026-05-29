@@ -1381,7 +1381,7 @@ DIARIO_CURSOWEBM: hoja incrustada diario_cursowebm.print.css
   </header>
   <section class="cover">
    <p class="cover-kicker">
-    Borrador revisable &middot; generado el 2026-05-27
+    Borrador revisable &middot; generado el 2026-05-27 &middot; actualizado el 2026-05-29
    </p>
    <h1>
     DIARIO CURSOWEBM
@@ -2002,6 +2002,10 @@ del 2026-05-04 y 2026-05-08.
      <li>
       <code>profe/f11web/practicaincial/css/main.css</code>
      </li>
+     <li>
+      <code>profe/f11web/practicaincial/main.css</code>
+      (copia equivalente detectada)
+     </li>
     </ul>
    </section>
    <section class="level2" id="objetivo-del-dia-1">
@@ -2285,10 +2289,24 @@ del 2026-05-05 y 2026-05-12.
       <code>profe/f11web/proyectofacturacion/enunciado.txt</code>
      </li>
      <li>
+      <code>profe/f11web/proyectofacturacion/Diagrama Casos de Uso.drawio</code>
+     </li>
+     <li>
       <code>profe/f11web/proyectofacturacion/c&oacute;digo fuente/index.html</code>
      </li>
      <li>
+      <code>profe/f11web/proyectofacturacion/c&oacute;digo fuente/clientes.html</code>
+      (archivo vacio)
+     </li>
+     <li>
+      <code>profe/f11web/proyectofacturacion/c&oacute;digo fuente/facturas.html</code>
+      (archivo vacio)
+     </li>
+     <li>
       <code>profe/f11web/proyectofacturacion/documentaci&oacute;n/Diagrama Casos de Uso.drawio</code>
+     </li>
+     <li>
+      <code>profe/f11web/proyectofacturacion/documentaci&oacute;n/Diagrama Navegaci&oacute;n Pantallas Clientes.drawio</code>
      </li>
     </ul>
    </section>
@@ -2308,8 +2326,14 @@ hacer de la interfaz que todavia no existe.
     <p>
      El material pide una app de facturacion con clientes, facturas,
 listados, PDF y envio por correo. En esta fase no se debe inventar
-pantalla: los HTML del codigo fuente estan vacios, asi que el trabajo
-real es entender requisitos y dibujar casos de uso o navegacion.
+     pantalla: los HTML del codigo fuente estan vacios, asi que el trabajo
+real es entender requisitos y dibujar casos de uso o navegacion. La
+revision incremental incorpora tambien el diagrama de navegacion de
+pantallas de clientes y confirma que
+     <code>clientes.html</code>
+     y
+     <code>facturas.html</code>
+     no tienen contenido.
     </p>
    </section>
    <section class="level2" id="conceptos-principales-2">
@@ -2367,6 +2391,13 @@ real es entender requisitos y dibujar casos de uso o navegacion.
       Detectar que los HTML de la solucion estan vacios y no permiten
 captura final.
      </li>
+     <li>
+      Revisar la navegacion propuesta para pantallas de clientes.
+     </li>
+     <li>
+      Identificar la funcionalidad adicional de QR para enlazar una
+factura.
+     </li>
     </ul>
    </section>
    <section class="level2" id="codigo-de-referencia-2">
@@ -2402,6 +2433,56 @@ Y GENERAR PDF DE LAS FACTURAS Y UN LISTADO O ENVIAR UNA FACTURA POR CORREO
 SE PIDE: DEFINIR EL DIAGRAMA DE CASOS DE USO
 
 a&ntilde;adir una funcionalidad m&aacute;s a las descritas en este enunciado</code></pre>
+    <p>
+     <strong>
+      Codigo 3.2 - Casos de uso detectados en el diagrama
+     </strong>
+     <br/>
+     Fuente:
+     <code>profe/f11web/proyectofacturacion/Diagrama Casos de Uso.drawio</code>
+     <br/>
+     Tipo: lectura estructurada del diagrama
+     <br/>
+     Lenguaje: text
+    </p>
+    <div class="sourceCode code-panel language-text" data-language="text" data-language-label="Texto" id="cb24">
+     <div aria-hidden="true" class="code-language-badge">
+      Texto
+     </div>
+     <pre class="sourceCode text"><code class="sourceCode text">Actor: USUARIO
+
+Casos de uso:
+- A/B/M Clientes
+- A/B/M Facturas
+- Buscar Facturas por Fecha
+- Enviar Factura por E-mail
+- Crear QR Link Factura</code></pre>
+    </div>
+    <p>
+     <strong>
+      Codigo 3.3 - Estado de las pantallas de facturacion
+     </strong>
+     <br/>
+     Fuente:
+     <code>profe/f11web/proyectofacturacion/c&oacute;digo fuente/</code>
+     <br/>
+     Tipo: comprobacion de fuente
+     <br/>
+     Lenguaje: text
+    </p>
+    <div class="sourceCode code-panel language-text" data-language="text" data-language-label="Texto" id="cb25">
+     <div aria-hidden="true" class="code-language-badge">
+      Texto
+     </div>
+     <pre class="sourceCode text"><code class="sourceCode text">index.html: archivo vacio
+clientes.html: archivo vacio
+facturas.html: archivo vacio
+
+Diagrama Navegacion Pantallas Clientes.drawio:
+- fuente visual de navegacion
+- no se convierte en HTML inventado
+- se conserva como referencia de modelado</code></pre>
+    </div>
    </section>
    <section class="level2 visual-panel" id="vista-esperada-en-navegador-1">
     <h2>
@@ -2629,6 +2710,18 @@ button.addEventListener("click", () =&gt; {
      <li>
       <code>profe/f11web/ejercicioimitacss/solucionasestats/solucion1.html</code>
      </li>
+     <li>
+      <code>profe/f11web/ejercicioimitacss/solucionasestats/main.css</code>
+     </li>
+     <li>
+      <code>profe/f11web/ejercicioimitacss/soluciongonzaloinsta/index.html</code>
+     </li>
+     <li>
+      <code>profe/f11web/ejercicioimitacss/soluciongonzaloinsta/main.css</code>
+     </li>
+     <li>
+      <code>profe/f11web/ejercicioimitacss/soluciongonzaloinsta/img/libros.png</code>
+     </li>
     </ul>
    </section>
    <section class="level2" id="objetivo-del-dia-3">
@@ -2708,6 +2801,10 @@ una superficie en filas y columnas.
      </li>
      <li>
       Imitar una vista de estadisticas deportivas.
+     </li>
+     <li>
+      Replicar una publicacion tipo Instagram con imagen, iconos,
+interacciones visuales y barra inferior.
      </li>
     </ul>
    </section>
@@ -2874,6 +2971,109 @@ CSS
      <br/>
      Limitaciones: Se usa la version con JavaScript porque es la fuente mas
 completa de estadisticas.
+    </p>
+   </section>
+   <section class="level2" id="codigo-de-referencia-4-3">
+    <h2>
+     Codigo de referencia - replica Instagram
+    </h2>
+    <p>
+     <strong>
+      Codigo 4.3 - Estructura de una publicacion visual
+     </strong>
+     <br/>
+     Fuente:
+     <code>profe/f11web/ejercicioimitacss/soluciongonzaloinsta/index.html</code>
+     <br/>
+     Tipo: fragmento relevante
+     <br/>
+     Lenguaje: html
+    </p>
+    <div class="sourceCode code-panel language-html" data-language="html" data-language-label="HTML" id="cb26">
+     <div aria-hidden="true" class="code-language-badge">
+      HTML
+     </div>
+     <pre class="sourceCode html"><code class="sourceCode html">&lt;div class="instagram-post"&gt;
+  &lt;div class="image-container"&gt;
+    &lt;div class="dashed-line top"&gt;&lt;/div&gt;
+    &lt;div class="dashed-line bottom"&gt;&lt;/div&gt;
+    &lt;img src="./img/libros.png" alt="Presentacion Novela"&gt;
+  &lt;/div&gt;
+
+  &lt;div class="icons-container"&gt;
+    &lt;div class="left-icons"&gt;
+      &lt;i class="far fa-heart"&gt;&lt;/i&gt;
+      &lt;i class="far fa-comment"&gt;&lt;/i&gt;
+      &lt;i class="far fa-paper-plane"&gt;&lt;/i&gt;
+    &lt;/div&gt;
+    &lt;div class="right-icons"&gt;
+      &lt;i class="far fa-bookmark"&gt;&lt;/i&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+    <p>
+     <strong>
+      Codigo 4.4 - Borde degradado y distribucion de iconos
+     </strong>
+     <br/>
+     Fuente:
+     <code>profe/f11web/ejercicioimitacss/soluciongonzaloinsta/main.css</code>
+     <br/>
+     Tipo: fragmento relevante
+     <br/>
+     Lenguaje: css
+    </p>
+    <div class="sourceCode code-panel language-css" data-language="css" data-language-label="CSS" id="cb27">
+     <div aria-hidden="true" class="code-language-badge">
+      CSS
+     </div>
+     <pre class="sourceCode css"><code class="sourceCode css">.instagram-post {
+  background-color: #ffffff;
+  border: 1px solid #dbdbdb;
+  max-width: 470px;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.image-container {
+  position: relative;
+  overflow: hidden;
+  border-left: 5px solid;
+  border-right: 5px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(
+    to bottom,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
+}
+
+.icons-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}</code></pre>
+    </div>
+    <p class="trace-card">
+     <strong>
+      Limitacion de vista
+     </strong>
+     <br/>
+     HTML usado:
+     <code>profe/f11web/ejercicioimitacss/soluciongonzaloinsta/index.html</code>
+     <br/>
+     CSS usado:
+     <code>profe/f11web/ejercicioimitacss/soluciongonzaloinsta/main.css</code>
+     <br/>
+     Tipo de vista: fuente documentada sin captura nueva
+     <br/>
+     Limitaciones: La pagina enlaza Font Awesome desde CDN; el diario
+mantiene el entregable como HTML autonomo y no genera una captura que
+dependa de internet.
     </p>
    </section>
    <section class="level2" id="explicacion-del-resultado-3">
@@ -4419,6 +4619,63 @@ rellenar imagenes y numeros cuando el HTML ya esta cargado.
     </div>
     <p>
      <strong>
+      Codigo 9.1b - Informacion de pantalla y visibilidad de botones
+     </strong>
+     <br/>
+     Fuente:
+     <code>profe/f11web/JS/juegobotones/index.js</code>
+     <br/>
+     Tipo: fragmento nuevo
+     <br/>
+     Lenguaje: javascript
+    </p>
+    <div class="sourceCode code-panel language-javascript" data-language="javascript" data-language-label="JavaScript" id="cb31">
+     <div aria-hidden="true" class="code-language-badge">
+      JavaScript
+     </div>
+     <pre class="sourceCode javascript"><code class="sourceCode javascript">function mostrarInfoPantalla() {
+    let ubicacion = window.location.href;
+    let ancho = window.innerWidth;
+    let alto = window.innerHeight;
+
+    console.log(ubicacion);
+    console.log(ancho);
+    console.log(alto);
+
+    let botonpantalla = document.getElementById("btninfo");
+    botonpantalla.style.backgroundColor = "green";
+    botonpantalla.style.color = "white";
+
+    cuentaClicks = cuentaClicks + 1;
+}
+
+function ocultarBotones() {
+    let botonsaluda = document.getElementById("btnsaluda");
+    let botoninfo = document.getElementById("btninfo");
+
+    botonsaluda.style.display = "none";
+    botoninfo.style.display = "none";
+    cuentaClicks = cuentaClicks + 1;
+}
+
+function ocultarYMostrarBotones() {
+    let botonOcultar = document.getElementById('btnocultar');
+    let botonInfo = document.getElementById('btninfo');
+    let botonSaluda = document.getElementById('btnsaluda');
+
+    if (botonOcultar.textContent == 'Ocultar') {
+        botonInfo.style.display = 'none';
+        botonSaluda.style.display = 'none';
+        botonOcultar.textContent = 'Mostrar';
+    } else {
+        botonInfo.style.display = 'inline-block';
+        botonSaluda.style.display = 'inline-block';
+        botonOcultar.textContent = 'Ocultar';
+    }
+}</code></pre>
+    </div>
+    <p>
+     <strong>
       Codigo 9.2 - Objeto de estadisticas
      </strong>
      <br/>
@@ -4446,6 +4703,45 @@ rellenar imagenes y numeros cuando el HTML ya esta cargado.
 <span id="cb13-11"><a aria-hidden="true" href="#cb13-11" tabindex="-1"></a>        <span class="dt">remates</span><span class="op">:</span> { <span class="dt">fuera</span><span class="op">:</span> <span class="dv">3</span><span class="op">,</span> <span class="dt">apuerta</span><span class="op">:</span> <span class="dv">7</span><span class="op">,</span> <span class="dt">bloqueados</span><span class="op">:</span> <span class="dv">5</span> }</span>
 <span id="cb13-12"><a aria-hidden="true" href="#cb13-12" tabindex="-1"></a>    }</span>
 <span id="cb13-13"><a aria-hidden="true" href="#cb13-13" tabindex="-1"></a>}<span class="op">;</span></span></code></pre>
+    </div>
+    <p>
+     <strong>
+      Codigo 9.2b - Rellenar la vista con estadisticas
+     </strong>
+     <br/>
+     Fuente:
+     <code>profe/f11web/JS/estadisticas/estadisticas.js</code>
+     <br/>
+     Tipo: fragmento nuevo
+     <br/>
+     Lenguaje: javascript
+    </p>
+    <div class="sourceCode code-panel language-javascript" data-language="javascript" data-language-label="JavaScript" id="cb32">
+     <div aria-hidden="true" class="code-language-badge">
+      JavaScript
+     </div>
+     <pre class="sourceCode javascript"><code class="sourceCode javascript">window.onload = function () {
+    let imgLocal = document.getElementById('logolocal');
+    imgLocal.src = estadisticasRemates.equipoLocal.escudo;
+    imgLocal.alt = estadisticasRemates.equipoLocal.nombre;
+
+    let imgVisitante = document.getElementById('logovisitante');
+    imgVisitante.src = estadisticasRemates.equipoVisitante.escudo;
+    imgVisitante.alt = estadisticasRemates.equipoVisitante.nombre;
+
+    document.getElementById('bloqueadosLocal').textContent =
+        estadisticasRemates.equipoLocal.remates.bloqueados;
+    document.getElementById('bloqueadosVisitante').textContent =
+        estadisticasRemates.equipoVisitante.remates.bloqueados;
+    document.getElementById('fueralocal').textContent =
+        estadisticasRemates.equipoLocal.remates.fuera;
+    document.getElementById('apuertalocal').textContent =
+        estadisticasRemates.equipoLocal.remates.apuerta;
+    document.getElementById('fueravte').textContent =
+        estadisticasRemates.equipoVisitante.remates.fuera;
+    document.getElementById('apuertavte').textContent =
+        estadisticasRemates.equipoVisitante.remates.apuerta;
+};</code></pre>
     </div>
    </section>
    <section class="level2 visual-panel" id="vista-esperada-en-navegador-7">
@@ -5179,6 +5475,198 @@ palabra
     </div>
     <p>
      <strong>
+      Codigo 11.1b - Condiciones y busqueda de letras
+     </strong>
+     <br/>
+     Fuente:
+     <code>profe/f11web/JS/basicos/solucion.js</code>
+     <br/>
+     Tipo: fragmento nuevo
+     <br/>
+     Lenguaje: javascript
+    </p>
+    <div class="sourceCode code-panel language-javascript" data-language="javascript" data-language-label="JavaScript" id="cb33">
+     <div aria-hidden="true" class="code-language-badge">
+      JavaScript
+     </div>
+     <pre class="sourceCode javascript"><code class="sourceCode javascript">function mayorEdad() {
+    let inputedad = document.getElementById('edad');
+    let edad = inputedad.value;
+
+    if (edad &gt;= 18) {
+        window.alert('Es mayor de edad');
+    } else {
+        window.alert('Es menor de edad');
+    }
+}
+
+function buscarLetra() {
+    let palabra = document.getElementById('palabra').value;
+    let letra = document.getElementById('letra').value;
+    let numresultado = palabra.indexOf(letra);
+
+    if (numresultado == -1) {
+        window.alert('la letra no esta');
+    } else {
+        window.alert('la letra si esta');
+    }
+}
+
+function buscarLetraFor() {
+    let encontrado = false;
+    let palabra = document.getElementById('palabra').value;
+    let letra = document.getElementById('letra').value;
+
+    for (let posicion = 0; posicion &lt; palabra.length; posicion = posicion + 1) {
+        let letraActual = palabra.charAt(posicion);
+        if (letraActual == letra) {
+            encontrado = true;
+        }
+    }
+
+    if (encontrado) {
+        alert('La letra pertenece');
+    } else {
+        alert('la letra no pertenece');
+    }
+}
+
+function buscarLetraWhile() {
+    let encontrado = false;
+    let palabra = document.getElementById('palabra').value;
+    let letra = document.getElementById('letra').value;
+    let posicion = 0;
+
+    while (encontrado == false &amp;&amp; posicion &lt; palabra.length) {
+        let letraActual = palabra.charAt(posicion);
+
+        if (letraActual == letra) {
+            encontrado = true;
+        } else {
+            posicion = posicion + 1;
+        }
+    }
+
+    if (encontrado) {
+        alert('La letra pertenece');
+    } else {
+        alert('la letra no pertenece');
+    }
+}</code></pre>
+    </div>
+    <p>
+     <strong>
+      Codigo 11.1c - Notas, mayor, secuencias y contador
+     </strong>
+     <br/>
+     Fuente:
+     <code>profe/f11web/JS/basicos/solucion.js</code>
+     <br/>
+     Tipo: fragmento nuevo
+     <br/>
+     Lenguaje: javascript
+    </p>
+    <div class="sourceCode code-panel language-javascript" data-language="javascript" data-language-label="JavaScript" id="cb34">
+     <div aria-hidden="true" class="code-language-badge">
+      JavaScript
+     </div>
+     <pre class="sourceCode javascript"><code class="sourceCode javascript">function mostrarNotaIf() {
+    let nota = document.getElementById('nota').value;
+
+    if (nota &lt; 5) {
+        window.alert('SUSPENSO');
+    } else if (nota == 5) {
+        window.alert('APROBADO');
+    } else if (nota &lt; 7) {
+        window.alert('BIEN');
+    } else if (nota &lt; 9) {
+        window.alert('NOTABLE');
+    } else {
+        window.alert('SOBRESALIENTE');
+    }
+}
+
+function mostrarNotaSwitch() {
+    let nota = document.getElementById('nota').value;
+    let notan = parseInt(nota);
+
+    switch (notan) {
+        case 0:
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+            window.alert('SUSPENSO');
+            break;
+        case 5:
+            window.alert('APROBADO');
+            break;
+        case 6:
+            window.alert('BIEN');
+            break;
+        case 7:
+        case 8:
+            window.alert('NOTABLE');
+            break;
+        case 9:
+        case 10:
+            window.alert('SOBRESALIENTE');
+            break;
+        default:
+            window.alert('NOTA INCORRECTA');
+    }
+}
+
+function mostrarMayor() {
+    let num1 = document.getElementById("num1").value;
+    let num2 = document.getElementById("num2").value;
+    let num3 = document.getElementById("num3").value;
+
+    if (num1 &gt; num2) {
+        if (num1 &gt; num3) {
+            window.alert("El mayor es N1");
+        } else {
+            window.alert("El mayor es N3");
+        }
+    } else {
+        if (num2 &gt; num3) {
+            window.alert("El mayor es N2");
+        } else {
+            window.alert("El mayor es N3");
+        }
+    }
+}
+
+function mostrarSecuencia() {
+    for (let n = 3; n &lt;= 99; n = n + 3) {
+        window.alert(n);
+    }
+}
+
+function mostrarSecuenciapar() {
+    for (let n = 2; n &lt;= 50; n = n + 2) {
+        window.alert(n);
+    }
+}
+
+function contarLetras() {
+    let palabra = document.getElementById('palabra1').value;
+    let letra = document.getElementById('letra1').value;
+    let contador = 0;
+
+    for (let posicion = 0; posicion &lt; palabra.length; posicion = posicion + 1) {
+        let letraActual = palabra.charAt(posicion);
+
+        if (letraActual == letra) {
+            contador = contador + 1;
+        }
+    }
+
+    alert('La letra aparece ' + contador + ' veces');
+}</code></pre>
+    </div>
+    <p>
+     <strong>
       Codigo 11.2 - Cambiar cuadro a negro
      </strong>
      <br/>
@@ -5206,6 +5694,77 @@ palabra
 <span id="cb16-11"><a aria-hidden="true" href="#cb16-11" tabindex="-1"></a>    <span class="kw">let</span> listaDivs <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementsByClassName</span>(<span class="st">'cuadrito'</span>)<span class="op">;</span></span>
 <span id="cb16-12"><a aria-hidden="true" href="#cb16-12" tabindex="-1"></a>    <span class="cf">return</span> todosEnNegro<span class="op">;</span></span>
 <span id="cb16-13"><a aria-hidden="true" href="#cb16-13" tabindex="-1"></a>}</span></code></pre>
+    </div>
+    <p>
+     <strong>
+      Codigo 11.2b - Numeracion, colores e intervalo de tablero
+     </strong>
+     <br/>
+     Fuente:
+     <code>profe/f11web/JS/juegotablero/soljosemari/index.js</code>
+     <br/>
+     Tipo: fragmento nuevo
+     <br/>
+     Lenguaje: javascript
+    </p>
+    <div class="sourceCode code-panel language-javascript" data-language="javascript" data-language-label="JavaScript" id="cb35">
+     <div aria-hidden="true" class="code-language-badge">
+      JavaScript
+     </div>
+     <pre class="sourceCode javascript"><code class="sourceCode javascript">window.onload = pintarNumeracion();
+
+function pintarNumeracion() {
+    let cuadritos = document.getElementsByClassName('cuadrito');
+
+    for (let n = 0; n &lt; cuadritos.length; n++) {
+        cuadritos[n].textContent = n + 1;
+    }
+
+    pintarCuadradosEnRosa();
+}
+
+function pintarCuadradosEnRosa() {
+    let cuadritos = document.getElementsByClassName('cuadrito');
+
+    for (let n = 0; n &lt; cuadritos.length; n++) {
+        if (n % 2 == 0) {
+            cuadritos[n].style.backgroundColor = 'pink';
+        } else {
+            cuadritos[n].style.backgroundColor = 'white';
+        }
+    }
+}
+
+function pintarCuadradosEnAzul() {
+    let cuadritos = document.getElementsByClassName('cuadrito');
+
+    for (let n = 0; n &lt; cuadritos.length; n++) {
+        if (n % 2 == 0) {
+            cuadritos[n].style.backgroundColor = 'white';
+        } else {
+            cuadritos[n].style.backgroundColor = 'blue';
+        }
+    }
+}
+
+let esTableroRosa = true;
+let contadorCambios = 0;
+let idAlarma = setInterval(cambiarColor, 3000);
+
+function cambiarColor() {
+    if (esTableroRosa) {
+        pintarCuadradosEnAzul();
+        esTableroRosa = false;
+        contadorCambios = contadorCambios + 1;
+    } else {
+        pintarCuadradosEnRosa();
+        esTableroRosa = true;
+    }
+
+    if (contadorCambios == 3) {
+        clearInterval(idAlarma);
+    }
+}</code></pre>
     </div>
    </section>
    <section class="level2 visual-panel" id="vista-esperada-en-navegador-10">
@@ -5425,6 +5984,9 @@ del 2026-05-25.
       <code>profe/f11web/JS/juegotablero/solfran/enunciado.txt</code>
      </li>
      <li>
+      <code>profe/f11web/JS/juegotablero/enunciado.txt</code>
+     </li>
+     <li>
       <code>profe/f11web/JS/juegotablero/solfran/index.html</code>
      </li>
      <li>
@@ -5546,6 +6108,40 @@ S&Iacute;, ES MAYOR DE 18 A&Ntilde;OS. USAD LA FECHA DE nacimiento
 PARA EL C&Aacute;LCULO</code></pre>
     <p>
      <strong>
+      Codigo 12.1b - Reglas completas del tablero
+     </strong>
+     <br/>
+     Fuente:
+     <code>profe/f11web/JS/juegotablero/enunciado.txt</code>
+     <br/>
+     Tipo: fragmento relevante
+     <br/>
+     Lenguaje: text
+    </p>
+    <div class="sourceCode code-panel language-text" data-language="text" data-language-label="Texto" id="cb28">
+     <div aria-hidden="true" class="code-language-badge">
+      Texto
+     </div>
+     <pre class="sourceCode text"><code class="sourceCode text">La app consta de 2 paginas:
+1. Formulario de alta.
+2. Tablero dividido en 9 cuadriculas de colores.
+
+Formulario:
+- nombre
+- contrasena
+- fecha de nacimiento
+
+Tablero:
+- al tocar un cuadrado de color, se vuelve negro
+- cuando todos esten negros, mostrar "Fin de Juego"
+
+Extras:
+- solo puede pasar quien sea mayor de 18 anos
+- la contrasena debe ser fuerte
+- si no es fuerte, marcar el input en rojo e indicar la regla</code></pre>
+    </div>
+    <p>
+     <strong>
       Codigo 12.2 - Botones del tablero alternativo
      </strong>
      <br/>
@@ -5606,8 +6202,12 @@ alternativo
      <br/>
      Limitaciones: Los iconos de Bootstrap proceden de CDN y
      <code>script.js</code>
-     no existe en la carpeta; la captura valida solo
-estructura visual local.
+     no existe en la carpeta; los manejadores
+     <code>mostrarContrasena()</code>
+     y
+     <code>validarFormulario()</code>
+     quedan identificados como dependencias no disponibles. La captura valida
+solo estructura visual local.
     </p>
    </section>
    <section class="level2 visual-panel" id="vista-esperada-en-navegador-14">
@@ -5912,6 +6512,36 @@ fila
 <span id="cb20-11"><a aria-hidden="true" href="#cb20-11" tabindex="-1"></a>    filanueva<span class="op">.</span><span class="fu">appendChild</span>(columnaNombre)<span class="op">;</span></span>
 <span id="cb20-12"><a aria-hidden="true" href="#cb20-12" tabindex="-1"></a>    bodytabla<span class="op">.</span><span class="fu">appendChild</span>(filanueva)<span class="op">;</span></span>
 <span id="cb20-13"><a aria-hidden="true" href="#cb20-13" tabindex="-1"></a>}</span></code></pre>
+    </div>
+    <p>
+     <strong>
+      Codigo 13.3 - Temporizador con funcion flecha y funcion clasica
+     </strong>
+     <br/>
+     Fuente:
+     <code>profe/f11web/JS/setTimeOut/index.html</code>
+     <br/>
+     Tipo: fragmento nuevo
+     <br/>
+     Lenguaje: javascript
+    </p>
+    <div class="sourceCode code-panel language-javascript" data-language="javascript" data-language-label="JavaScript" id="cb36">
+     <div aria-hidden="true" class="code-language-badge">
+      JavaScript
+     </div>
+     <pre class="sourceCode javascript"><code class="sourceCode javascript">setTimeout(
+    (nombre) =&gt; {
+        alert('HOLA ' + nombre);
+    },
+    5000,
+    "VALE"
+);
+
+setTimeout(saluda, 5000, "VALE");
+
+function saluda(nombre) {
+    alert('HOLA ' + nombre);
+}</code></pre>
     </div>
    </section>
    <section class="level2 visual-panel" id="vista-esperada-en-navegador-15">
@@ -6274,9 +6904,9 @@ a recorrer la coleccion completa. La mejora importante es separar dos
 responsabilidades: una funcion pinta un alumno concreto y otra recorre
 el array con
      <code>forEach</code>
-     . Tambien se introduce una funcion de
-estadisticas como trabajo pendiente, lo que permite distinguir codigo
-terminado de codigo planificado.
+     . Tambien se completa el bloque de estadisticas de edad, con funciones
+independientes para calcular media, mayor y menor, y una funcion final que
+muestra el resultado en la pagina.
     </p>
    </section>
    <section class="level2" id="conceptos-principales-13">
@@ -6348,10 +6978,17 @@ terminado de codigo planificado.
       .
      </li>
      <li>
-      Preparar el boton
+     Preparar el boton
       <code>ESTAD&Iacute;STICAS</code>
       y las funciones
 pendientes de edad media, mayor y menor.
+     </li>
+     <li>
+      Ordenar
+      <code>arrayPalabras</code>
+      primero alfabeticamente y despues por longitud con
+      <code>sort()</code>
+      y una funcion callback.
      </li>
     </ul>
    </section>
@@ -6376,9 +7013,11 @@ alumnos
      <div aria-hidden="true" class="code-language-badge">
       HTML
      </div>
-     <pre class="sourceCode html"><code class="sourceCode html"><span id="cb21-1"><a aria-hidden="true" href="#cb21-1" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">button</span> <span class="er">onclick</span><span class="ot">=</span><span class="st">"addAlumno()"</span><span class="dt">&gt;</span>A&Ntilde;ADIR ALUMNO<span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
-<span id="cb21-2"><a aria-hidden="true" href="#cb21-2" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">button</span> <span class="er">onclick</span><span class="ot">=</span><span class="st">"addAlumnos()"</span><span class="dt">&gt;</span>A&Ntilde;ADIR TODOS<span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
-<span id="cb21-3"><a aria-hidden="true" href="#cb21-3" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">button</span> <span class="er">onclick</span><span class="ot">=</span><span class="st">"estadisticasEdad()"</span><span class="dt">&gt;</span>ESTAD&Iacute;STICAS<span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span></code></pre>
+     <pre class="sourceCode html"><code class="sourceCode html">&lt;button onclick="addAlumno()"&gt;A&Ntilde;ADIR ALUMNO&lt;/button&gt;
+&lt;button onclick="addAlumnos()"&gt;A&Ntilde;ADIR TODOS&lt;/button&gt;
+&lt;button onclick="estadisticasEdad()"&gt;ESTAD&Iacute;STICAS&lt;/button&gt;
+&lt;button onclick="borrarTodos()"&gt;BORRAR TODOS&lt;/button&gt;
+&lt;div id="stats"&gt;&lt;/div&gt;</code></pre>
     </div>
     <p>
      <strong>
@@ -6430,17 +7069,44 @@ forEach
 <span id="cb22-31"><a aria-hidden="true" href="#cb22-31" tabindex="-1"></a>            <span class="fu">addUnAlumno</span>(alumno)<span class="op">;</span></span>
 <span id="cb22-32"><a aria-hidden="true" href="#cb22-32" tabindex="-1"></a>        }</span>
 <span id="cb22-33"><a aria-hidden="true" href="#cb22-33" tabindex="-1"></a>    )</span>
-<span id="cb22-34"><a aria-hidden="true" href="#cb22-34" tabindex="-1"></a>}</span></code></pre>
+	<span id="cb22-34"><a aria-hidden="true" href="#cb22-34" tabindex="-1"></a>}</span></code></pre>
     </div>
     <p>
      <strong>
-      Codigo 14.3 - Estadisticas de edad pendientes
+      Codigo 14.2b - Borrado por fila generada
      </strong>
      <br/>
      Fuente:
      <code>profe/f11web/JS/alumnos/alumnos.js</code>
      <br/>
-     Tipo: fragmento nuevo pendiente de completar
+     Tipo: fragmento nuevo
+     <br/>
+     Lenguaje: javascript
+    </p>
+    <div class="sourceCode code-panel language-javascript" data-language="javascript" data-language-label="JavaScript" id="cb30">
+     <div aria-hidden="true" class="code-language-badge">
+      JavaScript
+     </div>
+     <pre class="sourceCode javascript"><code class="sourceCode javascript">botonBorrar.addEventListener("click", () =&gt; {
+    let confirmado = confirm('&iquest;Quiere borrar este registro?');
+
+    if (confirmado) {
+        console.log('confirmo borrar');
+        filanueva.remove();
+    } else {
+        console.log('cancelo borrar');
+    }
+});</code></pre>
+    </div>
+    <p>
+     <strong>
+      Codigo 14.3 - Estadisticas de edad completas
+     </strong>
+     <br/>
+     Fuente:
+     <code>profe/f11web/JS/alumnos/alumnos.js</code>
+     <br/>
+     Tipo: fragmento nuevo
      <br/>
      Lenguaje: javascript
     </p>
@@ -6448,19 +7114,99 @@ forEach
      <div aria-hidden="true" class="code-language-badge">
       JavaScript
      </div>
-     <pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb23-1"><a aria-hidden="true" href="#cb23-1" tabindex="-1"></a><span class="kw">function</span> <span class="fu">calcularMediaEdad</span> () {</span>
-<span id="cb23-2"><a aria-hidden="true" href="#cb23-2" tabindex="-1"></a>    <span class="kw">let</span> media <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb23-3"><a aria-hidden="true" href="#cb23-3" tabindex="-1"></a></span>
-<span id="cb23-4"><a aria-hidden="true" href="#cb23-4" tabindex="-1"></a>    <span class="co">//</span><span class="al">TODO</span><span class="co">: calcular la media</span></span>
-<span id="cb23-5"><a aria-hidden="true" href="#cb23-5" tabindex="-1"></a>    <span class="cf">return</span> media<span class="op">;</span></span>
-<span id="cb23-6"><a aria-hidden="true" href="#cb23-6" tabindex="-1"></a>}</span>
-<span id="cb23-7"><a aria-hidden="true" href="#cb23-7" tabindex="-1"></a></span>
-<span id="cb23-8"><a aria-hidden="true" href="#cb23-8" tabindex="-1"></a><span class="kw">function</span> <span class="fu">estadisticasEdad</span> (){</span>
-<span id="cb23-9"><a aria-hidden="true" href="#cb23-9" tabindex="-1"></a>    <span class="co">//1 CALCULO MEDIA DE EDAD</span></span>
-<span id="cb23-10"><a aria-hidden="true" href="#cb23-10" tabindex="-1"></a></span>
-<span id="cb23-11"><a aria-hidden="true" href="#cb23-11" tabindex="-1"></a>    <span class="co">//2 CALCULO MAYOR EDAD</span></span>
-<span id="cb23-12"><a aria-hidden="true" href="#cb23-12" tabindex="-1"></a>    <span class="co">//3 CALCULO MENOR EDAD</span></span>
-<span id="cb23-13"><a aria-hidden="true" href="#cb23-13" tabindex="-1"></a>}</span></code></pre>
+     <pre class="sourceCode javascript"><code class="sourceCode javascript">function calcularMediaEdad() {
+    let media = 0;
+    let suma = 0;
+
+    for (let n = 0; n &lt; alumnos.length; n++) {
+        suma = suma + alumnos[n].edad;
+    }
+
+    media = suma / alumnos.length;
+    return media;
+}
+
+function calcularMayorEdad() {
+    let mayor = 0;
+
+    for (let nalumno = 0; nalumno &lt; alumnos.length; nalumno++) {
+        if (alumnos[nalumno].edad &gt; mayor) {
+            mayor = alumnos[nalumno].edad;
+        }
+    }
+
+    return mayor;
+}
+
+function calcularMenorEdad() {
+    let menor = alumnos[0].edad;
+
+    for (let nalumno = 1; nalumno &lt; alumnos.length; nalumno++) {
+        if (alumnos[nalumno].edad &lt; menor) {
+            menor = alumnos[nalumno].edad;
+        }
+    }
+
+    return menor;
+}
+
+function mostrarEstadisticas(media, mayorEdad, menorEdad) {
+    let divstats = document.getElementById('stats');
+    divstats.textContent =
+        `La media de edad es ${media} la mayor edad es ${mayorEdad} y la menor edad es ${menorEdad}`;
+}
+
+function estadisticasEdad() {
+    let media = calcularMediaEdad();
+    let mayorEdad = calcularMayorEdad();
+    let menorEdad = calcularMenorEdad();
+
+    mostrarEstadisticas(media, mayorEdad, menorEdad);
+}
+
+function borrarTodos() {
+    let bodytabla = document.getElementById('bodytabla');
+    bodytabla.innerHTML = "";
+}</code></pre>
+    </div>
+    <p>
+     <strong>
+      Codigo 14.4 - Ordenar palabras alfabeticamente y por longitud
+     </strong>
+     <br/>
+     Fuente:
+     <code>profe/f11web/JS/alumnos/alumnos.js</code>
+     <br/>
+     Tipo: fragmento nuevo
+     <br/>
+     Lenguaje: javascript
+    </p>
+    <div class="sourceCode code-panel language-javascript" data-language="javascript" data-language-label="JavaScript" id="cb29">
+     <div aria-hidden="true" class="code-language-badge">
+      JavaScript
+     </div>
+     <pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb29-1"><a aria-hidden="true" href="#cb29-1" tabindex="-1"></a><span class="kw">let</span> arrayPalabras <span class="op">=</span> [<span class="st">"paco"</span>, <span class="st">"fotograf&iacute;a"</span>, <span class="st">"lechuga"</span>, <span class="st">"madrid"</span>]<span class="op">;</span></span>
+<span id="cb29-2"><a aria-hidden="true" href="#cb29-2" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">table</span>(arrayPalabras)<span class="op">;</span></span>
+<span id="cb29-3"><a aria-hidden="true" href="#cb29-3" tabindex="-1"></a></span>
+<span id="cb29-4"><a aria-hidden="true" href="#cb29-4" tabindex="-1"></a><span class="co">// Orden alfabetico por defecto.</span></span>
+<span id="cb29-5"><a aria-hidden="true" href="#cb29-5" tabindex="-1"></a>arrayPalabras<span class="op">.</span><span class="fu">sort</span>()<span class="op">;</span></span>
+<span id="cb29-6"><a aria-hidden="true" href="#cb29-6" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">table</span>(arrayPalabras)<span class="op">;</span></span>
+<span id="cb29-7"><a aria-hidden="true" href="#cb29-7" tabindex="-1"></a></span>
+<span id="cb29-8"><a aria-hidden="true" href="#cb29-8" tabindex="-1"></a><span class="co">// Orden por longitud de palabra.</span></span>
+<span id="cb29-9"><a aria-hidden="true" href="#cb29-9" tabindex="-1"></a>arrayPalabras<span class="op">.</span><span class="fu">sort</span>(</span>
+<span id="cb29-10"><a aria-hidden="true" href="#cb29-10" tabindex="-1"></a>    (palabra1, palabra2) <span class="kw">=&gt;</span> {</span>
+<span id="cb29-11"><a aria-hidden="true" href="#cb29-11" tabindex="-1"></a>        <span class="kw">let</span> numeroResultado <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb29-12"><a aria-hidden="true" href="#cb29-12" tabindex="-1"></a></span>
+<span id="cb29-13"><a aria-hidden="true" href="#cb29-13" tabindex="-1"></a>        <span class="cf">if</span> (palabra1<span class="op">.</span><span class="at">length</span> <span class="op">&gt;</span> palabra2<span class="op">.</span><span class="at">length</span>) {</span>
+<span id="cb29-14"><a aria-hidden="true" href="#cb29-14" tabindex="-1"></a>            numeroResultado <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb29-15"><a aria-hidden="true" href="#cb29-15" tabindex="-1"></a>        } <span class="cf">else</span> <span class="cf">if</span> (palabra1<span class="op">.</span><span class="at">length</span> <span class="op">&lt;</span> palabra2<span class="op">.</span><span class="at">length</span>) {</span>
+<span id="cb29-16"><a aria-hidden="true" href="#cb29-16" tabindex="-1"></a>            numeroResultado <span class="op">=</span> <span class="op">-</span><span class="dv">1</span><span class="op">;</span></span>
+<span id="cb29-17"><a aria-hidden="true" href="#cb29-17" tabindex="-1"></a>        }</span>
+<span id="cb29-18"><a aria-hidden="true" href="#cb29-18" tabindex="-1"></a></span>
+<span id="cb29-19"><a aria-hidden="true" href="#cb29-19" tabindex="-1"></a>        <span class="cf">return</span> numeroResultado<span class="op">;</span></span>
+<span id="cb29-20"><a aria-hidden="true" href="#cb29-20" tabindex="-1"></a>    }</span>
+<span id="cb29-21"><a aria-hidden="true" href="#cb29-21" tabindex="-1"></a>)<span class="op">;</span></span>
+<span id="cb29-22"><a aria-hidden="true" href="#cb29-22" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">table</span>(arrayPalabras)<span class="op">;</span></span></code></pre>
     </div>
    </section>
    <section class="level2 visual-panel" id="vista-esperada-en-navegador---codigo-14.1">
