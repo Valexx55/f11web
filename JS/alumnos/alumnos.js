@@ -3,7 +3,7 @@
 TODO: HACED QUE CUANDO TOQUE LA COLUMNA NOMBRE, LA TABLA SE MUESTRE ORDENADO POR NOMBRE (de menor a mayor)
 HACED QUE CUANDO TOQUE LA COLUMNA DE EDAD, LA TABLA SE MUESTRE ORDENADA POR LA EDAD (de menor a mayor)
 */
-const alumnos = [
+let alumnos = [
     {
         id: 1,
         nombre: "Ana",
@@ -170,6 +170,20 @@ function addAlumnos() {
     )
 }
 
+function addAlumnosFiltrados(arrayAlumnos) {
+    //FOR TRADICIONAL
+    // for (let nalumno=0; nalumno < alumnos.length; nalumno++)
+    // {
+    //     addUnAlumno(alumnos[nalumno]);
+    // }
+    //FOR EACH
+    arrayAlumnos.forEach(
+        (alumno) => {
+            addUnAlumno(alumno);
+        }
+    )
+}
+
 function calcularMediaEdad() {
     let media = 0;
     let suma = 0;
@@ -316,6 +330,16 @@ window.onload = () => {
             let textoIntroducido = inputFiltro.value;
             console.log(`textoIntroducido = ${textoIntroducido}`);
             //TODO: filtrar para que sólo me aparezcan en la tabla
+
+            //1 filtro los alumnos cuyo nombre empiece por textoIntroducido
+            let alumnosFiltro = alumnos.filter(
+                (alumno) => alumno.nombre.startsWith(textoIntroducido) 
+                
+            );
+            //2 elimino las filas de la tabla
+            borrarTodos();
+            //3 repinto los registro de alumnos
+            addAlumnosFiltrados(alumnosFiltro);
             //los alumnos que empicen por ese nombre
             //PISTA ÁNGEL
             /*
