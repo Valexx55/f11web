@@ -73,6 +73,20 @@ let alumnos = [
         edad: 29,
         curso: "Node.js",
         email: "miguel@email.com"
+    },
+     {
+        id: 11,
+        nombre: "Elena",
+        edad: 21,
+        curso: "Git y GitHub",
+        email: "elena@email.com"
+    },
+    {
+        id: 12,
+        nombre: "Miguel",
+        edad: 33,
+        curso: "Node.js",
+        email: "miguel@email.com"
     }
 ];
 
@@ -320,6 +334,49 @@ function ordenarPorNombre() {
     addAlumnos();
 }
 
+function ordenarPorNombreYEdad() {
+    //1 ORDENAR
+    alumnos.sort(
+        (alumno1, alumno2) => {
+            let resultado = 0;
+
+                if (alumno1.nombre > alumno2.nombre) 
+                    { resultado = 1; }
+                else if (alumno2.nombre > alumno1.nombre) 
+                    { resultado = -1; }
+                else {
+                    //mismo nombre
+                    resultado = alumno1.edad - alumno2.edad;
+                }
+
+            return resultado;
+        }
+    );
+    //2 BORRAR LA TABLA
+    borrarTodos();
+    //3 PINTAR LA TABLA
+    addAlumnos();
+}
+
+function ordenarPorEdad() {
+    //1 ORDENAR
+    alumnos.sort(
+        // (alumno1, alumno2) => {
+        //     let resultado = 0;
+
+        //     if (alumno1.edad > alumno2.edad) { resultado = 1; }
+        //     else if (alumno2.edad > alumno1.edad) { resultado = -1; }
+
+        //     return resultado;
+        // }
+        (alumno1, alumno2) => alumno1.edad - alumno2.edad
+    );
+    //2 BORRAR LA TABLA
+    borrarTodos();
+    //3 PINTAR LA TABLA
+    addAlumnos();
+}
+
 //FILTRADO
 window.onload = () => {
     let inputFiltro = document.getElementById("filtroNombre");
@@ -329,7 +386,6 @@ window.onload = () => {
         () => {
             let textoIntroducido = inputFiltro.value;
             console.log(`textoIntroducido = ${textoIntroducido}`);
-            //TODO: filtrar para que sólo me aparezcan en la tabla
 
             //1 filtro los alumnos cuyo nombre empiece por textoIntroducido
             let alumnosFiltro = alumnos.filter(
