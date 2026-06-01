@@ -1,8 +1,10 @@
 
 let numero_secreto = calcularNumeroSecreto();
 console.log(`num sercreto = ${numero_secreto}`);
+localStorage.setItem("NUM_SECRETO", numero_secreto);
 const MAX_INTENTOS = 5;
 let num_intentos = 0;
+localStorage.setItem("NUM_INTENTOS", num_intentos);
 
 function calcularNumeroSecreto() {
     let numero_secreto = 0;
