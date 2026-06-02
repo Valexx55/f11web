@@ -8,9 +8,19 @@ console.log("DESPUÉS DEL FETCH");
 
 function mostrarAlumnos (arrayAlumnos)
 {
+    //COGE REFERENCIA AL PADRE
+    const contenedor = document.getElementById("lista-alumnos");
     arrayAlumnos.forEach(alumno => 
         {
         console.log(`Id = ${alumno.id} Nombre = ${alumno.nombre} Edad = ${alumno.edad}`);
+        // 3. Creamos un nuevo elemento <li> para el HTML
+        const li = document.createElement("li");
+        // 4. Le asignamos el texto que queremos mostrar
+        li.textContent = `Nombre: ${alumno.nombre} - Edad: ${alumno.edad} años`;
+        // 5. Metemos el <li> dentro de nuestra lista <ul>
+        contenedor.appendChild(li);
+
+
     });
 }
 //TODO: la lista de alumnos obtenida de internet (arrayAlumnos)
