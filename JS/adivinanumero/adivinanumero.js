@@ -1,10 +1,16 @@
 
+//TODO: USANDO EL API DE LOCALSTORAGE, HACED, QUE EL JUEGO DE ADIVINA, TENGA MEMORIA
+/*quiere decir, que si dejo una partida a medias, guarde el número secreto
+y el número de intentos que le quedan al usuario. Y si acaba una partida, 
+que se desahaga de esa información
+*/
 let numero_secreto = calcularNumeroSecreto();
 console.log(`num sercreto = ${numero_secreto}`);
-localStorage.setItem("NUM_SECRETO", numero_secreto);
+localStorage.setItem("NUM_SECRETO", numero_secreto);//guardo
 const MAX_INTENTOS = 5;
 let num_intentos = 0;
 localStorage.setItem("NUM_INTENTOS", num_intentos);
+localStorage.clear();//borro 
 
 function calcularNumeroSecreto() {
     let numero_secreto = 0;
