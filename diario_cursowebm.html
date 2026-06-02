@@ -388,7 +388,7 @@ DIARIO_CURSOWEBM: hoja incrustada diario_cursowebm.css
         border-top: 1px solid var(--line);
         margin: 0 auto;
         max-width: none;
-        padding: 48px max(34px, calc((100vw - 1060px) / 2));
+        padding: 42px max(34px, calc((100vw - 1060px) / 2));
       }
 
       #TOC .toc-label {
@@ -404,13 +404,14 @@ DIARIO_CURSOWEBM: hoja incrustada diario_cursowebm.css
         color: var(--ink);
         font-family: var(--font-display);
         font-size: clamp(2.2rem, 4vw, 3.6rem);
-        margin: 0 0 24px;
+        line-height: 1;
+        margin: 0 0 20px;
       }
 
       #TOC ul {
         display: grid;
-        gap: 10px;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 8px;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
         list-style: none;
         margin: 0;
         padding: 0;
@@ -421,6 +422,7 @@ DIARIO_CURSOWEBM: hoja incrustada diario_cursowebm.css
         border: 1px solid var(--line);
         border-radius: var(--radius);
         margin: 0;
+        overflow: hidden;
       }
 
       #TOC a {
@@ -428,8 +430,10 @@ DIARIO_CURSOWEBM: hoja incrustada diario_cursowebm.css
         display: block;
         font-weight: 760;
         line-height: 1.28;
-        padding: 13px 14px;
+        min-height: 48px;
+        padding: 12px 14px;
         text-decoration: none;
+        text-wrap: balance;
       }
 
       #TOC a:hover {
@@ -437,18 +441,19 @@ DIARIO_CURSOWEBM: hoja incrustada diario_cursowebm.css
       }
 
       section.level1 {
-        padding-bottom: 22px;
+        padding-bottom: 18px;
       }
 
       section.level1 > h1 {
         color: var(--ink);
         font-family: var(--font-display);
-        font-size: clamp(2rem, 4vw, 4.2rem);
+        font-size: clamp(2rem, 3.6vw, 3.75rem);
         font-weight: 850;
         letter-spacing: 0;
-        line-height: 1;
-        margin: 58px auto 22px;
+        line-height: 1.04;
+        margin: 48px auto 18px;
         max-width: 1060px;
+        text-wrap: balance;
       }
 
       section.level1[id^="dia-"] > h1 {
@@ -460,7 +465,7 @@ DIARIO_CURSOWEBM: hoja incrustada diario_cursowebm.css
         );
         border-radius: var(--radius);
         color: #fff;
-        padding: 34px 36px 32px;
+        padding: 32px 36px 30px;
         position: relative;
       }
 
@@ -472,7 +477,7 @@ DIARIO_CURSOWEBM: hoja incrustada diario_cursowebm.css
         font-weight: 850;
         letter-spacing: 0.11em;
         line-height: 1;
-        margin-bottom: 16px;
+        margin-bottom: 14px;
         text-transform: uppercase;
       }
 
@@ -487,7 +492,27 @@ DIARIO_CURSOWEBM: hoja incrustada diario_cursowebm.css
         position: absolute;
         right: 36px;
         text-transform: uppercase;
-        top: 34px;
+        top: 32px;
+      }
+
+      section.level1[id^="dia-"]
+        > h1
+        + .status-pill
+        + section.level2[id^="material-fuente-usado"]
+        + section.level2 {
+        margin-top: 0;
+      }
+
+      /* La trazabilidad queda disponible en HTML, pero no debe abrir el dia con ruido visual. */
+      section.level1[id^="dia-"]
+        > h1
+        + .status-pill
+        + section.level2[id^="material-fuente-usado"]
+        + section.level2
+        > h2 {
+        border-top: 0;
+        margin-top: 0;
+        padding-top: 0;
       }
 
       h2 {
@@ -568,6 +593,11 @@ DIARIO_CURSOWEBM: hoja incrustada diario_cursowebm.css
       section.level2[id^="material-fuente-usado"] code {
         color: #475467;
         font-size: 0.78rem;
+      }
+
+      .status-pill,
+      section.level2[id^="material-fuente-usado"] {
+        display: none;
       }
 
       p {
@@ -1908,6 +1938,74 @@ DIARIO_CURSOWEBM: hoja incrustada diario_cursowebm.css
         break-before: page;
       }
 
+      .quiz-drawer {
+        background:
+          linear-gradient(135deg, rgba(8, 125, 124, 0.07), transparent 46%),
+          #ffffff;
+        border: 1px solid #cdd9ea;
+        border-radius: var(--radius);
+        box-shadow: 0 16px 36px rgba(16, 24, 39, 0.08);
+        margin: 28px 0 0;
+        padding: 0;
+      }
+
+      .quiz-drawer > summary {
+        align-items: center;
+        cursor: pointer;
+        display: grid;
+        gap: 4px;
+        grid-template-columns: minmax(0, 1fr) auto;
+        list-style: none;
+        padding: 18px 20px;
+      }
+
+      .quiz-drawer > summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .quiz-drawer > summary::after {
+        align-items: center;
+        background: var(--navy);
+        border-radius: 999px;
+        color: #ffffff;
+        content: "Abrir";
+        display: inline-flex;
+        font-size: 0.82rem;
+        font-weight: 860;
+        grid-row: 1 / span 3;
+        justify-content: center;
+        min-width: 76px;
+        padding: 9px 13px;
+      }
+
+      .quiz-drawer[open] > summary::after {
+        background: var(--teal);
+        content: "Cerrar";
+      }
+
+      .quiz-drawer-kicker,
+      .quiz-drawer-note {
+        color: var(--muted);
+        font-size: 0.78rem;
+        font-weight: 840;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .quiz-drawer > summary strong {
+        color: var(--ink);
+        font-size: clamp(1.05rem, 2vw, 1.45rem);
+        line-height: 1.15;
+      }
+
+      .quiz-drawer[open] > summary {
+        border-bottom: 1px solid #dce6f2;
+      }
+
+      .quiz-drawer > .quiz-bank {
+        padding: 20px;
+      }
+
       .quiz-bank.is-enhanced {
         display: grid;
         gap: 18px;
@@ -2278,17 +2376,26 @@ DIARIO_CURSOWEBM: hoja incrustada diario_cursowebm.css
       }
 
       @media screen {
+        .page-break {
+          display: none;
+        }
+
+        section.level1 > h1 {
+          margin-top: 32px;
+        }
+
         section.level1[id^="dia-"] > h1 {
-          padding: 30px 32px 28px;
+          margin-bottom: 16px;
+          padding: 28px 32px 27px;
         }
 
         section.level1[id^="dia-"] > h1::before {
-          margin-bottom: 14px;
+          margin-bottom: 12px;
         }
 
         section.level1[id^="dia-"] > h1[data-day-date]::after {
           right: 32px;
-          top: 30px;
+          top: 28px;
         }
 
         figure {
@@ -2357,6 +2464,24 @@ DIARIO_CURSOWEBM: hoja incrustada diario_cursowebm.css
 
         #TOC {
           padding: 34px 18px;
+        }
+
+        #TOC ul {
+          grid-template-columns: 1fr;
+        }
+
+        section.level1 > h1 {
+          font-size: clamp(1.9rem, 10vw, 3rem);
+          margin-top: 28px;
+        }
+
+        section.level1[id^="dia-"] > h1 {
+          padding: 24px 22px 24px;
+        }
+
+        section.level1[id^="dia-"] > h1[data-day-date]::after {
+          right: 22px;
+          top: 24px;
         }
 
         .interactive-lab {
@@ -2560,7 +2685,7 @@ DIARIO_CURSOWEBM: indice editorial generado
             href="#dia-1---git-recursos-y-forma-de-trabajo"
             id="toc-dia-1---git-recursos-y-forma-de-trabajo"
           >
-            Dia 1 (2026-04-30) - Git, recursos y forma de trabajo
+            Dia 1 - Git, recursos y forma de trabajo
           </a>
         </li>
         <li>
@@ -2568,7 +2693,7 @@ DIARIO_CURSOWEBM: indice editorial generado
             href="#dia-2---primera-pagina-html-secciones-rutas-y-css-externo"
             id="toc-dia-2---primera-pagina-html-secciones-rutas-y-css-externo"
           >
-            Dia 2 (2026-05-04) - Primera pagina HTML, secciones, rutas y CSS externo
+            Dia 2 - Primera pagina HTML, secciones, rutas y CSS externo
           </a>
         </li>
         <li>
@@ -2576,7 +2701,7 @@ DIARIO_CURSOWEBM: indice editorial generado
             href="#dia-3---modelado-requisitos-y-proyecto-de-facturacion"
             id="toc-dia-3---modelado-requisitos-y-proyecto-de-facturacion"
           >
-            Dia 3 (2026-05-05) - Modelado, requisitos y proyecto de facturacion
+            Dia 3 - Modelado, requisitos y proyecto de facturacion
           </a>
         </li>
         <li>
@@ -2584,7 +2709,7 @@ DIARIO_CURSOWEBM: indice editorial generado
             href="#dia-4---flex-grid-tablas-y-copia-visual-con-css"
             id="toc-dia-4---flex-grid-tablas-y-copia-visual-con-css"
           >
-            Dia 4 (2026-05-07) - Flex, Grid, tablas y copia visual con CSS
+            Dia 4 - Flex, Grid, tablas y copia visual con CSS
           </a>
         </li>
         <li>
@@ -2592,7 +2717,7 @@ DIARIO_CURSOWEBM: indice editorial generado
             href="#dia-5---tablas-de-etiquetas-y-tablero-tres-en-raya"
             id="toc-dia-5---tablas-de-etiquetas-y-tablero-tres-en-raya"
           >
-            Dia 5 (2026-05-08) - Tablas de etiquetas y tablero tres en raya
+            Dia 5 - Tablas de etiquetas y tablero tres en raya
           </a>
         </li>
         <li>
@@ -2600,7 +2725,7 @@ DIARIO_CURSOWEBM: indice editorial generado
             href="#dia-6---formularios-de-contacto-y-login"
             id="toc-dia-6---formularios-de-contacto-y-login"
           >
-            Dia 6 (2026-05-11) - Formularios de contacto y login
+            Dia 6 - Formularios de contacto y login
           </a>
         </li>
         <li>
@@ -2608,7 +2733,7 @@ DIARIO_CURSOWEBM: indice editorial generado
             href="#dia-7---bloques-lineas-imagenes-y-responsive"
             id="toc-dia-7---bloques-lineas-imagenes-y-responsive"
           >
-            Dia 7 (2026-05-12) - Bloques, lineas, imagenes y responsive
+            Dia 7 - Bloques, lineas, imagenes y responsive
           </a>
         </li>
         <li>
@@ -2616,7 +2741,7 @@ DIARIO_CURSOWEBM: indice editorial generado
             href="#dia-8---primer-javascript-y-diferencia-entre-estatico-y-dinamico"
             id="toc-dia-8---primer-javascript-y-diferencia-entre-estatico-y-dinamico"
           >
-            Dia 8 (2026-05-14) - Primer JavaScript y diferencia entre estatico y dinamico
+            Dia 8 - Primer JavaScript y diferencia entre estatico y dinamico
           </a>
         </li>
         <li>
@@ -2624,7 +2749,7 @@ DIARIO_CURSOWEBM: indice editorial generado
             href="#dia-9---dom-eventos-botones-y-objetos-de-estadisticas"
             id="toc-dia-9---dom-eventos-botones-y-objetos-de-estadisticas"
           >
-            Dia 9 (2026-05-18) - DOM, eventos, botones y objetos de estadisticas
+            Dia 9 - DOM, eventos, botones y objetos de estadisticas
           </a>
         </li>
         <li>
@@ -2632,7 +2757,7 @@ DIARIO_CURSOWEBM: indice editorial generado
             href="#dia-10---formulario-dni-y-validacion-con-resto"
             id="toc-dia-10---formulario-dni-y-validacion-con-resto"
           >
-            Dia 10 (2026-05-19) - Formulario DNI y validacion con resto
+            Dia 10 - Formulario DNI y validacion con resto
           </a>
         </li>
         <li>
@@ -2640,7 +2765,7 @@ DIARIO_CURSOWEBM: indice editorial generado
             href="#dia-11---bucles-condiciones-cadenas-y-tablero-de-juego"
             id="toc-dia-11---bucles-condiciones-cadenas-y-tablero-de-juego"
           >
-            Dia 11 (2026-05-22) - Bucles, condiciones, cadenas y tablero de juego
+            Dia 11 - Bucles, condiciones, cadenas y tablero de juego
           </a>
         </li>
         <li>
@@ -2648,7 +2773,7 @@ DIARIO_CURSOWEBM: indice editorial generado
             href="#dia-12---alta-de-usuario-y-tablero-alternativo"
             id="toc-dia-12---alta-de-usuario-y-tablero-alternativo"
           >
-            Dia 12 (2026-05-25) - Alta de usuario y tablero alternativo
+            Dia 12 - Alta de usuario y tablero alternativo
           </a>
         </li>
         <li>
@@ -2656,7 +2781,7 @@ DIARIO_CURSOWEBM: indice editorial generado
             href="#dia-13---palindromos-arrays-de-alumnos-y-temporizadores"
             id="toc-dia-13---palindromos-arrays-de-alumnos-y-temporizadores"
           >
-            Dia 13 (2026-05-26) - Palindromos, arrays de alumnos y temporizadores
+            Dia 13 - Palindromos, arrays de alumnos y temporizadores
           </a>
         </li>
         <li>
@@ -2664,16 +2789,16 @@ DIARIO_CURSOWEBM: indice editorial generado
             href="#dia-14---listado-completo-de-alumnos-callbacks-y-estadisticas-pendientes"
             id="toc-dia-14---listado-completo-de-alumnos-callbacks-y-estadisticas-pendientes"
           >
-            Dia 14 (2026-05-27) - Listado completo de alumnos, callbacks y estadisticas
+            Dia 14 - Listado completo de alumnos, callbacks y estadisticas
             pendientes
           </a>
         </li>
         <li>
           <a
-            href="#dia-15---aleatorio-math-random-y-preparacion-de-examen"
-            id="toc-dia-15---aleatorio-math-random-y-preparacion-de-examen"
+            href="#dia-15---aleatorio-math-random-y-repaso-del-modulo"
+            id="toc-dia-15---aleatorio-math-random-y-repaso-del-modulo"
           >
-            Dia 15 (2026-05-29) - Aleatorio, Math.random y preparacion de examen
+            Dia 15 - Aleatorio, Math.random y repaso del modulo
           </a>
         </li>
         <li>
@@ -2681,7 +2806,7 @@ DIARIO_CURSOWEBM: indice editorial generado
             href="#dia-16---tabla-de-alumnos-ordenar-filtrar-y-calcular"
             id="toc-dia-16---tabla-de-alumnos-ordenar-filtrar-y-calcular"
           >
-            Dia 16 (2026-06-01) - Tabla de alumnos: ordenar, filtrar y calcular
+            Dia 16 - Tabla de alumnos: ordenar, filtrar y calcular
           </a>
         </li>
         <li>
@@ -2689,7 +2814,7 @@ DIARIO_CURSOWEBM: indice editorial generado
             href="#dia-17---adivinar-numeros-palindromos-y-localstorage"
             id="toc-dia-17---adivinar-numeros-palindromos-y-localstorage"
           >
-            Dia 17 (2026-06-01) - Adivinar numeros, palindromos y localStorage
+            Dia 17 - Adivinar numeros, palindromos y localStorage
           </a>
         </li>
         <li>
@@ -2697,7 +2822,7 @@ DIARIO_CURSOWEBM: indice editorial generado
             href="#dia-18---adivina-numero-con-memoria-y-autoevaluaciones-modulo-2"
             id="toc-dia-18---adivina-numero-con-memoria-y-autoevaluaciones-modulo-2"
           >
-            Dia 18 (2026-06-02) - Adivina numero con memoria y autoevaluaciones modulo 2
+            Dia 18 - Adivina numero con memoria y autoevaluaciones modulo 2
           </a>
         </li>
       </ul>
@@ -8320,9 +8445,9 @@ function borrarTodos() {
     </section>
     <section
       class="level1 day-section"
-      id="dia-15---aleatorio-math-random-y-preparacion-de-examen"
+      id="dia-15---aleatorio-math-random-y-repaso-del-modulo"
     >
-      <h1 data-day-date="29/05/2026">Dia 15 - Aleatorio, Math.random y preparacion de examen</h1>
+      <h1 data-day-date="29/05/2026">Dia 15 - Aleatorio, Math.random y repaso del modulo</h1>
       <p>
         Este dia prepara una pieza pequena pero decisiva para los juegos:
         convertir un decimal imprevisible en una opcion concreta que el programa
@@ -8508,7 +8633,7 @@ generarAleatorio();</code></pre>
             y compararlo con la opcion del jugador.
           </li>
           <li>
-            <strong> Que conviene revisar para el examen? </strong>
+            <strong> Que conviene revisar para el repaso del modulo? </strong>
             <br />
             Funciones, variables locales, uso de
             <code>return</code>
@@ -9627,1167 +9752,6 @@ console.log("Intentos guardados:", intentos);</code></pre>
           web, normalmente empieza por una llamada de este tipo.
         </p>
       </section>
-      <section class="level2" id="autoevaluaciones-modulo-2">
-        <h2>Autoevaluaciones modulo 2</h2>
-        <p>
-          Bateria de practica tipo test centrada solo en contenidos desde
-          el Dia 8: JavaScript, consola, DOM, eventos, formularios,
-          validaciones, cadenas, arrays, callbacks, temporizadores,
-          <code>localStorage</code>, API Web, <code>fetch</code> y depuracion.
-          Cada prueba se corrige desde su propio panel: selecciona una
-          opcion por pregunta y revisa aciertos, errores y pendientes.
-        </p>
-        <section class="level3" id="autoevaluacion-modulo-2-prueba-1">
-          <h3>Autoevaluacion 1 - Dia 8 y 9: JavaScript, consola, DOM y eventos</h3>
-          <ol type="1">
-            <li>
-              Que aporta JavaScript a una pagina que antes era estatica?
-              <ol type="a">
-                <li><strong>Comportamiento e interaccion con el usuario</strong></li>
-                <li>Solo una fuente de letra nueva</li>
-                <li>Una tabla HTML automatica</li>
-                <li>Un selector CSS sin logica</li>
-              </ol>
-            </li>
-            <li>
-              Para que se usa <code>console.log</code> al empezar con JavaScript?
-              <ol type="a">
-                <li>Para cambiar el color del documento</li>
-                <li><strong>Para comprobar valores y seguir el flujo en consola</strong></li>
-                <li>Para borrar todos los errores automaticamente</li>
-                <li>Para crear etiquetas HTML visibles</li>
-              </ol>
-            </li>
-            <li>
-              Que ocurre cuando una linea JavaScript tiene un error de sintaxis?
-              <ol type="a">
-                <li>CSS deja de cargar siempre</li>
-                <li>El HTML desaparece del archivo</li>
-                <li><strong>El navegador no puede interpretar correctamente esa instruccion</strong></li>
-                <li>El servidor corrige la linea antes de ejecutarla</li>
-              </ol>
-            </li>
-            <li>
-              Que representa el DOM para JavaScript?
-              <ol type="a">
-                <li>La carpeta donde se guardan imagenes</li>
-                <li>Un protocolo para pedir datos remotos</li>
-                <li>Una hoja de estilos comprimida</li>
-                <li><strong>El documento HTML convertido en nodos que se pueden leer o modificar</strong></li>
-              </ol>
-            </li>
-            <li>
-              Que hace <code>document.getElementById("mensaje")</code>?
-              <ol type="a">
-                <li>Crea una base de datos llamada mensaje</li>
-                <li><strong>Busca en el DOM el elemento cuyo <code>id</code> es <code>mensaje</code></strong></li>
-                <li>Recarga la pagina con el texto mensaje</li>
-                <li>Ordena todos los botones alfabeticamente</li>
-              </ol>
-            </li>
-            <li>
-              Que propiedad permite cambiar el texto visible de un nodo?
-              <ol type="a">
-                <li><code>href</code></li>
-                <li><code>charset</code></li>
-                <li><code>doctype</code></li>
-                <li><strong><code>textContent</code></strong></li>
-              </ol>
-            </li>
-            <li>
-              Si se ejecuta <code>boton.style.backgroundColor = "red"</code>, que cambia?
-              <ol type="a">
-                <li><strong>El estilo en linea del boton seleccionado</strong></li>
-                <li>La estructura completa del HTML</li>
-                <li>La URL de la pagina</li>
-                <li>El numero de elementos del array</li>
-              </ol>
-            </li>
-            <li>
-              Que es un evento de usuario?
-              <ol type="a">
-                <li>Una imagen que carga lentamente</li>
-                <li>Un error obligatorio al abrir una pagina</li>
-                <li><strong>Una accion como click, escritura o cambio que JavaScript puede escuchar</strong></li>
-                <li>Un comentario dentro del CSS</li>
-              </ol>
-            </li>
-            <li>
-              Para que sirve <code>onclick</code> en un boton?
-              <ol type="a">
-                <li>Para cambiar el nombre del archivo HTML</li>
-                <li>Para importar automaticamente una libreria</li>
-                <li><strong>Para ejecutar una funcion cuando el usuario hace click</strong></li>
-                <li>Para validar todas las entradas sin codigo</li>
-              </ol>
-            </li>
-            <li>
-              Que ventaja tiene separar una funcion como <code>saludar()</code>?
-              <ol type="a">
-                <li><strong>Permite reutilizar una accion y llamarla desde un evento</strong></li>
-                <li>Impide que la pagina tenga botones</li>
-                <li>Convierte CSS en JavaScript</li>
-                <li>Evita probar el codigo en consola</li>
-              </ol>
-            </li>
-            <li>
-              En el laboratorio DOM, que secuencia explica mejor lo que ocurre?
-              <ol type="a">
-                <li>CSS, imagen, base de datos, apagado</li>
-                <li>HTML, PDF, descarga, reinicio</li>
-                <li>Audio, video, canvas, tabla</li>
-                <li><strong>Evento, funcion JavaScript, cambio visible en el DOM</strong></li>
-              </ol>
-            </li>
-            <li>
-              Que indica un contador que aumenta con cada click?
-              <ol type="a">
-                <li>Que el DOM se ordena solo sin codigo</li>
-                <li><strong>Que una variable conserva el numero de interacciones realizadas</strong></li>
-                <li>Que HTML esta ordenando arrays</li>
-                <li>Que CSS ha creado un servidor</li>
-              </ol>
-            </li>
-            <li>
-              Que hace <code>window.innerWidth</code>?
-              <ol type="a">
-                <li><strong>Devuelve el ancho interior de la ventana del navegador</strong></li>
-                <li>Cambia el texto de todos los parrafos</li>
-                <li>Guarda datos entre sesiones</li>
-                <li>Convierte un objeto en JSON</li>
-              </ol>
-            </li>
-            <li>
-              Que hace <code>window.location.href</code>?
-              <ol type="a">
-                <li>Permite ordenar edades de alumnos</li>
-                <li><strong>Permite leer la direccion actual de la pagina</strong></li>
-                <li>Permite cambiar el tipo de input</li>
-                <li>Permite dibujar una tabla automaticamente</li>
-              </ol>
-            </li>
-            <li>
-              En un ejercicio de botones, que conviene comprobar si no cambia nada?
-              <ol type="a">
-                <li>Que el archivo tenga muchas imagenes</li>
-                <li>Que el titulo sea muy largo</li>
-                <li><strong>Que el <code>id</code> usado en JS coincide con el del HTML</strong></li>
-                <li>Que el color sea hexadecimal</li>
-              </ol>
-            </li>
-            <li>
-              Que diferencia hay entre cambiar <code>textContent</code> y cambiar <code>style.color</code>?
-              <ol type="a">
-                <li>Los dos borran el nodo completo</li>
-                <li>Los dos guardan datos en localStorage</li>
-                <li>Uno solo funciona con imagenes y otro con audio</li>
-                <li><strong>Uno modifica texto y el otro modifica presentacion</strong></li>
-              </ol>
-            </li>
-            <li>
-              Que es un objeto JavaScript como <code>alumno.edad</code>?
-              <ol type="a">
-                <li>Un archivo CSS externo</li>
-                <li><strong>Una estructura con propiedades y valores relacionados</strong></li>
-                <li>Un protocolo de red</li>
-                <li>Una etiqueta sin cierre</li>
-              </ol>
-            </li>
-            <li>
-              Que significa acceder a <code>objeto.propiedad</code>?
-              <ol type="a">
-                <li>Crear un elemento visual nuevo siempre</li>
-                <li>Borrar el objeto de memoria</li>
-                <li>Convertir texto en imagen</li>
-                <li><strong>Leer una propiedad concreta de un objeto</strong></li>
-              </ol>
-            </li>
-            <li>
-              Por que conviene esperar a que el HTML exista antes de buscar nodos?
-              <ol type="a">
-                <li><strong>Porque si el nodo aun no se ha cargado, JavaScript puede recibir <code>null</code></strong></li>
-                <li>Porque CSS no acepta colores antes de las 15:00</li>
-                <li>Porque un array no puede contener objetos</li>
-                <li>Porque localStorage se vacia al cargar</li>
-              </ol>
-            </li>
-            <li>
-              Que hace <code>window.onload</code> en un ejercicio de estadisticas?
-              <ol type="a">
-                <li>Ordena todos los ficheros de la carpeta</li>
-                <li>Convierte una tabla en PDF</li>
-                <li><strong>Ejecuta codigo cuando la pagina ya ha cargado</strong></li>
-                <li>Impide usar funciones</li>
-              </ol>
-            </li>
-            <li>
-              Que significa que una pagina sea dinamica desde el Dia 8?
-              <ol type="a">
-                <li>Que solo tiene animaciones decorativas</li>
-                <li>Que no necesita HTML</li>
-                <li><strong>Que responde a acciones o datos mediante JavaScript</strong></li>
-                <li>Que siempre depende de una CDN</li>
-              </ol>
-            </li>
-            <li>
-              Que debe revisarse cuando una funcion asociada a un boton no se ejecuta?
-              <ol type="a">
-                <li><strong>Nombre de la funcion, evento y ruta del script</strong></li>
-                <li>Solo el color del boton</li>
-                <li>Solo el tamaño de la pantalla</li>
-                <li>Solo la extension de una imagen</li>
-              </ol>
-            </li>
-            <li>
-              Que error es mas probable si se escribe mal el nombre de una variable?
-              <ol type="a">
-                <li>Una tabla mas grande</li>
-                <li>Un video sin controles</li>
-                <li>Un margen automatico</li>
-                <li><strong>Un error de referencia o comportamiento inesperado</strong></li>
-              </ol>
-            </li>
-            <li>
-              Que aporta <code>alert</code> en los primeros ejercicios de JS?
-              <ol type="a">
-                <li>Sustituye todas las pruebas de consola</li>
-                <li><strong>Muestra un mensaje emergente sencillo para comprobar una accion</strong></li>
-                <li>Guarda datos permanentes</li>
-                <li>Crea un formulario completo</li>
-              </ol>
-            </li>
-            <li>
-              Que pregunta tecnica debe hacerse al ver un cambio en pantalla?
-              <ol type="a">
-                <li><strong>Que nodo se ha seleccionado y que propiedad se ha modificado</strong></li>
-                <li>Que variable global se ha creado sin querer</li>
-                <li>Que array se ha recorrido</li>
-                <li>Que evento ha disparado la funcion</li>
-              </ol>
-            </li>
-          </ol>
-        </section>
-        <section class="level3" id="autoevaluacion-modulo-2-prueba-2">
-          <h3>Autoevaluacion 2 - Dia 10 a 12: formularios, validacion, condiciones y tableros</h3>
-          <ol type="1">
-            <li>
-              En el ejercicio del DNI, que se calcula con el resto de dividir por 23?
-              <ol type="a">
-                <li>La edad del usuario</li>
-                <li><strong>La posicion de la letra que corresponde al numero</strong></li>
-                <li>El numero de filas de una tabla</li>
-                <li>El color de fondo del formulario</li>
-              </ol>
-            </li>
-            <li>
-              Que debe comprobarse antes de calcular una letra de DNI?
-              <ol type="a">
-                <li>Que el usuario tenga una imagen</li>
-                <li>Que el CSS use grid</li>
-                <li><strong>Que hay exactamente ocho cifras numericas</strong></li>
-                <li>Que exista una etiqueta <code>audio</code></li>
-              </ol>
-            </li>
-            <li>
-              Para que sirve <code>Number(valor)</code> en una validacion numerica?
-              <ol type="a">
-                <li>Para crear una etiqueta nueva</li>
-                <li>Para cambiar una ruta relativa</li>
-                <li>Para borrar una clase CSS</li>
-                <li><strong>Para convertir texto de un input en numero utilizable</strong></li>
-              </ol>
-            </li>
-            <li>
-              Que hace el operador <code>%</code> en JavaScript?
-              <ol type="a">
-                <li>Concatena dos arrays</li>
-                <li><strong>Devuelve el resto de una division</strong></li>
-                <li>Busca un elemento por id</li>
-                <li>Detiene todos los eventos</li>
-              </ol>
-            </li>
-            <li>
-              En un formulario, por que se usa <code>value</code>?
-              <ol type="a">
-                <li>Para cambiar el nombre del archivo</li>
-                <li>Para recorrer un array automaticamente</li>
-                <li>Para activar una animacion CSS</li>
-                <li><strong>Para leer el dato escrito por el usuario en un control</strong></li>
-              </ol>
-            </li>
-            <li>
-              Que conviene hacer si un input numerico llega como cadena?
-              <ol type="a">
-                <li><strong>Convertirlo y validar que el resultado sea util</strong></li>
-                <li>Compararlo siempre como texto</li>
-                <li>Sumarlo directamente a una imagen</li>
-                <li>Guardarlo sin comprobar</li>
-              </ol>
-            </li>
-            <li>
-              Que estructura permite elegir entre victoria, derrota o seguir jugando?
-              <ol type="a">
-                <li>Solo una etiqueta <code>section</code></li>
-                <li>Un atributo <code>alt</code></li>
-                <li><strong>Condicionales <code>if</code> / <code>else</code></strong></li>
-                <li>Un selector universal CSS</li>
-              </ol>
-            </li>
-            <li>
-              En un tablero de cubos, que suele representar una clase como <code>is-off</code>?
-              <ol type="a">
-                <li>Una peticion HTTP pendiente</li>
-                <li>Un numero secreto</li>
-                <li><strong>Un estado visual aplicado a un cubo</strong></li>
-                <li>Un error de sintaxis</li>
-              </ol>
-            </li>
-            <li>
-              Que hace <code>classList.add("is-off")</code>?
-              <ol type="a">
-                <li><strong>Anade una clase CSS al elemento seleccionado</strong></li>
-                <li>Borra el nodo del HTML</li>
-                <li>Ordena los cubos por color</li>
-                <li>Crea un servidor local</li>
-              </ol>
-            </li>
-            <li>
-              Como se comprueba si todos los cubos estan apagados?
-              <ol type="a">
-                <li>Mirando solo el primer cubo</li>
-                <li>Comprobando la URL de la pagina</li>
-                <li>Leyendo una etiqueta <code>meta</code></li>
-                <li><strong>Revisando el estado de todos los elementos del tablero</strong></li>
-              </ol>
-            </li>
-            <li>
-              En un alta de usuario, que validacion es propia de una contrasena fuerte?
-              <ol type="a">
-                <li>Aceptar siempre cualquier texto</li>
-                <li><strong>Comprobar longitud y mezcla de caracteres segun reglas definidas</strong></li>
-                <li>Pedir solo el color favorito</li>
-                <li>Comparar el texto con una imagen</li>
-              </ol>
-            </li>
-            <li>
-              Que significa validar una fecha de nacimiento para mayoria de edad?
-              <ol type="a">
-                <li><strong>Calcular la edad y comprobar que cumple el minimo</strong></li>
-                <li>Ordenar la fecha alfabeticamente</li>
-                <li>Guardar la fecha en CSS</li>
-                <li>Convertir la fecha en una tabla</li>
-              </ol>
-            </li>
-            <li>
-              Que representa un checkbox de condiciones aceptadas?
-              <ol type="a">
-                <li>Una lista de objetos remotos</li>
-                <li><strong>Un valor booleano que indica si esta marcado o no</strong></li>
-                <li>Una animacion obligatoria</li>
-                <li>Un numero aleatorio</li>
-              </ol>
-            </li>
-            <li>
-              Que propiedad se consulta para saber si un checkbox esta marcado?
-              <ol type="a">
-                <li><code>innerWidth</code></li>
-                <li><code>src</code></li>
-                <li><strong><code>checked</code></strong></li>
-                <li><code>alt</code></li>
-              </ol>
-            </li>
-            <li>
-              Por que se separan funciones como validar nombre, contrasena y edad?
-              <ol type="a">
-                <li>Para duplicar errores</li>
-                <li>Para impedir reutilizar codigo</li>
-                <li>Para mezclar HTML con CSS sin control</li>
-                <li><strong>Para hacer el codigo mas legible y probar cada regla por separado</strong></li>
-              </ol>
-            </li>
-            <li>
-              Que debe ocurrir si el formulario no es valido?
-              <ol type="a">
-                <li>Ocultar todos los mensajes</li>
-                <li><strong>Mostrar un estado claro y no pasar al tablero</strong></li>
-                <li>Empezar el juego igualmente</li>
-                <li>Borrar el archivo JavaScript</li>
-              </ol>
-            </li>
-            <li>
-              Que relacion hay entre el formulario y el tablero de cubos?
-              <ol type="a">
-                <li>El tablero valida el DNI automaticamente</li>
-                <li>Los cubos sustituyen los inputs</li>
-                <li>No existe conexion posible</li>
-                <li><strong>El formulario habilita el paso al tablero cuando cumple las reglas</strong></li>
-              </ol>
-            </li>
-            <li>
-              Que error frecuente aparece al usar <code>getElementById</code> en formularios?
-              <ol type="a">
-                <li><strong>Usar un id distinto al definido en HTML</strong></li>
-                <li>Tener demasiados colores</li>
-                <li>Usar una tabla con encabezado</li>
-                <li>No incluir audio</li>
-              </ol>
-            </li>
-            <li>
-              Que conviene mostrar al alumno al corregir un formulario?
-              <ol type="a">
-                <li>Solo un mensaje generico sin informacion</li>
-                <li>Un cambio de fuente aleatorio</li>
-                <li><strong>Que regla falla y que dato debe revisar</strong></li>
-                <li>Una imagen sin relacion</li>
-              </ol>
-            </li>
-            <li>
-              Que hace <code>preventDefault()</code> en un formulario?
-              <ol type="a">
-                <li>Elimina el formulario del DOM</li>
-                <li>Convierte el boton en imagen</li>
-                <li><strong>Evita el envio automatico para poder validar con JavaScript</strong></li>
-                <li>Guarda datos en localStorage siempre</li>
-              </ol>
-            </li>
-            <li>
-              Que diferencia hay entre validar en HTML y validar en JavaScript?
-              <ol type="a">
-                <li><strong>HTML aporta restricciones basicas; JavaScript permite reglas propias</strong></li>
-                <li>HTML calcula arrays y JS solo pinta colores</li>
-                <li>JavaScript no puede leer inputs</li>
-                <li>HTML escucha todos los eventos complejos</li>
-              </ol>
-            </li>
-            <li>
-              En un juego, para que sirve una funcion <code>reiniciar()</code>?
-              <ol type="a">
-                <li>Cerrar el navegador</li>
-                <li>Cambiar todos los ids del documento</li>
-                <li>Eliminar la carpeta del proyecto</li>
-                <li><strong>Restaurar estado inicial y permitir empezar otra vez</strong></li>
-              </ol>
-            </li>
-            <li>
-              Que dato debe controlarse para limitar intentos?
-              <ol type="a">
-                <li>El ancho de pantalla</li>
-                <li><strong>Un contador de intentos usados o restantes</strong></li>
-                <li>El titulo del documento</li>
-                <li>El atributo <code>alt</code></li>
-              </ol>
-            </li>
-            <li>
-              Que indica un mensaje de pista mayor o menor?
-              <ol type="a">
-                <li><strong>Ayuda al usuario a acercarse al numero secreto</strong></li>
-                <li>Confirma que el CSS esta vacio</li>
-                <li>Muestra que no hay JavaScript</li>
-                <li>Ordena automaticamente los inputs</li>
-              </ol>
-            </li>
-            <li>
-              Que principio resume los ejercicios de formularios desde Dia 10?
-              <ol type="a">
-                <li>Escribir HTML fijo y no probar</li>
-                <li><strong>Leer datos, validarlos, actualizar estado y mostrar respuesta</strong></li>
-                <li>Usar solo imagenes</li>
-                <li>Evitar funciones y eventos</li>
-              </ol>
-            </li>
-          </ol>
-        </section>
-        <section class="level3" id="autoevaluacion-modulo-2-prueba-3">
-          <h3>Autoevaluacion 3 - Dia 13 a 15: cadenas, arrays, callbacks, temporizadores y aleatorio</h3>
-          <ol type="1">
-            <li>
-              En un palindromo, que se compara normalmente?
-              <ol type="a">
-                <li>La edad y el nombre de un alumno</li>
-                <li>El ancho y alto de la ventana</li>
-                <li><strong>La palabra original y su version invertida normalizada</strong></li>
-                <li>El color de dos botones</li>
-              </ol>
-            </li>
-            <li>
-              Por que conviene normalizar una cadena antes de comprobar palindromos?
-              <ol type="a">
-                <li>Para hacer que la palabra sea siempre numerica</li>
-                <li>Para borrar el DOM</li>
-                <li>Para cargar una imagen remota</li>
-                <li><strong>Para evitar fallos por mayusculas, espacios o caracteres sobrantes</strong></li>
-              </ol>
-            </li>
-            <li>
-              Que metodo puede separar una cadena en caracteres?
-              <ol type="a">
-                <li><code>fetch()</code></li>
-                <li><strong><code>split("")</code></strong></li>
-                <li><code>setItem()</code></li>
-                <li><code>appendChild()</code></li>
-              </ol>
-            </li>
-            <li>
-              Que metodo invierte el orden de los elementos de un array?
-              <ol type="a">
-                <li><code>filter()</code></li>
-                <li><code>getItem()</code></li>
-                <li><code>preventDefault()</code></li>
-                <li><strong><code>reverse()</code></strong></li>
-              </ol>
-            </li>
-            <li>
-              Que metodo vuelve a unir elementos de un array en texto?
-              <ol type="a">
-                <li><strong><code>join("")</code></strong></li>
-                <li><code>addEventListener()</code></li>
-                <li><code>querySelector()</code></li>
-                <li><code>Math.random()</code></li>
-              </ol>
-            </li>
-            <li>
-              Que representa un array de alumnos?
-              <ol type="a">
-                <li>Una hoja de estilos</li>
-                <li>Un unico numero aleatorio</li>
-                <li><strong>Una lista de objetos con datos como nombre y edad</strong></li>
-                <li>Una clase CSS sin datos</li>
-              </ol>
-            </li>
-            <li>
-              Para que sirve <code>forEach</code> en una lista de alumnos?
-              <ol type="a">
-                <li>Para ordenar automaticamente sin criterio</li>
-                <li>Para crear una peticion remota</li>
-                <li><strong>Para ejecutar una funcion por cada alumno del array</strong></li>
-                <li>Para guardar claves en localStorage</li>
-              </ol>
-            </li>
-            <li>
-              Que es un callback en <code>forEach</code>?
-              <ol type="a">
-                <li><strong>La funcion que se ejecuta con cada elemento recorrido</strong></li>
-                <li>Una propiedad CSS de un boton</li>
-                <li>Un tipo de etiqueta HTML</li>
-                <li>Un error del servidor</li>
-              </ol>
-            </li>
-            <li>
-              Que significa recibir <code>(alumno, index)</code> en un callback?
-              <ol type="a">
-                <li>Que se reciben dos archivos CSS</li>
-                <li>Que se borra el array</li>
-                <li>Que se reinicia el navegador</li>
-                <li><strong>Que se tiene el elemento actual y su posicion</strong></li>
-              </ol>
-            </li>
-            <li>
-              Que hace <code>array.map()</code> cuando se usa correctamente?
-              <ol type="a">
-                <li>Muestra un alert por obligacion</li>
-                <li><strong>Crea un nuevo array transformando cada elemento</strong></li>
-                <li>Borra todos los objetos</li>
-                <li>Cambia el titulo HTML</li>
-              </ol>
-            </li>
-            <li>
-              Que hace <code>array.filter()</code>?
-              <ol type="a">
-                <li><strong>Devuelve elementos que cumplen una condicion</strong></li>
-                <li>Ordena por edad de forma obligatoria</li>
-                <li>Convierte objetos en imagenes</li>
-                <li>Ejecuta un temporizador</li>
-              </ol>
-            </li>
-            <li>
-              Que necesita <code>sort</code> para ordenar edades numericamente?
-              <ol type="a">
-                <li>Una etiqueta <code>table</code> vacia</li>
-                <li><strong>Una funcion de comparacion como <code>a.edad - b.edad</code></strong></li>
-                <li>Un atributo <code>alt</code></li>
-                <li>Una URL remota</li>
-              </ol>
-            </li>
-            <li>
-              Si la comparacion de <code>sort</code> devuelve negativo, que indica?
-              <ol type="a">
-                <li>Que el array esta vacio</li>
-                <li>Que hay que recargar la pagina</li>
-                <li><strong>Que el primer elemento debe ir antes que el segundo</strong></li>
-                <li>Que CSS ha fallado</li>
-              </ol>
-            </li>
-            <li>
-              Que permite calcular una media de edades?
-              <ol type="a">
-                <li>Concatenar nombres sin contar alumnos</li>
-                <li>Ordenar colores</li>
-                <li>Leer solo el primer valor</li>
-                <li><strong>Sumar edades y dividir entre el numero de alumnos</strong></li>
-              </ol>
-            </li>
-            <li>
-              Que variable debe actualizarse en un temporizador?
-              <ol type="a">
-                <li>El doctype</li>
-                <li><strong>El tiempo restante o contador visible</strong></li>
-                <li>El idioma de la pagina</li>
-                <li>La extension del archivo</li>
-              </ol>
-            </li>
-            <li>
-              Para que sirve <code>setTimeout</code>?
-              <ol type="a">
-                <li>Para repetir infinitamente sin control</li>
-                <li>Para leer una clave de localStorage</li>
-                <li>Para convertir una respuesta en JSON</li>
-                <li><strong>Para ejecutar una funcion despues de un retraso</strong></li>
-              </ol>
-            </li>
-            <li>
-              Para que sirve <code>setInterval</code>?
-              <ol type="a">
-                <li><strong>Para repetir una funcion cada cierto intervalo</strong></li>
-                <li>Para detener todos los eventos</li>
-                <li>Para crear objetos sin propiedades</li>
-                <li>Para validar un DNI por si solo</li>
-              </ol>
-            </li>
-            <li>
-              Que debe hacerse para detener un intervalo?
-              <ol type="a">
-                <li>Cambiar el color del body</li>
-                <li>Borrar el HTML</li>
-                <li><strong>Guardar su identificador y usar <code>clearInterval</code></strong></li>
-                <li>Cerrar la consola</li>
-              </ol>
-            </li>
-            <li>
-              Que devuelve <code>Math.random()</code>?
-              <ol type="a">
-                <li>Un entero entre 1 y 100 directamente</li>
-                <li>Una cadena invertida</li>
-                <li><strong>Un numero decimal entre 0 y 1, sin incluir 1</strong></li>
-                <li>Un objeto alumno completo</li>
-              </ol>
-            </li>
-            <li>
-              Como se obtiene un entero entre 1 y 100 con <code>Math.random</code>?
-              <ol type="a">
-                <li><strong>Multiplicar, aplicar <code>Math.floor</code> y sumar el minimo</strong></li>
-                <li>Usar solo <code>Math.round()</code> sin rango</li>
-                <li>Leer <code>input.value</code> siempre</li>
-                <li>Usar <code>localStorage.clear()</code></li>
-              </ol>
-            </li>
-            <li>
-              Que riesgo hay al usar aleatorio sin guardar el numero secreto?
-              <ol type="a">
-                <li>Que CSS no cargue</li>
-                <li>Que el boton pierda su texto</li>
-                <li>Que el array se ordene solo</li>
-                <li><strong>Que cambie durante la partida y el juego sea injusto</strong></li>
-              </ol>
-            </li>
-            <li>
-              En piedra, papel o tijera, que se compara?
-              <ol type="a">
-                <li>El nombre y edad de alumnos</li>
-                <li><strong>La opcion del jugador y la opcion generada por el programa</strong></li>
-                <li>La clave y valor de localStorage</li>
-                <li>La ruta y el titulo del HTML</li>
-              </ol>
-            </li>
-            <li>
-              Que aporta un historial de intentos o jugadas?
-              <ol type="a">
-                <li><strong>Permite ver las decisiones anteriores del usuario</strong></li>
-                <li>Sustituye todas las validaciones</li>
-                <li>Impide usar arrays</li>
-                <li>Hace innecesario el DOM</li>
-              </ol>
-            </li>
-            <li>
-              Que tipo de error produce un resultado incorrecto aunque el codigo ejecute?
-              <ol type="a">
-                <li>Error de sintaxis siempre</li>
-                <li><strong>Error logico</strong></li>
-                <li>Estado visual sin relacion</li>
-                <li>Viewport incompatible</li>
-              </ol>
-            </li>
-            <li>
-              Que se debe probar en ejercicios con arrays y temporizadores?
-              <ol type="a">
-                <li>Solo que el HTML tenga titulo</li>
-                <li>Solo que haya colores</li>
-                <li><strong>Estado inicial, cambios tras cada accion y resultado final</strong></li>
-                <li>Solo que el archivo sea grande</li>
-              </ol>
-            </li>
-          </ol>
-        </section>
-        <section class="level3" id="autoevaluacion-modulo-2-prueba-4">
-          <h3>Autoevaluacion 4 - Dia 16 y 17: tablas de alumnos, estado y localStorage</h3>
-          <ol type="1">
-            <li>
-              En la tabla de alumnos, que relacion hay entre array y tabla?
-              <ol type="a">
-                <li>La tabla crea el array sin codigo</li>
-                <li>CSS calcula las edades</li>
-                <li>El navegador descarga alumnos sin fetch</li>
-                <li><strong>El array contiene los datos y JavaScript pinta filas en el DOM</strong></li>
-              </ol>
-            </li>
-            <li>
-              Que hace una funcion <code>pintarTabla(alumnos)</code>?
-              <ol type="a">
-                <li>Valida un DNI siempre</li>
-                <li><strong>Recorre la lista y genera filas visibles</strong></li>
-                <li>Cambia el protocolo HTTP</li>
-                <li>Convierte una imagen en objeto</li>
-              </ol>
-            </li>
-            <li>
-              Que debe hacerse antes de repintar una tabla filtrada?
-              <ol type="a">
-                <li>Cambiar el doctype</li>
-                <li>Borrar el archivo CSS</li>
-                <li>Cerrar la consola</li>
-                <li><strong>Limpiar las filas anteriores para no duplicar contenido</strong></li>
-              </ol>
-            </li>
-            <li>
-              Que permite un filtro por nombre?
-              <ol type="a">
-                <li><strong>Mostrar solo alumnos cuyo nombre cumple una condicion</strong></li>
-                <li>Ordenar por edad sin comparar</li>
-                <li>Crear un numero secreto</li>
-                <li>Reproducir audio</li>
-              </ol>
-            </li>
-            <li>
-              Que metodo es adecuado para filtrar alumnos?
-              <ol type="a">
-                <li><code>setTimeout</code></li>
-                <li><code>getElementById</code> solo</li>
-                <li><strong><code>filter</code></strong></li>
-                <li><code>clear</code> de CSS</li>
-              </ol>
-            </li>
-            <li>
-              Que metodo es adecuado para recorrer alumnos y pintar filas?
-              <ol type="a">
-                <li><code>localStorage.clear</code></li>
-                <li><code>Math.random</code></li>
-                <li><strong><code>forEach</code></strong></li>
-                <li><code>response.json</code> siempre</li>
-              </ol>
-            </li>
-            <li>
-              Para ordenar alumnos por edad ascendente, que comparacion es adecuada?
-              <ol type="a">
-                <li><strong><code>a.edad - b.edad</code></strong></li>
-                <li><code>a.nombre + b.nombre</code></li>
-                <li><code>Math.random()</code></li>
-                <li><code>localStorage.getItem()</code></li>
-              </ol>
-            </li>
-            <li>
-              Que problema aparece si <code>sort</code> se aplica sobre el array original sin cuidado?
-              <ol type="a">
-                <li>No modifica nada nunca</li>
-                <li>Borra el HTML</li>
-                <li>Convierte edades en imagenes</li>
-                <li><strong>Puede cambiar el orden de la lista base</strong></li>
-              </ol>
-            </li>
-            <li>
-              Que ventaja tiene ordenar una copia del array?
-              <ol type="a">
-                <li>Impide pintar la tabla</li>
-                <li><strong>Evita alterar los datos originales usados por otros botones</strong></li>
-                <li>Hace innecesarios los eventos</li>
-                <li>Crea claves remotas</li>
-              </ol>
-            </li>
-            <li>
-              Que dato necesita una estadistica de media de edad?
-              <ol type="a">
-                <li><strong>Suma de edades y cantidad de alumnos</strong></li>
-                <li>Solo el primer nombre</li>
-                <li>La URL del repositorio</li>
-                <li>El color del encabezado</li>
-              </ol>
-            </li>
-            <li>
-              Que significa que una funcion de estadisticas este como TODO?
-              <ol type="a">
-                <li>Que ya esta corregida automaticamente</li>
-                <li><strong>Que no debe documentarse como funcionalidad terminada</strong></li>
-                <li>Que no existe ningun ejercicio</li>
-                <li>Que CSS la ejecuta</li>
-              </ol>
-            </li>
-            <li>
-              Que hace <code>appendChild</code> al construir una tabla?
-              <ol type="a">
-                <li>Ordena un array alfabeticamente</li>
-                <li>Guarda un valor entre sesiones</li>
-                <li><strong>Inserta un nodo hijo dentro de otro nodo</strong></li>
-                <li>Genera un numero aleatorio</li>
-              </ol>
-            </li>
-            <li>
-              Que diferencia hay entre <code>innerHTML</code> y crear nodos?
-              <ol type="a">
-                <li>Crear nodos solo funciona con audio</li>
-                <li><code>innerHTML</code> no puede cambiar la pagina</li>
-                <li>Son siempre identicos en seguridad y control</li>
-                <li><strong><code>innerHTML</code> inyecta texto HTML; crear nodos separa mejor estructura y datos</strong></li>
-              </ol>
-            </li>
-            <li>
-              En el juego de adivinar numeros, que estado cambia tras cada intento?
-              <ol type="a">
-                <li>El doctype y la codificacion</li>
-                <li><strong>Intentos usados o restantes, pista e historial</strong></li>
-                <li>La ruta del CSS</li>
-                <li>El nombre del navegador</li>
-              </ol>
-            </li>
-            <li>
-              Que debe guardarse para continuar una partida de adivina numero?
-              <ol type="a">
-                <li>Solo el color del boton</li>
-                <li>Solo el nombre del archivo</li>
-                <li>Todas las imagenes del proyecto</li>
-                <li><strong>Numero secreto, intentos restantes e historial</strong></li>
-              </ol>
-            </li>
-            <li>
-              Que API permite guardar datos simples entre sesiones?
-              <ol type="a">
-                <li><strong><code>localStorage</code></strong></li>
-                <li><code>Math</code></li>
-                <li><code>console</code></li>
-                <li><code>classList</code></li>
-              </ol>
-            </li>
-            <li>
-              Que hace <code>localStorage.setItem("clave", valor)</code>?
-              <ol type="a">
-                <li>Borra todo el DOM</li>
-                <li>Filtra un array</li>
-                <li><strong>Guarda un valor textual asociado a una clave</strong></li>
-                <li>Escucha un evento</li>
-              </ol>
-            </li>
-            <li>
-              Que hace <code>localStorage.getItem("clave")</code>?
-              <ol type="a">
-                <li>Genera una fila de tabla</li>
-                <li>Calcula una media</li>
-                <li><strong>Recupera el valor guardado para esa clave</strong></li>
-                <li>Convierte texto en numero siempre</li>
-              </ol>
-            </li>
-            <li>
-              Que hace <code>localStorage.removeItem("clave")</code>?
-              <ol type="a">
-                <li><strong>Elimina una clave concreta</strong></li>
-                <li>Borra todas las variables locales</li>
-                <li>Ordena alumnos por edad</li>
-                <li>Cambia el texto de un nodo</li>
-              </ol>
-            </li>
-            <li>
-              Cuando termina una partida, que conviene hacer con los datos guardados?
-              <ol type="a">
-                <li>Mantenerlos siempre aunque haya victoria</li>
-                <li>Duplicarlos en cada click</li>
-                <li>Convertirlos en CSS</li>
-                <li><strong>Limpiarlos para no recuperar una partida ya cerrada</strong></li>
-              </ol>
-            </li>
-            <li>
-              Que error puede aparecer si se borra una clave con un nombre mal escrito?
-              <ol type="a">
-                <li>La pagina se convierte en PDF</li>
-                <li><strong>La clave real queda guardada y el reinicio no limpia bien</strong></li>
-                <li>El array se filtra solo</li>
-                <li>El boton pierde el evento siempre</li>
-              </ol>
-            </li>
-            <li>
-              Que diferencia hay entre dato recalculado y dato persistente?
-              <ol type="a">
-                <li><strong>El recalculado se obtiene de nuevo; el persistente se recupera de almacenamiento</strong></li>
-                <li>Ambos se guardan siempre en CSS</li>
-                <li>El persistente no puede cambiar</li>
-                <li>El recalculado solo existe en HTML</li>
-              </ol>
-            </li>
-            <li>
-              En un palindromo con historial, que se conserva para explicar el resultado?
-              <ol type="a">
-                <li>Una lista de clases CSS sueltas</li>
-                <li><strong>La palabra probada y si coincide con su inversa</strong></li>
-                <li>Un contador que no se actualiza</li>
-                <li>Una pista sin guardar</li>
-              </ol>
-            </li>
-            <li>
-              Que debe mostrar una interfaz de repaso de localStorage?
-              <ol type="a">
-                <li>Solo un fondo oscuro sin texto</li>
-                <li>Todos los archivos del disco</li>
-                <li><strong>Clave y valor guardado de forma comprensible</strong></li>
-                <li>El codigo fuente del navegador</li>
-              </ol>
-            </li>
-            <li>
-              Que resume mejor los dias 16 y 17?
-              <ol type="a">
-                <li>Estudiar solo colores de botones</li>
-                <li>Leer el codigo sin ejecutar pruebas</li>
-                <li>Crear paginas estaticas sin eventos</li>
-                <li><strong>Gestionar listas y estado para que la pagina responda de forma coherente</strong></li>
-              </ol>
-            </li>
-          </ol>
-        </section>
-        <section class="level3" id="autoevaluacion-modulo-2-prueba-5">
-          <h3>Autoevaluacion 5 - Dia 18: API Web, fetch y repaso final desde JavaScript</h3>
-          <ol type="1">
-            <li>
-              Que es una API Web en el contexto del navegador?
-              <ol type="a">
-                <li>Una etiqueta de tabla</li>
-                <li><strong>Una funcionalidad que JavaScript puede usar para interactuar con el navegador o la pagina</strong></li>
-                <li>Un tipo de color CSS</li>
-                <li>Un contador de clicks obligatorio</li>
-              </ol>
-            </li>
-            <li>
-              Que API se usa para acceder a elementos HTML desde JavaScript?
-              <ol type="a">
-                <li>PNG</li>
-                <li>ZIP</li>
-                <li>SQL local sin servidor</li>
-                <li><strong>DOM</strong></li>
-              </ol>
-            </li>
-            <li>
-              Que API se usa para guardar datos simples en el navegador?
-              <ol type="a">
-                <li><strong><code>localStorage</code></strong></li>
-                <li><code>alt</code></li>
-                <li><code>border</code></li>
-                <li><code>doctype</code></li>
-              </ol>
-            </li>
-            <li>
-              Que API permite pedir datos a una direccion remota?
-              <ol type="a">
-                <li><code>Math.floor</code></li>
-                <li><code>classList.add</code></li>
-                <li><strong><code>fetch</code></strong></li>
-                <li><code>textContent</code></li>
-              </ol>
-            </li>
-            <li>
-              Que devuelve inicialmente <code>fetch(URL_RUTA)</code>?
-              <ol type="a">
-                <li>Un array listo de forma inmediata</li>
-                <li>Una tabla HTML completa</li>
-                <li><strong>Una promesa que representa una respuesta futura</strong></li>
-                <li>Un numero secreto</li>
-              </ol>
-            </li>
-            <li>
-              Para que sirve <code>.then(...)</code> en una peticion <code>fetch</code>?
-              <ol type="a">
-                <li><strong>Para encadenar codigo cuando llega el resultado asincrono</strong></li>
-                <li>Para crear una clase CSS</li>
-                <li>Para borrar localStorage</li>
-                <li>Para validar un DNI</li>
-              </ol>
-            </li>
-            <li>
-              Que hace <code>response.json()</code>?
-              <ol type="a">
-                <li>Pinta automaticamente una tabla</li>
-                <li>Ordena alumnos por edad</li>
-                <li>Cambia el color del boton</li>
-                <li><strong>Convierte el cuerpo de la respuesta en datos JavaScript</strong></li>
-              </ol>
-            </li>
-            <li>
-              Por que no se puede usar el array remoto antes de que termine <code>fetch</code>?
-              <ol type="a">
-                <li>Porque los arrays no existen en JavaScript</li>
-                <li><strong>Porque la peticion es asincrona y los datos llegan despues</strong></li>
-                <li>Porque HTML bloquea internet</li>
-                <li>Porque CSS necesita compilarse</li>
-              </ol>
-            </li>
-            <li>
-              En alumnos remotos, que hace <code>mostrarAlumnos(arrayAlumnos)</code>?
-              <ol type="a">
-                <li><strong>Recibe el array y lo recorre para mostrar o preparar datos</strong></li>
-                <li>Genera el numero secreto</li>
-                <li>Valida una contrasena</li>
-                <li>Invierte una palabra</li>
-              </ol>
-            </li>
-            <li>
-              Que deberia hacerse para mostrar alumnos remotos en HTML?
-              <ol type="a">
-                <li>Usar solo <code>console.log</code> para siempre</li>
-                <li><strong>Crear elementos o filas y anadirlos al DOM</strong></li>
-                <li>Guardar la URL como imagen</li>
-                <li>Cambiar el viewport</li>
-              </ol>
-            </li>
-            <li>
-              Que diferencia hay entre mostrar en consola y mostrar en la pagina?
-              <ol type="a">
-                <li>Son exactamente lo mismo</li>
-                <li>La pagina no puede mostrar datos</li>
-                <li><strong>La consola ayuda a depurar; la pagina es la interfaz para el usuario</strong></li>
-                <li>La consola guarda datos permanentemente</li>
-              </ol>
-            </li>
-            <li>
-              En adivina numero con memoria, que se debe cargar al abrir si hay partida guardada?
-              <ol type="a">
-                <li>Solo el titulo <code>h1</code></li>
-                <li>La lista remota de alumnos</li>
-                <li>Un archivo de audio</li>
-                <li><strong>Numero secreto e intentos guardados</strong></li>
-              </ol>
-            </li>
-            <li>
-              Que debe pasar si no hay partida guardada?
-              <ol type="a">
-                <li>Detener todos los botones</li>
-                <li><strong>Generar un nuevo numero secreto e iniciar contador</strong></li>
-                <li>Mostrar alumnos remotos</li>
-                <li>Pedir una imagen por fetch</li>
-              </ol>
-            </li>
-            <li>
-              Que funcion del profesor indica que existe partida previa?
-              <ol type="a">
-                <li><code>mostrarAlumnos()</code></li>
-                <li><code>split()</code></li>
-                <li><code>preventDefault()</code></li>
-                <li><strong><code>partidaGuardada()</code></strong></li>
-              </ol>
-            </li>
-            <li>
-              Que funcion recupera valores de <code>localStorage</code> en el ejemplo del profesor?
-              <ol type="a">
-                <li><strong><code>recueperarDatos()</code></strong></li>
-                <li><code>calcularNumeroSecreto()</code></li>
-                <li><code>mostrarAlumnos()</code></li>
-                <li><code>querySelectorAll()</code></li>
-              </ol>
-            </li>
-            <li>
-              Que funcion actualiza los valores persistentes de partida?
-              <ol type="a">
-                <li><code>finJuego()</code> solo</li>
-                <li><code>response.json()</code></li>
-                <li><strong><code>actulizarPartida()</code></strong></li>
-                <li><code>appendChild()</code></li>
-              </ol>
-            </li>
-            <li>
-              Que debe revisar el alumno si una partida no se recupera?
-              <ol type="a">
-                <li>Solo la fuente del texto</li>
-                <li>Solo si existe una imagen</li>
-                <li><strong>Nombres de claves, escritura en localStorage y momento de carga</strong></li>
-                <li>Solo el ancho del navegador</li>
-              </ol>
-            </li>
-            <li>
-              Que diferencia hay entre error sintactico y error logico?
-              <ol type="a">
-                <li><strong>El sintactico impide interpretar bien; el logico ejecuta pero calcula mal</strong></li>
-                <li>El logico solo ocurre en CSS</li>
-                <li>Ambos son siempre iguales</li>
-                <li>El sintactico es un estado visual del tablero</li>
-              </ol>
-            </li>
-            <li>
-              Que ejemplo es un error logico en adivina numero?
-              <ol type="a">
-                <li>Olvidar cerrar una llave</li>
-                <li>Escribir <code>if (</code> incompleto</li>
-                <li>Usar una comilla sin cerrar</li>
-                <li><strong>Regenerar el numero secreto en cada intento</strong></li>
-              </ol>
-            </li>
-            <li>
-              Que ejemplo es un error sintactico?
-              <ol type="a">
-                <li>Comparar con el numero equivocado</li>
-                <li><strong>Dejar una llave o parentesis sin cerrar</strong></li>
-                <li>Mostrar una pista poco clara</li>
-                <li>No ordenar una tabla</li>
-              </ol>
-            </li>
-            <li>
-              Que prueba manual es clave en adivina numero con memoria?
-              <ol type="a">
-                <li><strong>Cerrar o recargar y comprobar que se recupera la partida pendiente</strong></li>
-                <li>Cambiar solo el color de fondo</li>
-                <li>Abrir un PDF</li>
-                <li>Crear una etiqueta de audio</li>
-              </ol>
-            </li>
-            <li>
-              Que prueba manual es clave en alumnos remotos?
-              <ol type="a">
-                <li>Comprobar solo que existe el h1</li>
-                <li><strong>Comprobar consola, respuesta convertida y recorrido del array</strong></li>
-                <li>Desactivar todos los eventos</li>
-                <li>Borrar localStorage siempre</li>
-              </ol>
-            </li>
-            <li>
-              Que debe hacer un test interactivo al corregirse?
-              <ol type="a">
-                <li>Cambiar preguntas al azar</li>
-                <li>Ocultar todas las respuestas correctas</li>
-                <li><strong>Indicar aciertos, errores y preguntas pendientes</strong></li>
-                <li>Borrar el progreso sin avisar</li>
-              </ol>
-            </li>
-            <li>
-              Por que se guarda progreso de las autoevaluaciones en localStorage?
-              <ol type="a">
-                <li>Para enviar notas al servidor</li>
-                <li>Para sustituir el banco de preguntas</li>
-                <li>Para crear una peticion fetch</li>
-                <li><strong>Para recordar que pruebas se han superado entre sesiones</strong></li>
-              </ol>
-            </li>
-            <li>
-              Que resume mejor el repaso desde Dia 8?
-              <ol type="a">
-                <li>Memorizar nombres de funciones sin probarlas</li>
-                <li><strong>Usar JavaScript para leer datos, reaccionar a eventos, modificar el DOM y conservar o pedir informacion</strong></li>
-                <li>Estudiar solo colores de botones</li>
-                <li>Usar CSS como unica logica de la aplicacion</li>
-              </ol>
-            </li>
-          </ol>
-        </section>
-      </section>
       <section class="level2" id="refuerzo-adivina-numero-con-localstorage">
         <h2>Refuerzo de localStorage en Adivina numero</h2>
         <p>
@@ -10893,7 +9857,7 @@ function reiniciar() {
         <p>
           Revisa primero las rutas fuente y despues los fragmentos de codigo. La
           idea es localizar que archivo cambia, que lenguaje usa y que parte
-          puede entrar como repaso de clase o examen.
+          puede entrar como repaso de clase.
         </p>
       </section>
       <section class="level2" id="errores-frecuentes-localstorage">
@@ -11229,6 +10193,1174 @@ function mostrarAlumnos (arrayAlumnos)
         </p>
       </section>
     </section>
+    <details class="quiz-drawer" id="autoevaluaciones-modulo-2-desplegable">
+      <summary>
+        <span class="quiz-drawer-kicker">Autoevaluaciones modulo 2</span>
+        <strong>Mostrar pruebas interactivas</strong>
+        <span class="quiz-drawer-note">5 pruebas · 125 preguntas · progreso guardado</span>
+      </summary>
+      <section class="level2" id="autoevaluaciones-modulo-2">
+        <h2>Autoevaluaciones modulo 2</h2>
+        <p>
+          Bateria de practica tipo test centrada en JavaScript aplicado:
+          consola, DOM, eventos, formularios,
+          validaciones, cadenas, arrays, callbacks, temporizadores,
+          <code>localStorage</code>, API Web, <code>fetch</code> y depuracion.
+          Cada prueba se corrige desde su propio panel: selecciona una
+          opcion por pregunta y revisa aciertos, errores y pendientes.
+        </p>
+        <section class="level3" id="autoevaluacion-modulo-2-prueba-1">
+          <h3>Autoevaluacion 1 - JavaScript, consola, DOM y eventos</h3>
+          <ol type="1">
+            <li>
+              Que aporta JavaScript a una pagina que antes era estatica?
+              <ol type="a">
+                <li><strong>Comportamiento e interaccion con el usuario</strong></li>
+                <li>Solo una fuente de letra nueva</li>
+                <li>Una tabla HTML automatica</li>
+                <li>Un selector CSS sin logica</li>
+              </ol>
+            </li>
+            <li>
+              Para que se usa <code>console.log</code> al empezar con JavaScript?
+              <ol type="a">
+                <li>Para cambiar el color del documento</li>
+                <li><strong>Para comprobar valores y seguir el flujo en consola</strong></li>
+                <li>Para borrar todos los errores automaticamente</li>
+                <li>Para crear etiquetas HTML visibles</li>
+              </ol>
+            </li>
+            <li>
+              Que ocurre cuando una linea JavaScript tiene un error de sintaxis?
+              <ol type="a">
+                <li>CSS deja de cargar siempre</li>
+                <li>El HTML desaparece del archivo</li>
+                <li><strong>El navegador no puede interpretar correctamente esa instruccion</strong></li>
+                <li>El servidor corrige la linea antes de ejecutarla</li>
+              </ol>
+            </li>
+            <li>
+              Que representa el DOM para JavaScript?
+              <ol type="a">
+                <li>La carpeta donde se guardan imagenes</li>
+                <li>Un protocolo para pedir datos remotos</li>
+                <li>Una hoja de estilos comprimida</li>
+                <li><strong>El documento HTML convertido en nodos que se pueden leer o modificar</strong></li>
+              </ol>
+            </li>
+            <li>
+              Que hace <code>document.getElementById("mensaje")</code>?
+              <ol type="a">
+                <li>Crea una base de datos llamada mensaje</li>
+                <li><strong>Busca en el DOM el elemento cuyo <code>id</code> es <code>mensaje</code></strong></li>
+                <li>Recarga la pagina con el texto mensaje</li>
+                <li>Ordena todos los botones alfabeticamente</li>
+              </ol>
+            </li>
+            <li>
+              Que propiedad permite cambiar el texto visible de un nodo?
+              <ol type="a">
+                <li><code>href</code></li>
+                <li><code>charset</code></li>
+                <li><code>doctype</code></li>
+                <li><strong><code>textContent</code></strong></li>
+              </ol>
+            </li>
+            <li>
+              Si se ejecuta <code>boton.style.backgroundColor = "red"</code>, que cambia?
+              <ol type="a">
+                <li><strong>El estilo en linea del boton seleccionado</strong></li>
+                <li>La estructura completa del HTML</li>
+                <li>La URL de la pagina</li>
+                <li>El numero de elementos del array</li>
+              </ol>
+            </li>
+            <li>
+              Que es un evento de usuario?
+              <ol type="a">
+                <li>Una imagen que carga lentamente</li>
+                <li>Un error obligatorio al abrir una pagina</li>
+                <li><strong>Una accion como click, escritura o cambio que JavaScript puede escuchar</strong></li>
+                <li>Un comentario dentro del CSS</li>
+              </ol>
+            </li>
+            <li>
+              Para que sirve <code>onclick</code> en un boton?
+              <ol type="a">
+                <li>Para cambiar el nombre del archivo HTML</li>
+                <li>Para importar automaticamente una libreria</li>
+                <li><strong>Para ejecutar una funcion cuando el usuario hace click</strong></li>
+                <li>Para validar todas las entradas sin codigo</li>
+              </ol>
+            </li>
+            <li>
+              Que ventaja tiene separar una funcion como <code>saludar()</code>?
+              <ol type="a">
+                <li><strong>Permite reutilizar una accion y llamarla desde un evento</strong></li>
+                <li>Impide que la pagina tenga botones</li>
+                <li>Convierte CSS en JavaScript</li>
+                <li>Evita probar el codigo en consola</li>
+              </ol>
+            </li>
+            <li>
+              En el laboratorio DOM, que secuencia explica mejor lo que ocurre?
+              <ol type="a">
+                <li>CSS, imagen, base de datos, apagado</li>
+                <li>HTML, PDF, descarga, reinicio</li>
+                <li>PDF, descarga, reinicio, color</li>
+                <li><strong>Evento, funcion JavaScript, cambio visible en el DOM</strong></li>
+              </ol>
+            </li>
+            <li>
+              Que indica un contador que aumenta con cada click?
+              <ol type="a">
+                <li>Que el DOM se ordena solo sin codigo</li>
+                <li><strong>Que una variable conserva el numero de interacciones realizadas</strong></li>
+                <li>Que HTML esta ordenando arrays</li>
+                <li>Que CSS ha creado un servidor</li>
+              </ol>
+            </li>
+            <li>
+              Que hace <code>window.innerWidth</code>?
+              <ol type="a">
+                <li><strong>Devuelve el ancho interior de la ventana del navegador</strong></li>
+                <li>Cambia el texto de todos los parrafos</li>
+                <li>Guarda datos entre sesiones</li>
+                <li>Convierte un objeto en JSON</li>
+              </ol>
+            </li>
+            <li>
+              Que hace <code>window.location.href</code>?
+              <ol type="a">
+                <li>Permite ordenar edades de alumnos</li>
+                <li><strong>Permite leer la direccion actual de la pagina</strong></li>
+                <li>Permite cambiar el tipo de input</li>
+                <li>Permite dibujar una tabla automaticamente</li>
+              </ol>
+            </li>
+            <li>
+              En un ejercicio de botones, que conviene comprobar si no cambia nada?
+              <ol type="a">
+                <li>Que el archivo tenga muchas imagenes</li>
+                <li>Que el titulo sea muy largo</li>
+                <li><strong>Que el <code>id</code> usado en JS coincide con el del HTML</strong></li>
+                <li>Que el color sea hexadecimal</li>
+              </ol>
+            </li>
+            <li>
+              Que diferencia hay entre cambiar <code>textContent</code> y cambiar <code>style.color</code>?
+              <ol type="a">
+                <li>Los dos borran el nodo completo</li>
+                <li>Los dos guardan datos en localStorage</li>
+                <li>Uno borra siempre el nodo y otro reinicia la pagina</li>
+                <li><strong>Uno modifica texto y el otro modifica presentacion</strong></li>
+              </ol>
+            </li>
+            <li>
+              Que es un objeto JavaScript como <code>alumno.edad</code>?
+              <ol type="a">
+                <li>Un archivo CSS externo</li>
+                <li><strong>Una estructura con propiedades y valores relacionados</strong></li>
+                <li>Un protocolo de red</li>
+                <li>Una etiqueta sin cierre</li>
+              </ol>
+            </li>
+            <li>
+              Que significa acceder a <code>objeto.propiedad</code>?
+              <ol type="a">
+                <li>Crear un elemento visual nuevo siempre</li>
+                <li>Borrar el objeto de memoria</li>
+                <li>Convertir texto en imagen</li>
+                <li><strong>Leer una propiedad concreta de un objeto</strong></li>
+              </ol>
+            </li>
+            <li>
+              Por que conviene esperar a que el HTML exista antes de buscar nodos?
+              <ol type="a">
+                <li><strong>Porque si el nodo aun no se ha cargado, JavaScript puede recibir <code>null</code></strong></li>
+                <li>Porque CSS no acepta colores antes de las 15:00</li>
+                <li>Porque un array no puede contener objetos</li>
+                <li>Porque localStorage se vacia al cargar</li>
+              </ol>
+            </li>
+            <li>
+              Que hace <code>window.onload</code> en un ejercicio de estadisticas?
+              <ol type="a">
+                <li>Ordena todos los ficheros de la carpeta</li>
+                <li>Convierte una tabla en PDF</li>
+                <li><strong>Ejecuta codigo cuando la pagina ya ha cargado</strong></li>
+                <li>Impide usar funciones</li>
+              </ol>
+            </li>
+            <li>
+              Que significa que una pagina sea dinamica cuando entra JavaScript?
+              <ol type="a">
+                <li>Que solo tiene animaciones decorativas</li>
+                <li>Que no necesita HTML</li>
+                <li><strong>Que responde a acciones o datos mediante JavaScript</strong></li>
+                <li>Que siempre depende de una CDN</li>
+              </ol>
+            </li>
+            <li>
+              Que debe revisarse cuando una funcion asociada a un boton no se ejecuta?
+              <ol type="a">
+                <li><strong>Nombre de la funcion, evento y ruta del script</strong></li>
+                <li>Solo el color del boton</li>
+                <li>Solo el tamaño de la pantalla</li>
+                <li>Solo la extension de una imagen</li>
+              </ol>
+            </li>
+            <li>
+              Que error es mas probable si se escribe mal el nombre de una variable?
+              <ol type="a">
+                <li>Una tabla mas grande</li>
+                <li>Un selector CSS mal escrito</li>
+                <li>Un margen automatico</li>
+                <li><strong>Un error de referencia o comportamiento inesperado</strong></li>
+              </ol>
+            </li>
+            <li>
+              Que aporta <code>alert</code> en los primeros ejercicios de JS?
+              <ol type="a">
+                <li>Sustituye todas las pruebas de consola</li>
+                <li><strong>Muestra un mensaje emergente sencillo para comprobar una accion</strong></li>
+                <li>Guarda datos permanentes</li>
+                <li>Crea un formulario completo</li>
+              </ol>
+            </li>
+            <li>
+              Que pregunta tecnica debe hacerse al ver un cambio en pantalla?
+              <ol type="a">
+                <li><strong>Que nodo se ha seleccionado y que propiedad se ha modificado</strong></li>
+                <li>Que variable global se ha creado sin querer</li>
+                <li>Que array se ha recorrido</li>
+                <li>Que evento ha disparado la funcion</li>
+              </ol>
+            </li>
+          </ol>
+        </section>
+        <section class="level3" id="autoevaluacion-modulo-2-prueba-2">
+          <h3>Autoevaluacion 2 - Formularios, validacion, condiciones y tableros</h3>
+          <ol type="1">
+            <li>
+              En el ejercicio del DNI, que se calcula con el resto de dividir por 23?
+              <ol type="a">
+                <li>La edad del usuario</li>
+                <li><strong>La posicion de la letra que corresponde al numero</strong></li>
+                <li>El numero de filas de una tabla</li>
+                <li>El color de fondo del formulario</li>
+              </ol>
+            </li>
+            <li>
+              Que debe comprobarse antes de calcular una letra de DNI?
+              <ol type="a">
+                <li>Que el usuario tenga una imagen</li>
+                <li>Que el CSS use grid</li>
+                <li><strong>Que hay exactamente ocho cifras numericas</strong></li>
+                <li>Que exista una funcion sin conectar al boton</li>
+              </ol>
+            </li>
+            <li>
+              Para que sirve <code>Number(valor)</code> en una validacion numerica?
+              <ol type="a">
+                <li>Para crear una etiqueta nueva</li>
+                <li>Para cambiar una ruta relativa</li>
+                <li>Para borrar una clase CSS</li>
+                <li><strong>Para convertir texto de un input en numero utilizable</strong></li>
+              </ol>
+            </li>
+            <li>
+              Que hace el operador <code>%</code> en JavaScript?
+              <ol type="a">
+                <li>Concatena dos arrays</li>
+                <li><strong>Devuelve el resto de una division</strong></li>
+                <li>Busca un elemento por id</li>
+                <li>Detiene todos los eventos</li>
+              </ol>
+            </li>
+            <li>
+              En un formulario, por que se usa <code>value</code>?
+              <ol type="a">
+                <li>Para cambiar el nombre del archivo</li>
+                <li>Para recorrer un array automaticamente</li>
+                <li>Para activar una animacion CSS</li>
+                <li><strong>Para leer el dato escrito por el usuario en un control</strong></li>
+              </ol>
+            </li>
+            <li>
+              Que conviene hacer si un input numerico llega como cadena?
+              <ol type="a">
+                <li><strong>Convertirlo y validar que el resultado sea util</strong></li>
+                <li>Compararlo siempre como texto</li>
+                <li>Sumarlo directamente a una imagen</li>
+                <li>Guardarlo sin comprobar</li>
+              </ol>
+            </li>
+            <li>
+              Que estructura permite elegir entre victoria, derrota o seguir jugando?
+              <ol type="a">
+                <li>Solo una etiqueta <code>section</code></li>
+                <li>Un atributo <code>alt</code></li>
+                <li><strong>Condicionales <code>if</code> / <code>else</code></strong></li>
+                <li>Un selector universal CSS</li>
+              </ol>
+            </li>
+            <li>
+              En un tablero de cubos, que suele representar una clase como <code>is-off</code>?
+              <ol type="a">
+                <li>Una peticion HTTP pendiente</li>
+                <li>Un numero secreto</li>
+                <li><strong>Un estado visual aplicado a un cubo</strong></li>
+                <li>Un error de sintaxis</li>
+              </ol>
+            </li>
+            <li>
+              Que hace <code>classList.add("is-off")</code>?
+              <ol type="a">
+                <li><strong>Anade una clase CSS al elemento seleccionado</strong></li>
+                <li>Borra el nodo del HTML</li>
+                <li>Ordena los cubos por color</li>
+                <li>Crea un servidor local</li>
+              </ol>
+            </li>
+            <li>
+              Como se comprueba si todos los cubos estan apagados?
+              <ol type="a">
+                <li>Mirando solo el primer cubo</li>
+                <li>Comprobando la URL de la pagina</li>
+                <li>Leyendo una etiqueta <code>meta</code></li>
+                <li><strong>Revisando el estado de todos los elementos del tablero</strong></li>
+              </ol>
+            </li>
+            <li>
+              En un alta de usuario, que validacion es propia de una contrasena fuerte?
+              <ol type="a">
+                <li>Aceptar siempre cualquier texto</li>
+                <li><strong>Comprobar longitud y mezcla de caracteres segun reglas definidas</strong></li>
+                <li>Pedir solo el color favorito</li>
+                <li>Comparar el texto con una imagen</li>
+              </ol>
+            </li>
+            <li>
+              Que significa validar una fecha de nacimiento para mayoria de edad?
+              <ol type="a">
+                <li><strong>Calcular la edad y comprobar que cumple el minimo</strong></li>
+                <li>Ordenar la fecha alfabeticamente</li>
+                <li>Guardar la fecha en CSS</li>
+                <li>Convertir la fecha en una tabla</li>
+              </ol>
+            </li>
+            <li>
+              Que representa un checkbox de condiciones aceptadas?
+              <ol type="a">
+                <li>Una lista de objetos remotos</li>
+                <li><strong>Un valor booleano que indica si esta marcado o no</strong></li>
+                <li>Una animacion obligatoria</li>
+                <li>Un numero aleatorio</li>
+              </ol>
+            </li>
+            <li>
+              Que propiedad se consulta para saber si un checkbox esta marcado?
+              <ol type="a">
+                <li><code>innerWidth</code></li>
+                <li><code>src</code></li>
+                <li><strong><code>checked</code></strong></li>
+                <li><code>alt</code></li>
+              </ol>
+            </li>
+            <li>
+              Por que se separan funciones como validar nombre, contrasena y edad?
+              <ol type="a">
+                <li>Para duplicar errores</li>
+                <li>Para impedir reutilizar codigo</li>
+                <li>Para mezclar HTML con CSS sin control</li>
+                <li><strong>Para hacer el codigo mas legible y probar cada regla por separado</strong></li>
+              </ol>
+            </li>
+            <li>
+              Que debe ocurrir si el formulario no es valido?
+              <ol type="a">
+                <li>Ocultar todos los mensajes</li>
+                <li><strong>Mostrar un estado claro y no pasar al tablero</strong></li>
+                <li>Empezar el juego igualmente</li>
+                <li>Borrar el archivo JavaScript</li>
+              </ol>
+            </li>
+            <li>
+              Que relacion hay entre el formulario y el tablero de cubos?
+              <ol type="a">
+                <li>El tablero valida el DNI automaticamente</li>
+                <li>Los cubos sustituyen los inputs</li>
+                <li>No existe conexion posible</li>
+                <li><strong>El formulario habilita el paso al tablero cuando cumple las reglas</strong></li>
+              </ol>
+            </li>
+            <li>
+              Que error frecuente aparece al usar <code>getElementById</code> en formularios?
+              <ol type="a">
+                <li><strong>Usar un id distinto al definido en HTML</strong></li>
+                <li>Tener demasiados colores</li>
+                <li>Usar una tabla con encabezado</li>
+                <li>No enlazar ningun selector CSS</li>
+              </ol>
+            </li>
+            <li>
+              Que conviene mostrar al alumno al corregir un formulario?
+              <ol type="a">
+                <li>Solo un mensaje generico sin informacion</li>
+                <li>Un cambio de fuente aleatorio</li>
+                <li><strong>Que regla falla y que dato debe revisar</strong></li>
+                <li>Una imagen sin relacion</li>
+              </ol>
+            </li>
+            <li>
+              Que hace <code>preventDefault()</code> en un formulario?
+              <ol type="a">
+                <li>Elimina el formulario del DOM</li>
+                <li>Convierte el boton en imagen</li>
+                <li><strong>Evita el envio automatico para poder validar con JavaScript</strong></li>
+                <li>Guarda datos en localStorage siempre</li>
+              </ol>
+            </li>
+            <li>
+              Que diferencia hay entre validar en HTML y validar en JavaScript?
+              <ol type="a">
+                <li><strong>HTML aporta restricciones basicas; JavaScript permite reglas propias</strong></li>
+                <li>HTML calcula arrays y JS solo pinta colores</li>
+                <li>JavaScript no puede leer inputs</li>
+                <li>HTML escucha todos los eventos complejos</li>
+              </ol>
+            </li>
+            <li>
+              En un juego, para que sirve una funcion <code>reiniciar()</code>?
+              <ol type="a">
+                <li>Cerrar el navegador</li>
+                <li>Cambiar todos los ids del documento</li>
+                <li>Eliminar la carpeta del proyecto</li>
+                <li><strong>Restaurar estado inicial y permitir empezar otra vez</strong></li>
+              </ol>
+            </li>
+            <li>
+              Que dato debe controlarse para limitar intentos?
+              <ol type="a">
+                <li>El ancho de pantalla</li>
+                <li><strong>Un contador de intentos usados o restantes</strong></li>
+                <li>El titulo del documento</li>
+                <li>El atributo <code>alt</code></li>
+              </ol>
+            </li>
+            <li>
+              Que indica un mensaje de pista mayor o menor?
+              <ol type="a">
+                <li><strong>Ayuda al usuario a acercarse al numero secreto</strong></li>
+                <li>Confirma que el CSS esta vacio</li>
+                <li>Muestra que no hay JavaScript</li>
+                <li>Ordena automaticamente los inputs</li>
+              </ol>
+            </li>
+            <li>
+              Que principio resume los ejercicios de formularios con JavaScript?
+              <ol type="a">
+                <li>Escribir HTML fijo y no probar</li>
+                <li><strong>Leer datos, validarlos, actualizar estado y mostrar respuesta</strong></li>
+                <li>Usar solo imagenes</li>
+                <li>Evitar funciones y eventos</li>
+              </ol>
+            </li>
+          </ol>
+        </section>
+        <section class="level3" id="autoevaluacion-modulo-2-prueba-3">
+          <h3>Autoevaluacion 3 - Cadenas, arrays, callbacks, temporizadores y aleatorio</h3>
+          <ol type="1">
+            <li>
+              En un palindromo, que se compara normalmente?
+              <ol type="a">
+                <li>La edad y el nombre de un alumno</li>
+                <li>El ancho y alto de la ventana</li>
+                <li><strong>La palabra original y su version invertida normalizada</strong></li>
+                <li>El color de dos botones</li>
+              </ol>
+            </li>
+            <li>
+              Por que conviene normalizar una cadena antes de comprobar palindromos?
+              <ol type="a">
+                <li>Para hacer que la palabra sea siempre numerica</li>
+                <li>Para borrar el DOM</li>
+                <li>Para cargar una imagen remota</li>
+                <li><strong>Para evitar fallos por mayusculas, espacios o caracteres sobrantes</strong></li>
+              </ol>
+            </li>
+            <li>
+              Que metodo puede separar una cadena en caracteres?
+              <ol type="a">
+                <li><code>fetch()</code></li>
+                <li><strong><code>split("")</code></strong></li>
+                <li><code>setItem()</code></li>
+                <li><code>appendChild()</code></li>
+              </ol>
+            </li>
+            <li>
+              Que metodo invierte el orden de los elementos de un array?
+              <ol type="a">
+                <li><code>filter()</code></li>
+                <li><code>getItem()</code></li>
+                <li><code>preventDefault()</code></li>
+                <li><strong><code>reverse()</code></strong></li>
+              </ol>
+            </li>
+            <li>
+              Que metodo vuelve a unir elementos de un array en texto?
+              <ol type="a">
+                <li><strong><code>join("")</code></strong></li>
+                <li><code>addEventListener()</code></li>
+                <li><code>querySelector()</code></li>
+                <li><code>Math.random()</code></li>
+              </ol>
+            </li>
+            <li>
+              Que representa un array de alumnos?
+              <ol type="a">
+                <li>Una hoja de estilos</li>
+                <li>Un unico numero aleatorio</li>
+                <li><strong>Una lista de objetos con datos como nombre y edad</strong></li>
+                <li>Una clase CSS sin datos</li>
+              </ol>
+            </li>
+            <li>
+              Para que sirve <code>forEach</code> en una lista de alumnos?
+              <ol type="a">
+                <li>Para ordenar automaticamente sin criterio</li>
+                <li>Para crear una peticion remota</li>
+                <li><strong>Para ejecutar una funcion por cada alumno del array</strong></li>
+                <li>Para guardar claves en localStorage</li>
+              </ol>
+            </li>
+            <li>
+              Que es un callback en <code>forEach</code>?
+              <ol type="a">
+                <li><strong>La funcion que se ejecuta con cada elemento recorrido</strong></li>
+                <li>Una propiedad CSS de un boton</li>
+                <li>Un tipo de etiqueta HTML</li>
+                <li>Un error del servidor</li>
+              </ol>
+            </li>
+            <li>
+              Que significa recibir <code>(alumno, index)</code> en un callback?
+              <ol type="a">
+                <li>Que se reciben dos archivos CSS</li>
+                <li>Que se borra el array</li>
+                <li>Que se reinicia el navegador</li>
+                <li><strong>Que se tiene el elemento actual y su posicion</strong></li>
+              </ol>
+            </li>
+            <li>
+              Que hace <code>array.map()</code> cuando se usa correctamente?
+              <ol type="a">
+                <li>Muestra un alert por obligacion</li>
+                <li><strong>Crea un nuevo array transformando cada elemento</strong></li>
+                <li>Borra todos los objetos</li>
+                <li>Cambia el titulo HTML</li>
+              </ol>
+            </li>
+            <li>
+              Que hace <code>array.filter()</code>?
+              <ol type="a">
+                <li><strong>Devuelve elementos que cumplen una condicion</strong></li>
+                <li>Ordena por edad de forma obligatoria</li>
+                <li>Convierte objetos en imagenes</li>
+                <li>Ejecuta un temporizador</li>
+              </ol>
+            </li>
+            <li>
+              Que necesita <code>sort</code> para ordenar edades numericamente?
+              <ol type="a">
+                <li>Una etiqueta <code>table</code> vacia</li>
+                <li><strong>Una funcion de comparacion como <code>a.edad - b.edad</code></strong></li>
+                <li>Un atributo <code>alt</code></li>
+                <li>Una URL remota</li>
+              </ol>
+            </li>
+            <li>
+              Si la comparacion de <code>sort</code> devuelve negativo, que indica?
+              <ol type="a">
+                <li>Que el array esta vacio</li>
+                <li>Que hay que recargar la pagina</li>
+                <li><strong>Que el primer elemento debe ir antes que el segundo</strong></li>
+                <li>Que CSS ha fallado</li>
+              </ol>
+            </li>
+            <li>
+              Que permite calcular una media de edades?
+              <ol type="a">
+                <li>Concatenar nombres sin contar alumnos</li>
+                <li>Ordenar colores</li>
+                <li>Leer solo el primer valor</li>
+                <li><strong>Sumar edades y dividir entre el numero de alumnos</strong></li>
+              </ol>
+            </li>
+            <li>
+              Que variable debe actualizarse en un temporizador?
+              <ol type="a">
+                <li>El doctype</li>
+                <li><strong>El tiempo restante o contador visible</strong></li>
+                <li>El idioma de la pagina</li>
+                <li>La extension del archivo</li>
+              </ol>
+            </li>
+            <li>
+              Para que sirve <code>setTimeout</code>?
+              <ol type="a">
+                <li>Para repetir infinitamente sin control</li>
+                <li>Para leer una clave de localStorage</li>
+                <li>Para convertir una respuesta en JSON</li>
+                <li><strong>Para ejecutar una funcion despues de un retraso</strong></li>
+              </ol>
+            </li>
+            <li>
+              Para que sirve <code>setInterval</code>?
+              <ol type="a">
+                <li><strong>Para repetir una funcion cada cierto intervalo</strong></li>
+                <li>Para detener todos los eventos</li>
+                <li>Para crear objetos sin propiedades</li>
+                <li>Para validar un DNI por si solo</li>
+              </ol>
+            </li>
+            <li>
+              Que debe hacerse para detener un intervalo?
+              <ol type="a">
+                <li>Cambiar el color del body</li>
+                <li>Borrar el HTML</li>
+                <li><strong>Guardar su identificador y usar <code>clearInterval</code></strong></li>
+                <li>Cerrar la consola</li>
+              </ol>
+            </li>
+            <li>
+              Que devuelve <code>Math.random()</code>?
+              <ol type="a">
+                <li>Un entero entre 1 y 100 directamente</li>
+                <li>Una cadena invertida</li>
+                <li><strong>Un numero decimal entre 0 y 1, sin incluir 1</strong></li>
+                <li>Un objeto alumno completo</li>
+              </ol>
+            </li>
+            <li>
+              Como se obtiene un entero entre 1 y 100 con <code>Math.random</code>?
+              <ol type="a">
+                <li><strong>Multiplicar, aplicar <code>Math.floor</code> y sumar el minimo</strong></li>
+                <li>Usar solo <code>Math.round()</code> sin rango</li>
+                <li>Leer <code>input.value</code> siempre</li>
+                <li>Usar <code>localStorage.clear()</code></li>
+              </ol>
+            </li>
+            <li>
+              Que riesgo hay al usar aleatorio sin guardar el numero secreto?
+              <ol type="a">
+                <li>Que CSS no cargue</li>
+                <li>Que el boton pierda su texto</li>
+                <li>Que el array se ordene solo</li>
+                <li><strong>Que cambie durante la partida y el juego sea injusto</strong></li>
+              </ol>
+            </li>
+            <li>
+              En piedra, papel o tijera, que se compara?
+              <ol type="a">
+                <li>El nombre y edad de alumnos</li>
+                <li><strong>La opcion del jugador y la opcion generada por el programa</strong></li>
+                <li>La clave y valor de localStorage</li>
+                <li>La ruta y el titulo del HTML</li>
+              </ol>
+            </li>
+            <li>
+              Que aporta un historial de intentos o jugadas?
+              <ol type="a">
+                <li><strong>Permite ver las decisiones anteriores del usuario</strong></li>
+                <li>Sustituye todas las validaciones</li>
+                <li>Impide usar arrays</li>
+                <li>Hace innecesario el DOM</li>
+              </ol>
+            </li>
+            <li>
+              Que tipo de error produce un resultado incorrecto aunque el codigo ejecute?
+              <ol type="a">
+                <li>Error de sintaxis siempre</li>
+                <li><strong>Error logico</strong></li>
+                <li>Estado visual sin relacion</li>
+                <li>Viewport incompatible</li>
+              </ol>
+            </li>
+            <li>
+              Que se debe probar en ejercicios con arrays y temporizadores?
+              <ol type="a">
+                <li>Solo que el HTML tenga titulo</li>
+                <li>Solo que haya colores</li>
+                <li><strong>Estado inicial, cambios tras cada accion y resultado final</strong></li>
+                <li>Solo que el archivo sea grande</li>
+              </ol>
+            </li>
+          </ol>
+        </section>
+        <section class="level3" id="autoevaluacion-modulo-2-prueba-4">
+          <h3>Autoevaluacion 4 - Tablas de alumnos, estado y localStorage</h3>
+          <ol type="1">
+            <li>
+              En la tabla de alumnos, que relacion hay entre array y tabla?
+              <ol type="a">
+                <li>La tabla crea el array sin codigo</li>
+                <li>CSS calcula las edades</li>
+                <li>El navegador descarga alumnos sin fetch</li>
+                <li><strong>El array contiene los datos y JavaScript pinta filas en el DOM</strong></li>
+              </ol>
+            </li>
+            <li>
+              Que hace una funcion <code>pintarTabla(alumnos)</code>?
+              <ol type="a">
+                <li>Valida un DNI siempre</li>
+                <li><strong>Recorre la lista y genera filas visibles</strong></li>
+                <li>Cambia el protocolo HTTP</li>
+                <li>Convierte una imagen en objeto</li>
+              </ol>
+            </li>
+            <li>
+              Que debe hacerse antes de repintar una tabla filtrada?
+              <ol type="a">
+                <li>Cambiar el doctype</li>
+                <li>Borrar el archivo CSS</li>
+                <li>Cerrar la consola</li>
+                <li><strong>Limpiar las filas anteriores para no duplicar contenido</strong></li>
+              </ol>
+            </li>
+            <li>
+              Que permite un filtro por nombre?
+              <ol type="a">
+                <li><strong>Mostrar solo alumnos cuyo nombre cumple una condicion</strong></li>
+                <li>Ordenar por edad sin comparar</li>
+                <li>Crear un numero secreto</li>
+                <li>Reiniciar el contador de intentos</li>
+              </ol>
+            </li>
+            <li>
+              Que metodo es adecuado para filtrar alumnos?
+              <ol type="a">
+                <li><code>setTimeout</code></li>
+                <li><code>getElementById</code> solo</li>
+                <li><strong><code>filter</code></strong></li>
+                <li><code>clear</code> de CSS</li>
+              </ol>
+            </li>
+            <li>
+              Que metodo es adecuado para recorrer alumnos y pintar filas?
+              <ol type="a">
+                <li><code>localStorage.clear</code></li>
+                <li><code>Math.random</code></li>
+                <li><strong><code>forEach</code></strong></li>
+                <li><code>response.json</code> siempre</li>
+              </ol>
+            </li>
+            <li>
+              Para ordenar alumnos por edad ascendente, que comparacion es adecuada?
+              <ol type="a">
+                <li><strong><code>a.edad - b.edad</code></strong></li>
+                <li><code>a.nombre + b.nombre</code></li>
+                <li><code>Math.random()</code></li>
+                <li><code>localStorage.getItem()</code></li>
+              </ol>
+            </li>
+            <li>
+              Que problema aparece si <code>sort</code> se aplica sobre el array original sin cuidado?
+              <ol type="a">
+                <li>No modifica nada nunca</li>
+                <li>Borra el HTML</li>
+                <li>Convierte edades en imagenes</li>
+                <li><strong>Puede cambiar el orden de la lista base</strong></li>
+              </ol>
+            </li>
+            <li>
+              Que ventaja tiene ordenar una copia del array?
+              <ol type="a">
+                <li>Impide pintar la tabla</li>
+                <li><strong>Evita alterar los datos originales usados por otros botones</strong></li>
+                <li>Hace innecesarios los eventos</li>
+                <li>Crea claves remotas</li>
+              </ol>
+            </li>
+            <li>
+              Que dato necesita una estadistica de media de edad?
+              <ol type="a">
+                <li><strong>Suma de edades y cantidad de alumnos</strong></li>
+                <li>Solo el primer nombre</li>
+                <li>La URL del repositorio</li>
+                <li>El color del encabezado</li>
+              </ol>
+            </li>
+            <li>
+              Que significa que una funcion de estadisticas este como TODO?
+              <ol type="a">
+                <li>Que ya esta corregida automaticamente</li>
+                <li><strong>Que no debe documentarse como funcionalidad terminada</strong></li>
+                <li>Que no existe ningun ejercicio</li>
+                <li>Que CSS la ejecuta</li>
+              </ol>
+            </li>
+            <li>
+              Que hace <code>appendChild</code> al construir una tabla?
+              <ol type="a">
+                <li>Ordena un array alfabeticamente</li>
+                <li>Guarda un valor entre sesiones</li>
+                <li><strong>Inserta un nodo hijo dentro de otro nodo</strong></li>
+                <li>Genera un numero aleatorio</li>
+              </ol>
+            </li>
+            <li>
+              Que diferencia hay entre <code>innerHTML</code> y crear nodos?
+              <ol type="a">
+                <li>Crear nodos siempre borra la tabla completa</li>
+                <li><code>innerHTML</code> no puede cambiar la pagina</li>
+                <li>Son siempre identicos en seguridad y control</li>
+                <li><strong><code>innerHTML</code> inyecta texto HTML; crear nodos separa mejor estructura y datos</strong></li>
+              </ol>
+            </li>
+            <li>
+              En el juego de adivinar numeros, que estado cambia tras cada intento?
+              <ol type="a">
+                <li>El doctype y la codificacion</li>
+                <li><strong>Intentos usados o restantes, pista e historial</strong></li>
+                <li>La ruta del CSS</li>
+                <li>El nombre del navegador</li>
+              </ol>
+            </li>
+            <li>
+              Que debe guardarse para continuar una partida de adivina numero?
+              <ol type="a">
+                <li>Solo el color del boton</li>
+                <li>Solo el nombre del archivo</li>
+                <li>Todas las imagenes del proyecto</li>
+                <li><strong>Numero secreto, intentos restantes e historial</strong></li>
+              </ol>
+            </li>
+            <li>
+              Que API permite guardar datos simples entre sesiones?
+              <ol type="a">
+                <li><strong><code>localStorage</code></strong></li>
+                <li><code>Math</code></li>
+                <li><code>console</code></li>
+                <li><code>classList</code></li>
+              </ol>
+            </li>
+            <li>
+              Que hace <code>localStorage.setItem("clave", valor)</code>?
+              <ol type="a">
+                <li>Borra todo el DOM</li>
+                <li>Filtra un array</li>
+                <li><strong>Guarda un valor textual asociado a una clave</strong></li>
+                <li>Escucha un evento</li>
+              </ol>
+            </li>
+            <li>
+              Que hace <code>localStorage.getItem("clave")</code>?
+              <ol type="a">
+                <li>Genera una fila de tabla</li>
+                <li>Calcula una media</li>
+                <li><strong>Recupera el valor guardado para esa clave</strong></li>
+                <li>Convierte texto en numero siempre</li>
+              </ol>
+            </li>
+            <li>
+              Que hace <code>localStorage.removeItem("clave")</code>?
+              <ol type="a">
+                <li><strong>Elimina una clave concreta</strong></li>
+                <li>Borra todas las variables locales</li>
+                <li>Ordena alumnos por edad</li>
+                <li>Cambia el texto de un nodo</li>
+              </ol>
+            </li>
+            <li>
+              Cuando termina una partida, que conviene hacer con los datos guardados?
+              <ol type="a">
+                <li>Mantenerlos siempre aunque haya victoria</li>
+                <li>Duplicarlos en cada click</li>
+                <li>Convertirlos en CSS</li>
+                <li><strong>Limpiarlos para no recuperar una partida ya cerrada</strong></li>
+              </ol>
+            </li>
+            <li>
+              Que error puede aparecer si se borra una clave con un nombre mal escrito?
+              <ol type="a">
+                <li>La pagina se convierte en PDF</li>
+                <li><strong>La clave real queda guardada y el reinicio no limpia bien</strong></li>
+                <li>El array se filtra solo</li>
+                <li>El boton pierde el evento siempre</li>
+              </ol>
+            </li>
+            <li>
+              Que diferencia hay entre dato recalculado y dato persistente?
+              <ol type="a">
+                <li><strong>El recalculado se obtiene de nuevo; el persistente se recupera de almacenamiento</strong></li>
+                <li>Ambos se guardan siempre en CSS</li>
+                <li>El persistente no puede cambiar</li>
+                <li>El recalculado solo existe en HTML</li>
+              </ol>
+            </li>
+            <li>
+              En un palindromo con historial, que se conserva para explicar el resultado?
+              <ol type="a">
+                <li>Una lista de clases CSS sueltas</li>
+                <li><strong>La palabra probada y si coincide con su inversa</strong></li>
+                <li>Un contador que no se actualiza</li>
+                <li>Una pista sin guardar</li>
+              </ol>
+            </li>
+            <li>
+              Que debe mostrar una interfaz de repaso de localStorage?
+              <ol type="a">
+                <li>Solo un fondo oscuro sin texto</li>
+                <li>Todos los archivos del disco</li>
+                <li><strong>Clave y valor guardado de forma comprensible</strong></li>
+                <li>El codigo fuente del navegador</li>
+              </ol>
+            </li>
+            <li>
+              Que resume mejor los dias 16 y 17?
+              <ol type="a">
+                <li>Estudiar solo colores de botones</li>
+                <li>Leer el codigo sin ejecutar pruebas</li>
+                <li>Crear paginas estaticas sin eventos</li>
+                <li><strong>Gestionar listas y estado para que la pagina responda de forma coherente</strong></li>
+              </ol>
+            </li>
+          </ol>
+        </section>
+        <section class="level3" id="autoevaluacion-modulo-2-prueba-5">
+          <h3>Autoevaluacion 5 - API Web, fetch y repaso final desde JavaScript</h3>
+          <ol type="1">
+            <li>
+              Que es una API Web en el contexto del navegador?
+              <ol type="a">
+                <li>Una etiqueta de tabla</li>
+                <li><strong>Una funcionalidad que JavaScript puede usar para interactuar con el navegador o la pagina</strong></li>
+                <li>Un tipo de color CSS</li>
+                <li>Un contador de clicks obligatorio</li>
+              </ol>
+            </li>
+            <li>
+              Que API se usa para acceder a elementos HTML desde JavaScript?
+              <ol type="a">
+                <li>PNG</li>
+                <li>ZIP</li>
+                <li>SQL local sin servidor</li>
+                <li><strong>DOM</strong></li>
+              </ol>
+            </li>
+            <li>
+              Que API se usa para guardar datos simples en el navegador?
+              <ol type="a">
+                <li><strong><code>localStorage</code></strong></li>
+                <li><code>alt</code></li>
+                <li><code>border</code></li>
+                <li><code>doctype</code></li>
+              </ol>
+            </li>
+            <li>
+              Que API permite pedir datos a una direccion remota?
+              <ol type="a">
+                <li><code>Math.floor</code></li>
+                <li><code>classList.add</code></li>
+                <li><strong><code>fetch</code></strong></li>
+                <li><code>textContent</code></li>
+              </ol>
+            </li>
+            <li>
+              Que devuelve inicialmente <code>fetch(URL_RUTA)</code>?
+              <ol type="a">
+                <li>Un array listo de forma inmediata</li>
+                <li>Una tabla HTML completa</li>
+                <li><strong>Una promesa que representa una respuesta futura</strong></li>
+                <li>Un numero secreto</li>
+              </ol>
+            </li>
+            <li>
+              Para que sirve <code>.then(...)</code> en una peticion <code>fetch</code>?
+              <ol type="a">
+                <li><strong>Para encadenar codigo cuando llega el resultado asincrono</strong></li>
+                <li>Para crear una clase CSS</li>
+                <li>Para borrar localStorage</li>
+                <li>Para validar un DNI</li>
+              </ol>
+            </li>
+            <li>
+              Que hace <code>response.json()</code>?
+              <ol type="a">
+                <li>Pinta automaticamente una tabla</li>
+                <li>Ordena alumnos por edad</li>
+                <li>Cambia el color del boton</li>
+                <li><strong>Convierte el cuerpo de la respuesta en datos JavaScript</strong></li>
+              </ol>
+            </li>
+            <li>
+              Por que no se puede usar el array remoto antes de que termine <code>fetch</code>?
+              <ol type="a">
+                <li>Porque los arrays no existen en JavaScript</li>
+                <li><strong>Porque la peticion es asincrona y los datos llegan despues</strong></li>
+                <li>Porque HTML bloquea internet</li>
+                <li>Porque CSS necesita compilarse</li>
+              </ol>
+            </li>
+            <li>
+              En alumnos remotos, que hace <code>mostrarAlumnos(arrayAlumnos)</code>?
+              <ol type="a">
+                <li><strong>Recibe el array y lo recorre para mostrar o preparar datos</strong></li>
+                <li>Genera el numero secreto</li>
+                <li>Valida una contrasena</li>
+                <li>Invierte una palabra</li>
+              </ol>
+            </li>
+            <li>
+              Que deberia hacerse para mostrar alumnos remotos en HTML?
+              <ol type="a">
+                <li>Usar solo <code>console.log</code> para siempre</li>
+                <li><strong>Crear elementos o filas y anadirlos al DOM</strong></li>
+                <li>Guardar la URL como imagen</li>
+                <li>Cambiar el viewport</li>
+              </ol>
+            </li>
+            <li>
+              Que diferencia hay entre mostrar en consola y mostrar en la pagina?
+              <ol type="a">
+                <li>Son exactamente lo mismo</li>
+                <li>La pagina no puede mostrar datos</li>
+                <li><strong>La consola ayuda a depurar; la pagina es la interfaz para el usuario</strong></li>
+                <li>La consola guarda datos permanentemente</li>
+              </ol>
+            </li>
+            <li>
+              En adivina numero con memoria, que se debe cargar al abrir si hay partida guardada?
+              <ol type="a">
+                <li>Solo el titulo <code>h1</code></li>
+                <li>La lista remota de alumnos</li>
+                <li>Solo el color del boton</li>
+                <li><strong>Numero secreto e intentos guardados</strong></li>
+              </ol>
+            </li>
+            <li>
+              Que debe pasar si no hay partida guardada?
+              <ol type="a">
+                <li>Detener todos los botones</li>
+                <li><strong>Generar un nuevo numero secreto e iniciar contador</strong></li>
+                <li>Mostrar alumnos remotos</li>
+                <li>Pedir una imagen por fetch</li>
+              </ol>
+            </li>
+            <li>
+              Que funcion del profesor indica que existe partida previa?
+              <ol type="a">
+                <li><code>mostrarAlumnos()</code></li>
+                <li><code>split()</code></li>
+                <li><code>preventDefault()</code></li>
+                <li><strong><code>partidaGuardada()</code></strong></li>
+              </ol>
+            </li>
+            <li>
+              Que funcion recupera valores de <code>localStorage</code> en el ejemplo del profesor?
+              <ol type="a">
+                <li><strong><code>recueperarDatos()</code></strong></li>
+                <li><code>calcularNumeroSecreto()</code></li>
+                <li><code>mostrarAlumnos()</code></li>
+                <li><code>querySelectorAll()</code></li>
+              </ol>
+            </li>
+            <li>
+              Que funcion actualiza los valores persistentes de partida?
+              <ol type="a">
+                <li><code>finJuego()</code> solo</li>
+                <li><code>response.json()</code></li>
+                <li><strong><code>actulizarPartida()</code></strong></li>
+                <li><code>appendChild()</code></li>
+              </ol>
+            </li>
+            <li>
+              Que debe revisar el alumno si una partida no se recupera?
+              <ol type="a">
+                <li>Solo la fuente del texto</li>
+                <li>Solo si existe una imagen</li>
+                <li><strong>Nombres de claves, escritura en localStorage y momento de carga</strong></li>
+                <li>Solo el ancho del navegador</li>
+              </ol>
+            </li>
+            <li>
+              Que diferencia hay entre error sintactico y error logico?
+              <ol type="a">
+                <li><strong>El sintactico impide interpretar bien; el logico ejecuta pero calcula mal</strong></li>
+                <li>El logico solo ocurre en CSS</li>
+                <li>Ambos son siempre iguales</li>
+                <li>El sintactico es un estado visual del tablero</li>
+              </ol>
+            </li>
+            <li>
+              Que ejemplo es un error logico en adivina numero?
+              <ol type="a">
+                <li>Olvidar cerrar una llave</li>
+                <li>Escribir <code>if (</code> incompleto</li>
+                <li>Usar una comilla sin cerrar</li>
+                <li><strong>Regenerar el numero secreto en cada intento</strong></li>
+              </ol>
+            </li>
+            <li>
+              Que ejemplo es un error sintactico?
+              <ol type="a">
+                <li>Comparar con el numero equivocado</li>
+                <li><strong>Dejar una llave o parentesis sin cerrar</strong></li>
+                <li>Mostrar una pista poco clara</li>
+                <li>No ordenar una tabla</li>
+              </ol>
+            </li>
+            <li>
+              Que prueba manual es clave en adivina numero con memoria?
+              <ol type="a">
+                <li><strong>Cerrar o recargar y comprobar que se recupera la partida pendiente</strong></li>
+                <li>Cambiar solo el color de fondo</li>
+                <li>Abrir un PDF</li>
+                <li>Cambiar solo el titulo de la pagina</li>
+              </ol>
+            </li>
+            <li>
+              Que prueba manual es clave en alumnos remotos?
+              <ol type="a">
+                <li>Comprobar solo que existe el h1</li>
+                <li><strong>Comprobar consola, respuesta convertida y recorrido del array</strong></li>
+                <li>Desactivar todos los eventos</li>
+                <li>Borrar localStorage siempre</li>
+              </ol>
+            </li>
+            <li>
+              Que debe hacer un test interactivo al corregirse?
+              <ol type="a">
+                <li>Cambiar preguntas al azar</li>
+                <li>Ocultar todas las respuestas correctas</li>
+                <li><strong>Indicar aciertos, errores y preguntas pendientes</strong></li>
+                <li>Borrar el progreso sin avisar</li>
+              </ol>
+            </li>
+            <li>
+              Por que se guarda progreso de las autoevaluaciones en localStorage?
+              <ol type="a">
+                <li>Para enviar notas al servidor</li>
+                <li>Para sustituir el banco de preguntas</li>
+                <li>Para crear una peticion fetch</li>
+                <li><strong>Para recordar que pruebas se han superado entre sesiones</strong></li>
+              </ol>
+            </li>
+            <li>
+              Que resume mejor el repaso de JavaScript aplicado?
+              <ol type="a">
+                <li>Memorizar nombres de funciones sin probarlas</li>
+                <li><strong>Usar JavaScript para leer datos, reaccionar a eventos, modificar el DOM y conservar o pedir informacion</strong></li>
+                <li>Estudiar solo colores de botones</li>
+                <li>Usar CSS como unica logica de la aplicacion</li>
+              </ol>
+            </li>
+          </ol>
+        </section>
+      </section>
+    </details>
     <!--
 DIARIO_CURSOWEBM: controladores de laboratorios interactivos
 -->
@@ -11448,12 +11580,12 @@ DIARIO_CURSOWEBM: controladores de laboratorios interactivos
         };
 
         const QUIZ_PROGRESS_STORAGE_KEY =
-          "DIARIO_CURSOWEBM_AUTOEVALUACIONES_MODULO_2";
+          "DIARIO_CURSOWEBM_AUTOEVALUACIONES_MODULO_2_V3";
 
         const createQuizProgressState = () => ({
           allPassedCelebrated: false,
           quizzes: {},
-          version: 1,
+          version: 2,
         });
 
         // Lee el progreso persistente sin romper el diario si localStorage no esta disponible.
@@ -11475,7 +11607,7 @@ DIARIO_CURSOWEBM: controladores de laboratorios interactivos
                 parsedState.quizzes && typeof parsedState.quizzes === "object"
                   ? parsedState.quizzes
                   : {},
-              version: 1,
+              version: 2,
             };
           } catch {
             return createQuizProgressState();
@@ -11840,7 +11972,7 @@ DIARIO_CURSOWEBM: controladores de laboratorios interactivos
             button.setAttribute("role", "tab");
             button.setAttribute("aria-controls", quiz.id);
             button.dataset.quizTarget = quiz.id;
-            button.innerHTML = `<span class="quiz-index-number">Prueba ${quizIndex + 1}</span><span class="quiz-index-title">${escapeCodeHtml(heading.replace(/^Autoevaluacion \\d+ -\\s*/, ""))}</span>`;
+            button.innerHTML = `<span class="quiz-index-number">Prueba ${quizIndex + 1}</span><span class="quiz-index-title">${escapeCodeHtml(heading.replace(/^Autoevaluacion \d+ -\s*/, ""))}</span>`;
             index.appendChild(button);
             return button;
           });
