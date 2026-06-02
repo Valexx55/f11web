@@ -13,6 +13,8 @@ function mostrarAlumnos (arrayAlumnos)
         console.log(`Id = ${alumno.id} Nombre = ${alumno.nombre} Edad = ${alumno.edad}`);
     });
 }
+//TODO: la lista de alumnos obtenida de internet (arrayAlumnos)
+//tenemos que mostrarla en el HTML
 
 /*
 {
