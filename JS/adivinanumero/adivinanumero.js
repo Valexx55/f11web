@@ -4,13 +4,27 @@
 y el número de intentos que le quedan al usuario. Y si acaba una partida, 
 que se desahaga de esa información
 */
-let numero_secreto = calcularNumeroSecreto();
-console.log(`num sercreto = ${numero_secreto}`);
-localStorage.setItem("NUM_SECRETO", numero_secreto);//guardo
+
+window.onload = () => {
+    actualizarMarcadorIntentos();
+}
+
 const MAX_INTENTOS = 5;
+let numero_secreto = 0;
 let num_intentos = 0;
-localStorage.setItem("NUM_INTENTOS", num_intentos);
-localStorage.clear();//borro 
+
+//si hay partida guardada
+if (partidaGuardada())
+{
+    recueperarDatos();
+
+} else {
+    //inicio partida
+    numero_secreto = calcularNumeroSecreto();
+    console.log(`num sercreto = ${numero_secreto}`);
+    num_intentos = 0;
+    actulizarPartida ();
+}
 
 function calcularNumeroSecreto() {
     let numero_secreto = 0;
@@ -35,6 +49,13 @@ function finJuego(ganador) {
         let botonReinicio = document.getElementById('reiniciar');
         botonReinicio.style.display = 'block';
     }
+    limpiarPartida();
+}
+
+function actualizarMarcadorIntentos ()
+{
+    let etiquetaIntentos = document.getElementById('numintentos');
+    etiquetaIntentos.textContent = MAX_INTENTOS - num_intentos;
 }
 
 function probar() {
@@ -44,21 +65,51 @@ function probar() {
     } else {
         //no acierto
         num_intentos = num_intentos + 1;
-        let etiquetaIntentos = document.getElementById('numintentos');
-        etiquetaIntentos.textContent = MAX_INTENTOS - num_intentos;
+        actualizarMarcadorIntentos();
         if (num_intentos == MAX_INTENTOS) {
             finJuego(false);
         } else {
-            //pista
+            //pista le quedan vidas
             if (num_usuario > numero_secreto) {
                 alert('El número buscado es menor');
             } else {
                 alert('El número buscado es mayor');
             }
+            actulizarPartida ();
         }
     }
 }
 
 function reiniciar() {
     location.reload();
+}
+
+function partidaGuardada ()
+{
+    let guardada = false;
+
+   
+        if (localStorage.getItem('NUM_SECRETO') && localStorage.getItem('NUM_INTENTOS'))
+        {
+            guardada = true
+        }
+
+    return guardada;
+}
+
+function limpiarPartida ()
+{
+    localStorage.clear();
+}
+
+function actulizarPartida ()
+{
+    localStorage.setItem('NUM_INTENTOS', num_intentos);
+    localStorage.setItem('NUM_SECRETO', numero_secreto);
+}
+
+function recueperarDatos ()
+{
+    numero_secreto = localStorage.getItem('NUM_SECRETO');
+    num_intentos = localStorage.getItem('NUM_INTENTOS');
 }
