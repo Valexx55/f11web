@@ -1,5 +1,30 @@
+//TODO:
+/*Completad la página para que 
+
+1) El usuario pueda buscar el nombre de una canción o artista (añadid
+un input de texto y un botón de buscar)
+
+2) Cuando el usuario clique el botón de buscar, extraemos esa cadena
+introducida y la buscaos en itunes
+
+3) Recorremos la respuesta de todas las canciones obtenidas y la vamos
+pintando en la pantalla (con document.createElement, document.appenChild)
+Ojo, tenemos que pensar primero un poco cómo queremos mostrar la info
+de cada canción
+
+4) Los campos que hay que mostrar como mínimo son:
+
+artistName
+collectionName
+trackName
+artworkUrl100 (foto)
+previewUrl (audio)
+
+*/
+
 const URL_RUTA = "https://itunes.apple.com/search?media=music&term=acdc"
 
+console.log("ANTES DEL FECTH");
 fetch(URL_RUTA).then(respuesta => {
     console.log("RESPUESTA RECIBIDA");
     console.log("Objeto response completo:", respuesta);
@@ -26,7 +51,10 @@ fetch(URL_RUTA).then(respuesta => {
 }
 ).then (arrayCanciones => {
     console.log(`Hemos obtenido ${arrayCanciones.resultCount} canciones`);
+    console.log(`Hemos obtenido ${arrayCanciones.results.length} canciones`);
+    console.log(`Hemos obtenido ${arrayCanciones.length} canciones`);
     let artista = arrayCanciones.results[0].artistName;
     let cancion = arrayCanciones.results[0].trackName;
     console.log(`Arista ${artista} Canción ${cancion}`);
 })
+ console.log("DESPUÉS DEL FETCH");
