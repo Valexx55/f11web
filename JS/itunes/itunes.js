@@ -24,8 +24,13 @@ previewUrl (audio)
 
 const URL_RUTA = "https://itunes.apple.com/search?media=music&term=acdc"
 
+let terminoDeBusqueda = "acdc";
+terminoDeBusqueda = terminoDeBusqueda.trim();//quitamos espacios de delante y detrás
+let terminoCodificado = encodeURIComponent(terminoDeBusqueda);//normalizamos -quitar caracteres/letras raras- que no pueden ir en un URL/I
+let peticion = "https://itunes.apple.com/search?media=music&term="+terminoCodificado;
+
 console.log("ANTES DEL FECTH");
-fetch(URL_RUTA).then(respuesta => {
+fetch(peticion).then(respuesta => {
     console.log("RESPUESTA RECIBIDA");
     console.log("Objeto response completo:", respuesta);
 
@@ -58,3 +63,5 @@ fetch(URL_RUTA).then(respuesta => {
     console.log(`Arista ${artista} Canción ${cancion}`);
 })
  console.log("DESPUÉS DEL FETCH");
+
+ https://www.google.com/search?q=rafa+nadal
