@@ -3786,7 +3786,7 @@ DIARIO_CURSOWEBM: indice editorial generado
             href="#dia-21---cors-origen-cruzado-y-peticiones-fetch"
             id="toc-dia-21---cors-origen-cruzado-y-peticiones-fetch"
           >
-            Dia 21 - CORS, origen cruzado y peticiones fetch
+            Dia 21 - CORS, geolocalizacion, tiempo y mapas
           </a>
         </li>
       </ul>
@@ -3896,7 +3896,7 @@ DIARIO_CURSOWEBM: indice editorial generado
             </a>
             <a class="study-topic-card" href="#dia-20---apis-json-geolocalizacion-y-datos-abiertos">
               <b>APIs web</b>
-              <strong>Endpoint, contrato, CORS, respuesta y datos externos</strong>
+              <strong>Endpoint, contrato, CORS, ubicacion, tiempo y mapas</strong>
               <span>Dias 20-21: conectar navegador, servidor, JSON, permisos, origen cruzado y visualizacion.</span>
             </a>
           </div>
@@ -13322,20 +13322,23 @@ function ubicacionOk(posicionObtenida) {
       class="level1 day-section"
       id="dia-21---cors-origen-cruzado-y-peticiones-fetch"
     >
-      <h1 data-day-date="05/06/2026">Dia 21 - CORS, origen cruzado y peticiones fetch</h1>
+      <h1 data-day-date="05/06/2026">Dia 21 - CORS, geolocalizacion, tiempo y mapas</h1>
       <p>
         Cuando una pagina usa <code>fetch</code> para pedir datos a otro dominio,
         no basta con que la URL exista y el servidor responda. El navegador
         comprueba una regla de seguridad llamada <strong>CORS</strong>, que
         decide si JavaScript puede leer esa respuesta desde la pagina actual.
+        Ese mismo recorrido aparece en la practica del tiempo: primero se pide
+        la ubicacion, despues se llama a OpenWeather y al final se pinta un mapa
+        con MapLibre.
       </p>
       <section class="level2" id="objetivo-del-dia-21">
         <h2>Objetivo del dia</h2>
         <p>
           Entender por que una peticion a una API externa puede fallar en el
           navegador aunque parezca correcta: que es un origen, que protege CORS,
-          que cabeceras debe enviar el servidor y como diagnosticar el problema
-          sin confundirlo con un error de JSON.
+          que cabeceras debe enviar el servidor y como se encadena
+          geolocalizacion, API del tiempo, JSON, marcador, popup y mapa.
         </p>
       </section>
       <section class="level2" id="mapa-de-estudio-dia-21">
@@ -13369,7 +13372,22 @@ function ubicacionOk(posicionObtenida) {
             <strong>Error tipico:</strong> la peticion puede llegar al servidor,
             pero el navegador no entrega la respuesta a JavaScript.
           </li>
+          <li>
+            <strong>Aplicacion del dia:</strong> coordenadas del navegador,
+            tiempo recibido en JSON y visualizacion sobre un mapa.
+          </li>
         </ul>
+        <details>
+          <summary>Fuentes del profesor usadas</summary>
+          <ul>
+            <li><code>profe/f11web/JS/eltiempo/ubicacion.html</code></li>
+            <li><code>profe/f11web/JS/eltiempo/ubicacion.js</code></li>
+            <li><code>profe/f11web/JS/eltiempo/ejemplodatos.json</code></li>
+            <li><code>profe/f11web/JS/eltiempo/ubicacionYMapa/index.html</code></li>
+            <li><code>profe/f11web/JS/eltiempo/ubicacionYMapa/index.js</code></li>
+            <li><code>profe/f11web/JS/eltiempo/maplibre/mapa.html</code></li>
+          </ul>
+        </details>
       </section>
       <section class="level2" id="que-es-un-origen-dia-21">
         <h2>Que es exactamente un origen</h2>
@@ -13553,6 +13571,183 @@ Access-Control-Allow-Origin: http://localhost:5500</code></pre>
           </tbody>
         </table>
       </section>
+      <section class="level2" id="geolocalizacion-y-tiempo-dia-21">
+        <h2>Geolocalizacion y API del tiempo</h2>
+        <p>
+          La practica del profesor empieza con una pregunta directa al navegador:
+          existe <code>navigator.geolocation</code>? Si existe, el codigo pide
+          una posicion puntual con <code>getCurrentPosition()</code>. Cuando el
+          usuario concede permiso, llegan <code>coords.latitude</code> y
+          <code>coords.longitude</code>, que despues se usan como parametros de
+          la API del tiempo.
+        </p>
+        <div
+          class="sourceCode code-panel language-javascript"
+          data-language="javascript"
+          data-language-label="JavaScript"
+          id="cb-dia21-geolocation-weather"
+        >
+          <div aria-hidden="true" class="code-language-badge">JavaScript</div>
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript">const API_TIEMPO =
+    "https://api.openweathermap.org/data/2.5/weather?lang=es&amp;units=metric&amp;appid=";
+const APPID = localStorage.getItem("APPID");
+
+function obtenerUbicacion() {
+    if (navigator.geolocation) {
+        document.getElementById("resultado").textContent =
+            "Solicitando ubicacion ...";
+
+        navigator.geolocation.getCurrentPosition(ubicacionOk, ubicacionError);
+    } else {
+        alert("Navegador antiguo, sin acceso a la ubicacion");
+    }
+}
+
+function ubicacionOk(posicionObtenida) {
+    let latitud = posicionObtenida.coords.latitude;
+    let longitud = posicionObtenida.coords.longitude;
+    let peticionURL = API_TIEMPO + APPID + "&amp;lat=" + encodeURIComponent(latitud)
+        + "&amp;lon=" + encodeURIComponent(longitud);
+
+    fetch(peticionURL)
+        .then(respuesta =&gt; respuesta.ok ? respuesta.json() : undefined)
+        .then(infoTiempo =&gt; console.log(infoTiempo));
+}</code></pre>
+        </div>
+        <p>
+          La clave de estudio no es memorizar la URL, sino ver el puente entre
+          dos APIs: <strong>Geolocation API</strong> entrega coordenadas y
+          <strong>OpenWeather</strong> devuelve el tiempo para esas coordenadas.
+        </p>
+      </section>
+      <section class="level2" id="json-tiempo-dia-21">
+        <h2>Leer el JSON del tiempo</h2>
+        <p>
+          El archivo de ejemplo del profesor enseña la forma de la respuesta.
+          La pagina no necesita todo el JSON: normalmente extrae ciudad,
+          temperatura, descripcion e icono.
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Dato que se quiere mostrar</th>
+              <th>Ruta dentro del JSON</th>
+              <th>Uso en la interfaz</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Ciudad</td>
+              <td><code>data.name</code></td>
+              <td>Titulo del popup o de la tarjeta.</td>
+            </tr>
+            <tr>
+              <td>Temperatura</td>
+              <td><code>data.main.temp</code></td>
+              <td>Numero principal en grados.</td>
+            </tr>
+            <tr>
+              <td>Descripcion</td>
+              <td><code>data.weather[0].description</code></td>
+              <td>Texto legible: lluvia, nubes, cielo claro.</td>
+            </tr>
+            <tr>
+              <td>Icono</td>
+              <td><code>data.weather[0].icon</code></td>
+              <td>Construir la URL de la imagen meteorologica.</td>
+            </tr>
+            <tr>
+              <td>Coordenadas</td>
+              <td><code>data.coord.lat</code> y <code>data.coord.lon</code></td>
+              <td>Relacionar la respuesta con el punto del mapa.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="level2" id="maplibre-dia-21">
+        <h2>MapLibre: del dato al marcador</h2>
+        <p>
+          La siguiente pieza es visual: crear un mapa, centrarlo en las
+          coordenadas y colocar un marcador. MapLibre recibe las coordenadas en
+          orden <code>[longitud, latitud]</code>, no al reves. Ese detalle es
+          importante porque Geolocation API suele leerse como latitud y longitud.
+        </p>
+        <div
+          class="sourceCode code-panel language-javascript"
+          data-language="javascript"
+          data-language-label="JavaScript"
+          id="cb-dia21-maplibre"
+        >
+          <div aria-hidden="true" class="code-language-badge">JavaScript</div>
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript">let mapa;
+
+function pintarMapa(lat, lon) {
+    mapa = new maplibregl.Map({
+        container: "map",
+        zoom: 15,
+        center: [lon, lat],
+        pitch: 70,
+        style: {
+            version: 8,
+            sources: {
+                osm: {
+                    type: "raster",
+                    tiles: ["https://a.tile.openstreetmap.org/{z}/{x}/{y}.png"],
+                    tileSize: 256
+                }
+            },
+            layers: [
+                { id: "osm", type: "raster", source: "osm" }
+            ]
+        }
+    });
+
+    mapa.addControl(new maplibregl.NavigationControl());
+}</code></pre>
+        </div>
+        <p>
+          Una vez creado el mapa, el marcador y el popup convierten el dato en
+          una explicacion visual: aqui estoy, este es el tiempo y estos son los
+          datos que ha devuelto el servidor.
+        </p>
+      </section>
+      <section class="level2" id="popup-tiempo-dia-21">
+        <h2>Popup del tiempo: datos seleccionados</h2>
+        <p>
+          El popup no debe volcar todo el JSON. Selecciona lo que el usuario
+          entiende: ciudad, icono, temperatura y descripcion. Asi se ve por que
+          JavaScript transforma datos antes de pintarlos en el DOM.
+        </p>
+        <div
+          class="sourceCode code-panel language-javascript"
+          data-language="javascript"
+          data-language-label="JavaScript"
+          id="cb-dia21-popup-tiempo"
+        >
+          <div aria-hidden="true" class="code-language-badge">JavaScript</div>
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript">fetch(url)
+    .then(respuesta =&gt; respuesta.json())
+    .then(data =&gt; {
+        let popupHTML = popUp(
+            data.name,
+            data.weather[0].icon,
+            data.main.temp,
+            data.weather[0].description
+        );
+
+        new maplibregl.Marker({ color: "red" })
+            .setLngLat([lon, lat])
+            .setPopup(new maplibregl.Popup().setHTML(popupHTML))
+            .addTo(mapa);
+    });</code></pre>
+        </div>
+      </section>
       <section class="level2" id="errores-frecuentes-dia-21">
         <h2>Errores frecuentes</h2>
         <ul>
@@ -13575,6 +13770,14 @@ Access-Control-Allow-Origin: http://localhost:5500</code></pre>
           <li>
             Usar <code>Access-Control-Allow-Origin: *</code> sin pensar si la
             API maneja datos privados o credenciales.
+          </li>
+          <li>
+            Cambiar el orden de coordenadas en el mapa. Geolocation se lee como
+            latitud y longitud, pero MapLibre centra con <code>[lon, lat]</code>.
+          </li>
+          <li>
+            Volcar todo el JSON del tiempo en pantalla en vez de elegir los
+            datos que explican algo al usuario.
           </li>
         </ul>
       </section>
@@ -13606,6 +13809,24 @@ Access-Control-Allow-Origin: http://localhost:5500</code></pre>
             Normalmente el servidor de la API, configurando las cabeceras
             permitidas de forma concreta y segura.
           </dd>
+          <dt><strong>Que aporta Geolocation API al ejercicio del tiempo?</strong></dt>
+          <dd>
+            Aporta las coordenadas reales del usuario, que despues se convierten
+            en parametros <code>lat</code> y <code>lon</code> para la API del
+            tiempo.
+          </dd>
+          <dt><strong>Por que MapLibre usa <code>[lon, lat]</code>?</strong></dt>
+          <dd>
+            Porque sus coordenadas siguen el orden longitud y latitud. Es uno de
+            los puntos donde mas facil es invertir los valores y colocar mal el
+            marcador.
+          </dd>
+          <dt><strong>Que parte del JSON del tiempo se muestra al usuario?</strong></dt>
+          <dd>
+            Solo la parte util para la interfaz: ciudad, temperatura,
+            descripcion, icono y posicion. El resto sirve como contexto o para
+            futuras mejoras.
+          </dd>
         </dl>
       </section>
       <section class="level2" id="cierre-del-dia-21">
@@ -13615,7 +13836,9 @@ Access-Control-Allow-Origin: http://localhost:5500</code></pre>
           HTTP puede responder y aun asi el navegador puede bloquear la lectura
           si el servidor no autoriza el origen. Cuando aparece ese error, el
           diagnostico correcto no empieza cambiando el JSON: empieza mirando
-          origenes, cabeceras y permisos.
+          origenes, cabeceras y permisos. La practica del tiempo añade la parte
+          completa de aplicacion: pedir ubicacion, llamar a OpenWeather, leer el
+          JSON, elegir datos y pintarlos sobre un mapa con marcador y popup.
         </p>
       </section>
     </section>
