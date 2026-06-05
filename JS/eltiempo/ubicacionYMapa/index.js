@@ -1,3 +1,6 @@
+
+
+
 // 1) OBTENER UBICACIÓN DEL USUARIO
 let mapa;
 
@@ -10,7 +13,7 @@ function ubicacionOk(pos) {
     const lon = pos.coords.longitude;
 
     // Centrar el mapa en la ubicación real
-   
+
 
     // 2) LLAMAR AL API DEL TIEMPO
     const API_KEY = "a9a7bdfe37478c0c32bae0c23618ba87";
@@ -22,15 +25,26 @@ function ubicacionOk(pos) {
         .then(r => r.json())
         .then(data => {
             console.log("Tiempo recibido:", data);
-            let popupHTML = popUp(data.name, data.weather[0].icon, data.main.temp,data.weather[0].description)
-           
-            
+            let popupHTML = popUp(data.name, data.weather[0].icon, data.main.temp, data.weather[0].description)
+
+
 
             // 4) MARCADOR + POPUP EN EL MAPA
             new maplibregl.Marker({ color: "red" })
                 .setLngLat([lon, lat])
                 .setPopup(new maplibregl.Popup().setHTML(popupHTML))
                 .addTo(mapa);
+
+            mapa.on("click", function (evento) {
+                const longitud = evento.lngLat.lng;
+                const latitud = evento.lngLat.lat;
+
+                new maplibregl.Marker()
+                    .setLngLat([longitud, latitud])
+                    .addTo(mapa);
+
+                
+            });
         });
 }
 
@@ -38,8 +52,7 @@ function ubicacionError() {
     alert("No se pudo obtener la ubicación");
 }
 
-function popUp (ciudad, icon, temp, desc)
-{
+function popUp(ciudad, icon, temp, desc) {
 
     let popupHTML = `
                 <div style="
@@ -81,7 +94,7 @@ function popUp (ciudad, icon, temp, desc)
 }
 
 function pintarMapa(lat, lon) {
-     mapa = new maplibregl.Map({
+    mapa = new maplibregl.Map({
         container: 'map',
         zoom: 15,
         center: [lon, lat],
@@ -105,7 +118,7 @@ function pintarMapa(lat, lon) {
                     source: 'osm'
                 }
             ],
-            
+
             sky: {}
         },
         maxZoom: 18,
@@ -120,5 +133,5 @@ function pintarMapa(lat, lon) {
         })
     );
 
-  
+
 }
