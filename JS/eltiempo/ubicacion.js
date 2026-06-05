@@ -10,6 +10,11 @@ https://api.openweathermap.org/data/2.5/weather?lang=es&units=metric&appid=API_P
 2) mostrar por consola el JSON recibido con la info del tiempo
 
 */
+
+const API_TIEMPO = "https://api.openweathermap.org/data/2.5/weather?lang=es&units=metric&appid="
+const APPID = localStorage.getItem('APPID');
+console.log(APPID);
+
 function obtenerUbicacion() 
 {
     if (navigator.geolocation)
@@ -30,6 +35,27 @@ function ubicacionOk(posicionObtenida)
     let longitud = posicionObtenida.coords.longitude;
 
     document.getElementById("resultado").textContent = `LAT = ${latitud} LONG = ${longitud}`
+
+    let latitudParam = encodeURIComponent(latitud);
+    let longitudParam = encodeURIComponent(longitud);
+
+    let peticionURL = API_TIEMPO+APPID+"&lat="+latitudParam+"&lon="+longitudParam;
+    console.log(`peticion = ${peticionURL}`);
+
+    fetch(peticionURL)
+    .then(respuesta => {
+        if (respuesta.ok)
+    
+        {
+            return respuesta.json()//el cuerpo de la respuesta, lo paso a variable
+        } else {
+            console.error("FALLO")
+        }
+    })
+    .then (infoTiempo => {
+        console.log("INFO TIEMPO ");
+        console.log(infoTiempo);
+    })
 
 }
 
