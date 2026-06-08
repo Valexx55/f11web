@@ -3789,6 +3789,14 @@ DIARIO_CURSOWEBM: indice editorial generado
             Dia 21 - CORS, geolocalizacion, tiempo y mapas
           </a>
         </li>
+        <li>
+          <a
+            href="#dia-22---accesibilidad-usabilidad-y-diseno-universal"
+            id="toc-dia-22---accesibilidad-usabilidad-y-diseno-universal"
+          >
+            Dia 22 - Accesibilidad, usabilidad y diseno universal
+          </a>
+        </li>
       </ul>
     </nav>
     <section class="level1 front-section" id="portada">
@@ -13839,6 +13847,1197 @@ function pintarMapa(lat, lon) {
           origenes, cabeceras y permisos. La practica del tiempo añade la parte
           completa de aplicacion: pedir ubicacion, llamar a OpenWeather, leer el
           JSON, elegir datos y pintarlos sobre un mapa con marcador y popup.
+        </p>
+      </section>
+    </section>
+    <section
+      class="level1 day-section"
+      id="dia-22---accesibilidad-usabilidad-y-diseno-universal"
+    >
+      <h1 data-day-date="08/06/2026">Dia 22 - Accesibilidad, usabilidad y diseno universal</h1>
+      <p>
+        El dia empieza con una idea base: una pagina no esta bien hecha solo
+        porque se ve bonita. Tambien debe poder usarse por personas distintas,
+        en situaciones distintas y con dispositivos distintos. Ahi entran
+        <strong>accesibilidad</strong>, <strong>usabilidad</strong>,
+        <strong>diseno inclusivo</strong> y <strong>diseno universal</strong>.
+      </p>
+      <section class="level2" id="objetivo-del-dia-22">
+        <h2>Objetivo del dia</h2>
+        <p>
+          Entender que una interfaz funcional no se mide solo por colores,
+          animaciones o distribucion visual. Se mide por si una persona puede
+          percibirla, entenderla, moverse por ella, corregir errores y completar
+          la tarea sin depender de una unica forma de uso.
+        </p>
+      </section>
+      <section class="level2" id="mapa-de-estudio-dia-22">
+        <h2>Mapa de estudio del dia</h2>
+        <div class="concept-visual" aria-label="Relacion entre accesibilidad, usabilidad y diseno universal">
+          <span class="concept-visual-node">Accesibilidad</span>
+          <span class="concept-visual-arrow" aria-hidden="true">+</span>
+          <span class="concept-visual-node">Usabilidad</span>
+          <span class="concept-visual-arrow" aria-hidden="true">&rarr;</span>
+          <span class="concept-visual-node">Diseno universal</span>
+          <span class="concept-visual-note">El diseno universal aparece cuando la accesibilidad y la usabilidad se cruzan: la interfaz puede usarse por mas personas y ademas resulta clara, eficaz y comoda.</span>
+        </div>
+        <ul>
+          <li>
+            <strong>Accesibilidad:</strong> que la pagina pueda ser percibida,
+            comprendida y usada aunque la persona tenga limitaciones visuales,
+            motoras, auditivas, cognitivas o temporales.
+          </li>
+          <li>
+            <strong>Usabilidad:</strong> que la pagina sea facil de aprender,
+            rapida de usar, predecible y poco propensa a errores.
+          </li>
+          <li>
+            <strong>Diseno inclusivo:</strong> disenar pensando desde el inicio
+            en usuarios reales, diversos y con contextos de uso diferentes.
+          </li>
+          <li>
+            <strong>Diseno funcional:</strong> cada elemento de la interfaz debe
+            ayudar a completar una tarea; si solo decora y confunde, resta.
+          </li>
+        </ul>
+      </section>
+      <section class="level2" id="conceptos-base-dia-22">
+        <h2>Conceptos base</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Concepto</th>
+              <th>Pregunta que responde</th>
+              <th>Ejemplo en una pagina web</th>
+              <th>Decision de codigo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Accesibilidad</td>
+              <td>Puede usarla alguien que no navega como yo?</td>
+              <td>Texto con contraste, teclado usable, imagenes con alternativa y formularios con etiquetas.</td>
+              <td>Usar <code>lang</code>, <code>label</code>, <code>alt</code>, foco visible y HTML semantico desde el inicio.</td>
+            </tr>
+            <tr>
+              <td>Usabilidad</td>
+              <td>Se entiende rapido que hay que hacer?</td>
+              <td>Botones claros, mensajes de error utiles y pasos ordenados.</td>
+              <td>Nombrar acciones con verbos concretos, mostrar feedback y mantener un recorrido visual predecible.</td>
+            </tr>
+            <tr>
+              <td>Diseno inclusivo</td>
+              <td>A quien estoy dejando fuera sin darme cuenta?</td>
+              <td>No depender solo del color para indicar correcto o incorrecto.</td>
+              <td>Combinar color con texto, icono, estado escrito y mensajes que expliquen la situacion.</td>
+            </tr>
+            <tr>
+              <td>Diseno universal</td>
+              <td>Sirve bien para la mayor variedad posible de personas?</td>
+              <td>Una interfaz legible, navegable con teclado, clara en movil y comprensible sin instrucciones largas.</td>
+              <td>Probar teclado, zoom, movil, contraste, errores y cambios dinamicos antes de considerar terminada la pagina.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="level2" id="principios-wcag-dia-22">
+        <h2>Cuatro principios para no perderse</h2>
+        <p>
+          La accesibilidad se puede estudiar con una regla muy util:
+          <strong>POUR</strong>. Una interfaz debe ser perceptible, operable,
+          comprensible y robusta. Si falla una de esas cuatro piezas, alguien
+          puede quedarse fuera aunque la pagina cargue correctamente.
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Principio</th>
+              <th>Que exige</th>
+              <th>Fallo comun</th>
+              <th>Como se corrige en el tema</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Perceptible</td>
+              <td>La informacion debe poder verse, escucharse o recibirse de otra forma.</td>
+              <td>Imagen importante sin <code>alt</code> o texto con poco contraste.</td>
+              <td>Texto legible, contraste suficiente, alternativas para imagenes y mensajes que no dependan solo del color.</td>
+            </tr>
+            <tr>
+              <td>Operable</td>
+              <td>La interfaz debe poder manejarse con teclado, raton, tactil u otras ayudas.</td>
+              <td>Un menu o boton que solo funciona con raton.</td>
+              <td>Botones reales, enlaces reales, foco visible y orden de tabulacion coherente con el contenido.</td>
+            </tr>
+            <tr>
+              <td>Comprensible</td>
+              <td>El contenido, las acciones y los errores deben entenderse sin adivinar.</td>
+              <td>Mensajes como "error" sin explicar que campo hay que corregir.</td>
+              <td>Titulos claros, textos de boton concretos, ayudas antes del error y mensajes que indiquen solucion.</td>
+            </tr>
+            <tr>
+              <td>Robusta</td>
+              <td>El codigo debe tener estructura suficiente para navegadores y tecnologias de apoyo.</td>
+              <td>Crear controles con <code>div</code> sin nombre, rol ni comportamiento real.</td>
+              <td>HTML semantico primero; ARIA solo cuando añade una relacion o estado que HTML no comunica por si mismo.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="level2" id="usabilidad-practica-dia-22">
+        <h2>Usabilidad: que la tarea salga sin friccion</h2>
+        <p>
+          Usabilidad no significa que la pagina guste. Significa que la persona
+          sabe donde esta, que puede hacer, que ha ocurrido despues de actuar y
+          como corregir un fallo. En una interfaz de clase, eso es clave porque
+          el alumno no debe gastar energia descifrando la herramienta.
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Criterio</th>
+              <th>Buena practica</th>
+              <th>Por que ayuda</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Claridad</td>
+              <td>Titulos, botones y mensajes dicen exactamente que ocurre.</td>
+              <td>Reduce dudas y evita instrucciones largas.</td>
+            </tr>
+            <tr>
+              <td>Consistencia</td>
+              <td>Los mismos controles se comportan igual en toda la pagina.</td>
+              <td>El usuario aprende una vez y reutiliza ese aprendizaje.</td>
+            </tr>
+            <tr>
+              <td>Feedback</td>
+              <td>Cada accion importante devuelve una respuesta visible.</td>
+              <td>Evita pulsar varias veces porque no se sabe si algo ha pasado.</td>
+            </tr>
+            <tr>
+              <td>Prevencion de errores</td>
+              <td>Los formularios guian antes de castigar.</td>
+              <td>El usuario corrige antes y con menos frustracion.</td>
+            </tr>
+            <tr>
+              <td>Recuperacion</td>
+              <td>Si hay error, el mensaje indica causa y siguiente paso.</td>
+              <td>El fallo se convierte en informacion util.</td>
+            </tr>
+            <tr>
+              <td>Orientacion</td>
+              <td>La pagina tiene un titulo unico, secciones claras y enlaces descriptivos.</td>
+              <td>El usuario sabe donde esta y a donde puede ir.</td>
+            </tr>
+            <tr>
+              <td>Uso tactil</td>
+              <td>Los controles tienen tamano suficiente y separacion real.</td>
+              <td>Reduce pulsaciones accidentales en movil o con motricidad limitada.</td>
+            </tr>
+            <tr>
+              <td>Movimiento</td>
+              <td>Las animaciones no impiden leer y se pueden reducir si el usuario lo pide.</td>
+              <td>Evita distraccion, mareo o perdida de contexto.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="level2" id="patrones-accesibles-dia-22">
+        <h2>Patrones que deben aparecer desde el primer codigo</h2>
+        <p>
+          La mejor accesibilidad es la que se escribe desde el principio. No se
+          trata de memorizar etiquetas sueltas, sino de escoger el elemento HTML
+          que ya representa la accion o la informacion.
+        </p>
+        <p>
+          La regla practica es esta: primero HTML nativo; despues ARIA solo si
+          hace falta comunicar un nombre, un estado o una relacion que el HTML
+          por si solo no expresa con suficiente claridad.
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Necesidad</th>
+              <th>Usa esto</th>
+              <th>Evita esto</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Definir idioma</td>
+              <td><code>&lt;html lang="es"&gt;</code></td>
+              <td>Documento sin idioma, porque puede leerse con pronunciacion incorrecta.</td>
+            </tr>
+            <tr>
+              <td>Nombrar la pestaña</td>
+              <td><code>&lt;title&gt;</code> especifico de la pantalla.</td>
+              <td>Titulos genericos como "Page Title" o pestañas sin contexto.</td>
+            </tr>
+            <tr>
+              <td>Ejecutar una accion</td>
+              <td><code>&lt;button type="button"&gt;</code> o <code>type="submit"</code></td>
+              <td><code>&lt;div onclick="..."&gt;</code> como falso boton.</td>
+            </tr>
+            <tr>
+              <td>Navegar a otra pagina</td>
+              <td><code>&lt;a href="..."&gt;</code></td>
+              <td>Botones que parecen enlaces pero no tienen destino real.</td>
+            </tr>
+            <tr>
+              <td>Pedir un dato</td>
+              <td><code>&lt;label for="id"&gt;</code> asociado al <code>input</code></td>
+              <td>Placeholder como unica explicacion del campo.</td>
+            </tr>
+            <tr>
+              <td>Facilitar entrada de datos</td>
+              <td><code>autocomplete</code>, <code>type</code> correcto y restricciones utiles.</td>
+              <td>Campos genericos que obligan a escribir mas y validan peor.</td>
+            </tr>
+            <tr>
+              <td>Agrupar campos relacionados</td>
+              <td><code>fieldset</code> y <code>legend</code>.</td>
+              <td>Formularios largos sin contexto de grupo.</td>
+            </tr>
+            <tr>
+              <td>Mostrar un cambio dinamico</td>
+              <td><code>aria-live="polite"</code> en mensajes que cambian.</td>
+              <td>Cambiar texto importante sin que una ayuda pueda anunciarlo.</td>
+            </tr>
+            <tr>
+              <td>Ordenar contenido</td>
+              <td>Encabezados reales: <code>h1</code>, <code>h2</code>, <code>h3</code>.</td>
+              <td>Usar tamaños visuales sin estructura de titulos.</td>
+            </tr>
+            <tr>
+              <td>Imagen informativa</td>
+              <td><code>alt</code> breve que explique la informacion.</td>
+              <td>Imagen sin alternativa o con texto como "imagen".</td>
+            </tr>
+            <tr>
+              <td>Iconos interactivos</td>
+              <td>Texto visible o <code>aria-label</code> si el icono es el unico contenido.</td>
+              <td>Botones con icono que no tienen nombre accesible.</td>
+            </tr>
+            <tr>
+              <td>Estado visual</td>
+              <td>Color + texto + foco + estado escrito.</td>
+              <td>Comunicar informacion solo con rojo, verde o una animacion.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="level2" id="concepto-aria-dia-22">
+        <h2>Concepto WAI-ARIA: cuando HTML necesita ayuda</h2>
+        <p>
+          <strong>WAI-ARIA</strong> significa <em>Web Accessibility Initiative -
+          Accessible Rich Internet Applications</em>. Sirve para dar informacion
+          extra a las tecnologias de apoyo cuando una interfaz tiene estados
+          dinamicos, paneles que se abren, mensajes que cambian o controles que
+          necesitan un nombre mas claro.
+        </p>
+        <p>
+          ARIA no cambia el aspecto visual y tampoco crea comportamiento por si
+          solo. Si un boton abre un panel, JavaScript debe abrirlo de verdad;
+          ARIA solo comunica el estado. Por eso la norma profesional es:
+          <strong>no uses ARIA para arreglar HTML mal elegido</strong>.
+        </p>
+        <div class="concept-visual" aria-label="Ruta desde HTML hasta tecnologia de apoyo">
+          <span class="concept-visual-node">HTML</span>
+          <span class="concept-visual-arrow" aria-hidden="true">&rarr;</span>
+          <span class="concept-visual-node">DOM</span>
+          <span class="concept-visual-arrow" aria-hidden="true">&rarr;</span>
+          <span class="concept-visual-node">Arbol de accesibilidad</span>
+          <span class="concept-visual-arrow" aria-hidden="true">&rarr;</span>
+          <span class="concept-visual-node">Lector de pantalla</span>
+          <span class="concept-visual-note">El DOM permite mostrar, estilizar y modificar la pagina. El arbol de accesibilidad traduce esa interfaz a nombres, roles, relaciones y estados que puede anunciar una tecnologia de apoyo.</span>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Pieza ARIA</th>
+              <th>Pregunta que responde</th>
+              <th>Ejemplos</th>
+              <th>Idea que debe quedarse</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Roles</td>
+              <td>Que soy?</td>
+              <td><code>role="button"</code>, <code>role="tablist"</code>, <code>role="tabpanel"</code></td>
+              <td>Definen el tipo de componente, pero no sustituyen el comportamiento real.</td>
+            </tr>
+            <tr>
+              <td>Propiedades</td>
+              <td>Como me llamo o con que estoy relacionado?</td>
+              <td><code>aria-label</code>, <code>aria-labelledby</code>, <code>aria-describedby</code></td>
+              <td>Añaden nombre, descripcion o relacion cuando el HTML no basta.</td>
+            </tr>
+            <tr>
+              <td>Estados</td>
+              <td>Como estoy ahora mismo?</td>
+              <td><code>aria-expanded</code>, <code>aria-pressed</code>, <code>aria-live</code></td>
+              <td>Deben actualizarse cuando cambia la interfaz visual.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>Arbol de accesibilidad: lo que recibe una ayuda tecnica</h3>
+        <p>
+          El navegador no entrega la pagina a un lector de pantalla tal como la
+          vemos nosotros. Primero interpreta el HTML y crea el <strong>DOM</strong>.
+          Despues genera otra estructura: el <strong>arbol de accesibilidad</strong>.
+          Ese arbol no se centra en colores ni tamaños; se centra en responder
+          cuatro preguntas: que es el elemento, como se llama, que relacion tiene
+          con otros elementos y en que estado se encuentra.
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>En el codigo</th>
+              <th>En pantalla</th>
+              <th>En el arbol de accesibilidad</th>
+              <th>Por que importa</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>&lt;button&gt;Enviar&lt;/button&gt;</code></td>
+              <td>Un boton con el texto Enviar.</td>
+              <td>Rol: boton. Nombre: Enviar. Activable con teclado.</td>
+              <td>El HTML nativo ya comunica significado y comportamiento.</td>
+            </tr>
+            <tr>
+              <td><code>&lt;button aria-label="Buscar"&gt;🔍&lt;/button&gt;</code></td>
+              <td>Un boton con icono de lupa.</td>
+              <td>Rol: boton. Nombre: Buscar.</td>
+              <td>El icono visual se convierte en una accion comprensible.</td>
+            </tr>
+            <tr>
+              <td><code>&lt;span aria-hidden="true"&gt;→&lt;/span&gt;</code></td>
+              <td>Una flecha decorativa.</td>
+              <td>No se anuncia.</td>
+              <td>Evita ruido cuando el simbolo no aporta informacion real.</td>
+            </tr>
+            <tr>
+              <td><code>&lt;p aria-live="polite"&gt;Guardado&lt;/p&gt;</code></td>
+              <td>Un mensaje que aparece sin recargar.</td>
+              <td>Zona viva que puede anunciar el cambio.</td>
+              <td>Una actualizacion dinamica deja de ser solo visual.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>Roles ARIA: que soy?</h3>
+        <p>
+          Un rol indica la identidad del elemento dentro del arbol de
+          accesibilidad. El error habitual es pensar que el rol crea el
+          comportamiento. No lo crea: solo cambia como se presenta el elemento a
+          una tecnologia de apoyo. Por eso siempre conviene usar primero la
+          etiqueta HTML nativa.
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Tipo de rol</th>
+              <th>Ejemplos ARIA</th>
+              <th>HTML preferible cuando existe</th>
+              <th>Uso correcto</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Landmark</td>
+              <td><code>banner</code>, <code>navigation</code>, <code>main</code>, <code>contentinfo</code></td>
+              <td><code>header</code>, <code>nav</code>, <code>main</code>, <code>footer</code></td>
+              <td>Crear un mapa de zonas importantes de la pagina.</td>
+            </tr>
+            <tr>
+              <td>Widget</td>
+              <td><code>tablist</code>, <code>tab</code>, <code>tabpanel</code>, <code>switch</code></td>
+              <td>No siempre hay etiqueta nativa suficiente.</td>
+              <td>Describir componentes interactivos complejos hechos con JavaScript.</td>
+            </tr>
+            <tr>
+              <td>Control simulado</td>
+              <td><code>button</code>, <code>checkbox</code>, <code>menuitem</code></td>
+              <td><code>button</code>, <code>input type="checkbox"</code></td>
+              <td>Solo si no se puede usar el elemento nativo y se completa teclado, foco y estado.</td>
+            </tr>
+          </tbody>
+        </table>
+        <div
+          class="sourceCode code-panel language-html"
+          data-language="html"
+          data-language-label="HTML"
+          id="cb-dia22-aria-roles"
+        >
+          <div aria-hidden="true" class="code-language-badge">HTML</div>
+          <pre
+            class="sourceCode html"
+          ><code class="sourceCode html">&lt;!-- Mejor: landmarks nativos, sin role extra --&gt;
+&lt;header&gt;Cabecera del sitio&lt;/header&gt;
+&lt;nav aria-label="Menu principal"&gt;...&lt;/nav&gt;
+&lt;main&gt;Contenido principal&lt;/main&gt;
+&lt;footer&gt;Pie de pagina&lt;/footer&gt;
+
+&lt;!-- ARIA tiene sentido en componentes mas complejos --&gt;
+&lt;div role="tablist" aria-label="Temas del modulo"&gt;
+    &lt;button role="tab" aria-selected="true" aria-controls="panel-html"&gt;HTML&lt;/button&gt;
+    &lt;button role="tab" aria-selected="false" aria-controls="panel-css"&gt;CSS&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;section id="panel-html" role="tabpanel"&gt;
+    HTML estructura el contenido.
+&lt;/section&gt;</code></pre>
+        </div>
+        <h3>Propiedades ARIA: naming y relaciones</h3>
+        <p>
+          Las propiedades ARIA describen el elemento. Las mas importantes para
+          empezar son las de <strong>nombre accesible</strong> y las de
+          <strong>relacion</strong>. El nombre accesible es lo que una persona
+          oye cuando llega a un control: no basta con que el boton exista; debe
+          saberse que hace.
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Propiedad</th>
+              <th>Para que sirve</th>
+              <th>Cuando usarla</th>
+              <th>Cuidado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>aria-label</code></td>
+              <td>Escribe directamente el nombre accesible.</td>
+              <td>Botones con icono, botones de cerrar, lupa o tres puntos.</td>
+              <td>No lo uses para ocultar textos malos; si puede haber texto visible, suele ser mejor.</td>
+            </tr>
+            <tr>
+              <td><code>aria-labelledby</code></td>
+              <td>Usa como nombre el texto visible de otro elemento.</td>
+              <td>Secciones, formularios, modales o paneles que ya tienen titulo.</td>
+              <td>No mezclar con <code>aria-label</code> sin una razon clara.</td>
+            </tr>
+            <tr>
+              <td><code>aria-describedby</code></td>
+              <td>Añade una descripcion complementaria.</td>
+              <td>Ayudas de campo, requisitos, errores o aclaraciones.</td>
+              <td>La descripcion no sustituye al <code>label</code>; lo completa.</td>
+            </tr>
+            <tr>
+              <td><code>aria-controls</code></td>
+              <td>Indica que un control afecta a otro elemento.</td>
+              <td>Boton que abre un panel, pestaña que muestra un contenido.</td>
+              <td>Debe apuntar a un <code>id</code> real.</td>
+            </tr>
+            <tr>
+              <td><code>aria-hidden</code></td>
+              <td>Oculta contenido al arbol de accesibilidad.</td>
+              <td>Iconos decorativos o texto duplicado visualmente.</td>
+              <td>No lo pongas en contenido util ni en elementos que reciben foco.</td>
+            </tr>
+          </tbody>
+        </table>
+        <div
+          class="sourceCode code-panel language-html"
+          data-language="html"
+          data-language-label="HTML"
+          id="cb-dia22-aria-propiedades"
+        >
+          <div aria-hidden="true" class="code-language-badge">HTML</div>
+          <pre
+            class="sourceCode html"
+          ><code class="sourceCode html">&lt;!-- Naming con aria-label: el icono necesita nombre --&gt;
+&lt;button type="button" aria-label="Buscar"&gt;
+    &lt;span aria-hidden="true"&gt;🔍&lt;/span&gt;
+&lt;/button&gt;
+
+&lt;!-- Naming con aria-labelledby: se reutiliza un titulo visible --&gt;
+&lt;h2 id="titulo-alta"&gt;Alta de usuario&lt;/h2&gt;
+&lt;form aria-labelledby="titulo-alta"&gt;
+    &lt;label for="correo-alta"&gt;Correo electronico&lt;/label&gt;
+    &lt;input
+        id="correo-alta"
+        type="email"
+        aria-describedby="ayuda-correo-alta"
+    &gt;
+    &lt;p id="ayuda-correo-alta"&gt;Usa un correo con arroba y dominio.&lt;/p&gt;
+&lt;/form&gt;</code></pre>
+        </div>
+        <h3>Estados ARIA: como estoy ahora?</h3>
+        <p>
+          Los estados ARIA son utiles cuando la interfaz cambia sin recargar la
+          pagina. Deben sincronizarse con lo que ocurre visualmente. Si un panel
+          se abre en pantalla pero <code>aria-expanded</code> sigue en
+          <code>false</code>, la informacion que recibe el lector de pantalla es
+          incorrecta.
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Estado</th>
+              <th>Indica</th>
+              <th>Ejemplo de uso</th>
+              <th>Debe actualizarse cuando...</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>aria-expanded</code></td>
+              <td>Si algo esta abierto o cerrado.</td>
+              <td>Menu, acordeon, ayuda desplegable.</td>
+              <td>Se abre o se cierra el panel asociado.</td>
+            </tr>
+            <tr>
+              <td><code>aria-pressed</code></td>
+              <td>Si un boton interruptor esta activado.</td>
+              <td>Favorito, silenciar, activar modo oscuro.</td>
+              <td>El boton cambia entre encendido y apagado.</td>
+            </tr>
+            <tr>
+              <td><code>aria-selected</code></td>
+              <td>Que opcion esta seleccionada dentro de un conjunto.</td>
+              <td>Pestañas o listas con seleccion.</td>
+              <td>El usuario cambia de pestaña u opcion activa.</td>
+            </tr>
+            <tr>
+              <td><code>aria-invalid</code></td>
+              <td>Si un campo contiene un valor incorrecto.</td>
+              <td>Formulario con validacion.</td>
+              <td>El campo pasa de valido a invalido o se corrige.</td>
+            </tr>
+            <tr>
+              <td><code>aria-current</code></td>
+              <td>Elemento actual dentro de una navegacion.</td>
+              <td>Enlace de la pagina actual.</td>
+              <td>La ruta o seccion activa cambia.</td>
+            </tr>
+            <tr>
+              <td><code>aria-live</code></td>
+              <td>Que una zona puede anunciar cambios.</td>
+              <td>Resultado, confirmacion o error dinamico.</td>
+              <td>El texto cambia sin recargar la pagina.</td>
+            </tr>
+          </tbody>
+        </table>
+        <div
+          class="sourceCode code-panel language-html"
+          data-language="html"
+          data-language-label="HTML"
+          id="cb-dia22-aria-estados"
+        >
+          <div aria-hidden="true" class="code-language-badge">HTML</div>
+          <pre
+            class="sourceCode html"
+          ><code class="sourceCode html">&lt;button
+    type="button"
+    aria-expanded="false"
+    aria-controls="menu-usuario"
+&gt;
+    Menu de usuario
+&lt;/button&gt;
+
+&lt;nav id="menu-usuario" hidden&gt;
+    &lt;a href="/perfil" aria-current="page"&gt;Perfil&lt;/a&gt;
+    &lt;a href="/salir"&gt;Salir&lt;/a&gt;
+&lt;/nav&gt;
+
+&lt;button type="button" aria-pressed="false"&gt;
+    Silenciar avisos
+&lt;/button&gt;
+
+&lt;p id="resultado-accion" aria-live="polite"&gt;&lt;/p&gt;</code></pre>
+        </div>
+        <p>
+          En JavaScript, cada cambio visual debe ir acompañado del cambio ARIA
+          equivalente: mostrar u ocultar el menu, actualizar
+          <code>aria-expanded</code>, cambiar <code>aria-pressed</code> y escribir
+          el mensaje en la zona <code>aria-live</code>.
+        </p>
+        <h3>Atributos ARIA que aparecen en ejercicios</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Necesidad real</th>
+              <th>Atributo ARIA</th>
+              <th>Uso correcto</th>
+              <th>Error que evita</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Describir un componente complejo sin etiqueta nativa suficiente.</td>
+              <td><code>role</code></td>
+              <td><code>role="tablist"</code> y <code>role="tabpanel"</code> en una interfaz de pestañas.</td>
+              <td>Inventar componentes visuales que no tienen significado para tecnologias de apoyo.</td>
+            </tr>
+            <tr>
+              <td>Nombrar un boton que solo tiene icono.</td>
+              <td><code>aria-label</code></td>
+              <td><code>aria-label="Cerrar ventana"</code></td>
+              <td>Un lector de pantalla anunciaria solo "boton" sin explicar la accion.</td>
+            </tr>
+            <tr>
+              <td>Usar un titulo visible como nombre de una zona.</td>
+              <td><code>aria-labelledby</code></td>
+              <td>La seccion apunta al <code>id</code> del titulo que ya se ve.</td>
+              <td>Duplicar textos ocultos o dejar una region sin nombre claro.</td>
+            </tr>
+            <tr>
+              <td>Relacionar una ayuda o un error con un campo.</td>
+              <td><code>aria-describedby</code></td>
+              <td>El <code>input</code> apunta al texto que explica la condicion.</td>
+              <td>El usuario sabe que hay error, pero no que debe corregir.</td>
+            </tr>
+            <tr>
+              <td>Anunciar un resultado que aparece sin recargar.</td>
+              <td><code>aria-live="polite"</code></td>
+              <td>Se coloca en mensajes de estado, resultados o confirmaciones.</td>
+              <td>La pagina cambia visualmente, pero la ayuda no recibe aviso.</td>
+            </tr>
+            <tr>
+              <td>Marcar un campo con valor incorrecto.</td>
+              <td><code>aria-invalid</code></td>
+              <td><code>aria-invalid="true"</code> junto a un mensaje explicado.</td>
+              <td>Indicar fallo solo con borde rojo o color.</td>
+            </tr>
+            <tr>
+              <td>Comunicar si un panel esta abierto o cerrado.</td>
+              <td><code>aria-expanded</code> y <code>aria-controls</code></td>
+              <td>El boton indica su estado y el <code>id</code> del panel que controla.</td>
+              <td>Un desplegable funciona, pero no se entiende su estado.</td>
+            </tr>
+            <tr>
+              <td>Comunicar si un boton interruptor esta activado.</td>
+              <td><code>aria-pressed</code></td>
+              <td><code>aria-pressed="true"</code> en botones de favorito, silencio o modo activo.</td>
+              <td>El usuario oye el boton, pero no sabe si esta encendido o apagado.</td>
+            </tr>
+            <tr>
+              <td>Ocultar decoracion a tecnologias de apoyo.</td>
+              <td><code>aria-hidden="true"</code></td>
+              <td>Solo en iconos o elementos decorativos sin informacion.</td>
+              <td>Ruido innecesario al navegar por contenido que no aporta nada.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>Boton nativo frente a <code>div role="button"</code></h3>
+        <p>
+          Un <code>&lt;button&gt;</code> ya recibe foco, responde a Enter y
+          Espacio y se anuncia como boton. Un <code>div</code> con
+          <code>role="button"</code> solo cambia parte de lo que se anuncia:
+          todavia necesita foco y eventos de teclado programados.
+        </p>
+        <div
+          class="sourceCode code-panel language-html"
+          data-language="html"
+          data-language-label="HTML"
+          id="cb-dia22-aria-boton-nativo"
+        >
+          <div aria-hidden="true" class="code-language-badge">HTML</div>
+          <pre
+            class="sourceCode html"
+          ><code class="sourceCode html">&lt;!-- Correcto: HTML nativo ya trae semantica y teclado --&gt;
+&lt;button type="button"&gt;Guardar&lt;/button&gt;
+
+&lt;!-- Solo aceptable en casos especiales: hay que completar foco y teclado --&gt;
+&lt;div role="button" tabindex="0"&gt;Guardar&lt;/div&gt;</code></pre>
+        </div>
+        <p>
+          <code>tabindex="0"</code> permite llegar al <code>div</code> con el
+          tabulador, pero no lo activa. Para que sea equivalente a un boton
+          real habria que programar Enter y Espacio con JavaScript. En clase, la
+          decision segura es simple: si necesitas un boton, usa
+          <code>&lt;button&gt;</code>.
+        </p>
+        <div
+          class="sourceCode code-panel language-html"
+          data-language="html"
+          data-language-label="HTML"
+          id="cb-dia22-aria-panel"
+        >
+          <div aria-hidden="true" class="code-language-badge">HTML</div>
+          <pre
+            class="sourceCode html"
+          ><code class="sourceCode html">&lt;button
+    type="button"
+    aria-expanded="false"
+    aria-controls="panel-ayuda"
+&gt;
+    Ver ayuda
+&lt;/button&gt;
+
+&lt;section id="panel-ayuda" hidden&gt;
+    &lt;h3&gt;Ayuda para completar el formulario&lt;/h3&gt;
+    &lt;p&gt;Revisa el correo y acepta las condiciones antes de enviar.&lt;/p&gt;
+&lt;/section&gt;
+
+&lt;p id="estado-formulario" aria-live="polite"&gt;&lt;/p&gt;</code></pre>
+        </div>
+        <p>
+          En este ejemplo, el boton debe cambiar tambien con JavaScript:
+          cuando el panel se abre, se quita <code>hidden</code> y
+          <code>aria-expanded</code> pasa a <code>true</code>. ARIA describe el
+          estado; no sustituye el codigo que hace funcionar la interfaz.
+        </p>
+      </section>
+      <section class="level2" id="microleccion-verificable-dia-22">
+        <h2>Microleccion verificable</h2>
+        <dl class="micro-lesson">
+          <div>
+            <dt>Problema real</dt>
+            <dd>Una pagina puede verse moderna y aun asi ser dificil o imposible de usar para parte del alumnado.</dd>
+          </div>
+          <div>
+            <dt>Idea simple</dt>
+            <dd>Accesibilidad pregunta si se puede usar; usabilidad pregunta si se puede usar bien.</dd>
+          </div>
+          <div>
+            <dt>Codigo o mecanismo</dt>
+            <dd>HTML semantico, etiquetas <code>label</code>, textos alternativos, foco visible, contraste suficiente, mensajes claros y ARIA solo para nombres, estados o relaciones que HTML no comunica por si solo.</dd>
+          </div>
+          <div>
+            <dt>Resultado visible</dt>
+            <dd>La interfaz se entiende antes, requiere menos esfuerzo y no excluye a quien usa teclado, lector de pantalla o pantalla pequena.</dd>
+          </div>
+          <div>
+            <dt>Error frecuente</dt>
+            <dd>Creer que accesibilidad es una mejora final. Si se deja para el final, suele salir cara y parcial.</dd>
+          </div>
+          <div>
+            <dt>Mini comprobacion</dt>
+            <dd>Prueba si puedes completar la tarea sin raton, sin depender solo del color, con zoom alto y entendiendo cada error del formulario.</dd>
+          </div>
+        </dl>
+      </section>
+      <section class="level2" id="ejemplo-minimo-accesible-dia-22">
+        <h2>Ejemplo guiado: formulario que se entiende</h2>
+        <p>
+          En HTML, accesibilidad empieza por usar elementos que ya tienen
+          significado. Este ejemplo une campo, ayuda, validacion y zona de
+          resultado para que la interfaz sea clara antes, durante y despues de
+          enviar.
+        </p>
+        <div
+          class="sourceCode code-panel language-html"
+          data-language="html"
+          data-language-label="HTML"
+          id="cb-dia22-formulario-accesible"
+        >
+          <div aria-hidden="true" class="code-language-badge">HTML</div>
+          <pre
+            class="sourceCode html"
+          ><code class="sourceCode html">&lt;!doctype html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+    &lt;title&gt;Solicitud de informacion&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;main&gt;
+        &lt;h1&gt;Solicitud de informacion&lt;/h1&gt;
+
+        &lt;form aria-labelledby="titulo-contacto" novalidate&gt;
+            &lt;h2 id="titulo-contacto"&gt;Datos de contacto&lt;/h2&gt;
+
+            &lt;fieldset&gt;
+                &lt;legend&gt;Correo para recibir avisos&lt;/legend&gt;
+
+                &lt;label for="correo"&gt;Correo electronico&lt;/label&gt;
+                &lt;input
+                    id="correo"
+                    name="correo"
+                    type="email"
+                    autocomplete="email"
+                    required
+                    aria-describedby="ayuda-correo error-correo"
+                &gt;
+
+                &lt;p id="ayuda-correo"&gt;Ejemplo: nombre@dominio.com&lt;/p&gt;
+                &lt;p id="error-correo" role="alert" hidden&gt;
+                    Escribe un correo valido antes de enviar.
+                &lt;/p&gt;
+            &lt;/fieldset&gt;
+
+            &lt;button type="submit"&gt;Enviar solicitud&lt;/button&gt;
+            &lt;p id="estado-envio" aria-live="polite"&gt;&lt;/p&gt;
+        &lt;/form&gt;
+
+        &lt;a href="/privacidad"&gt;Leer politica de privacidad&lt;/a&gt;
+    &lt;/main&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </div>
+        <p>
+          Este codigo no solo dibuja un formulario. Define idioma, titulo de
+          pagina, region principal, encabezado unico, grupo de campos, etiqueta,
+          ayuda, error, boton real, enlace descriptivo y zona dinámica para
+          comunicar el resultado.
+        </p>
+      </section>
+      <section class="level2" id="comparacion-mal-bien-dia-22">
+        <h2>Comparacion directa: lo que confunde y lo que ayuda</h2>
+        <p>
+          La comparacion deja claro el salto de calidad. El primer bloque puede
+          parecer rapido de escribir, pero pierde semantica, teclado, mensajes y
+          contexto. El segundo usa HTML que ya sabe comportarse como interfaz.
+        </p>
+        <div
+          class="sourceCode code-panel language-html"
+          data-language="html"
+          data-language-label="HTML"
+          id="cb-dia22-mal-ejemplo"
+        >
+          <div aria-hidden="true" class="code-language-badge">HTML</div>
+          <pre
+            class="sourceCode html"
+          ><code class="sourceCode html">&lt;!-- Confuso: parece interfaz, pero no explica ni se maneja bien --&gt;
+&lt;div onclick="guardar()" class="boton-rojo"&gt;OK&lt;/div&gt;
+&lt;input placeholder="Correo"&gt;
+&lt;p class="rojo"&gt;Mal&lt;/p&gt;</code></pre>
+        </div>
+        <div
+          class="sourceCode code-panel language-html"
+          data-language="html"
+          data-language-label="HTML"
+          id="cb-dia22-buen-ejemplo"
+        >
+          <div aria-hidden="true" class="code-language-badge">HTML</div>
+          <pre
+            class="sourceCode html"
+          ><code class="sourceCode html">&lt;!-- Claro: tiene accion real, campo nombrado y error explicativo --&gt;
+&lt;label for="correo-login"&gt;Correo electronico&lt;/label&gt;
+&lt;input
+    id="correo-login"
+    type="email"
+    aria-describedby="error-login"
+    aria-invalid="true"
+&gt;
+&lt;p id="error-login" role="alert"&gt;
+    El correo debe incluir una arroba y un dominio.
+&lt;/p&gt;
+&lt;button type="button" onclick="guardar()"&gt;Guardar correo&lt;/button&gt;</code></pre>
+        </div>
+      </section>
+      <section class="level2" id="css-accesible-dia-22">
+        <h2>CSS accesible: foco, contraste y movimiento</h2>
+        <p>
+          La accesibilidad tambien se rompe desde CSS. Quitar el foco, usar
+          colores demasiado parecidos o forzar animaciones hace que una pagina
+          correcta en HTML sea dificil de usar.
+        </p>
+        <div
+          class="sourceCode code-panel language-css"
+          data-language="css"
+          data-language-label="CSS"
+          id="cb-dia22-css-accesible"
+        >
+          <div aria-hidden="true" class="code-language-badge">CSS</div>
+          <pre
+            class="sourceCode css"
+          ><code class="sourceCode css">:focus-visible {
+    outline: 3px solid #2454d6;
+    outline-offset: 3px;
+}
+
+button,
+input,
+select,
+textarea {
+    min-height: 44px;
+}
+
+.mensaje-error {
+    border-left: 4px solid #bd3e57;
+    color: #7a1026;
+    font-weight: 700;
+    padding: 0.75rem;
+}
+
+.mensaje-error::before {
+    content: "Error: ";
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms;
+        animation-iteration-count: 1;
+        scroll-behavior: auto;
+        transition-duration: 0.01ms;
+    }
+}</code></pre>
+        </div>
+        <p>
+          El objetivo no es dejar la pagina sin diseño. El objetivo es que el
+          diseño no borre informacion: el foco se ve, el error tiene texto, los
+          controles se pueden pulsar y el movimiento no es obligatorio.
+        </p>
+      </section>
+      <section class="level2" id="ejemplo-error-accesible-dia-22">
+        <h2>Ejemplo de error que ayuda de verdad</h2>
+        <p>
+          Un error accesible no se limita a pintar un borde rojo. Debe explicar
+          que ocurre, estar relacionado con el campo y no depender solo del
+          color. Asi el usuario sabe como corregirlo y una tecnologia de apoyo
+          puede anunciarlo.
+        </p>
+        <div
+          class="sourceCode code-panel language-html"
+          data-language="html"
+          data-language-label="HTML"
+          id="cb-dia22-error-accesible"
+        >
+          <div aria-hidden="true" class="code-language-badge">HTML</div>
+          <pre
+            class="sourceCode html"
+          ><code class="sourceCode html">&lt;label for="edad"&gt;Edad&lt;/label&gt;
+&lt;input
+    id="edad"
+    name="edad"
+    type="number"
+    min="18"
+    aria-describedby="error-edad"
+    aria-invalid="true"
+&gt;
+&lt;p id="error-edad" role="alert"&gt;
+    La edad debe ser igual o mayor que 18.
+&lt;/p&gt;</code></pre>
+        </div>
+        <p>
+          <code>aria-invalid</code> marca el campo como incorrecto y
+          <code>role="alert"</code> permite que el mensaje se anuncie cuando
+          aparece. El texto sigue siendo lo mas importante: debe decir que hay
+          que cambiar.
+        </p>
+      </section>
+      <section class="level2" id="revision-rapida-dia-22">
+        <h2>Revision rapida antes de entregar una pagina</h2>
+        <p>
+          Esta revision sirve para cualquier ejercicio del curso: formulario,
+          juego, tabla, API, mapa o laboratorio. No sustituye una auditoria
+          completa, pero detecta los errores mas habituales.
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Prueba</th>
+              <th>Como comprobarla</th>
+              <th>Senal de problema</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Nombre, rol y estado</td>
+              <td>Inspecciona si cada control comunica que es, como se llama y en que estado esta.</td>
+              <td>Un boton se anuncia sin nombre o un desplegable no cambia de contraido a expandido.</td>
+            </tr>
+            <tr>
+              <td>Documento</td>
+              <td>Comprueba <code>lang</code>, <code>title</code>, <code>main</code> y un <code>h1</code> claro.</td>
+              <td>La pagina carga, pero no tiene identidad ni estructura fiable.</td>
+            </tr>
+            <tr>
+              <td>Jerarquia</td>
+              <td>Lee solo los encabezados y verifica si cuentan el contenido.</td>
+              <td>Hay titulos visuales, pero el orden logico no se entiende.</td>
+            </tr>
+            <tr>
+              <td>Teclado</td>
+              <td>Usa Tab, Enter, Espacio y Escape cuando corresponda.</td>
+              <td>El foco desaparece o no se puede activar un control.</td>
+            </tr>
+            <tr>
+              <td>Foco visible</td>
+              <td>Mira si sabes siempre donde estas al tabular.</td>
+              <td>No hay contorno, cambio claro o indicador de foco.</td>
+            </tr>
+            <tr>
+              <td>Contraste</td>
+              <td>Lee texto normal, botones y mensajes en pantalla real.</td>
+              <td>Texto gris claro, fondos parecidos o codigo ilegible.</td>
+            </tr>
+            <tr>
+              <td>Zoom y movil</td>
+              <td>Aumenta zoom y reduce ancho de ventana.</td>
+              <td>Texto cortado, botones solapados o scroll innecesario.</td>
+            </tr>
+            <tr>
+              <td>Formulario</td>
+              <td>Pulsa cada etiqueta, revisa <code>autocomplete</code> y provoca errores controlados.</td>
+              <td>El campo no recibe foco, cuesta rellenarlo o el error no dice que corregir.</td>
+            </tr>
+            <tr>
+              <td>Color</td>
+              <td>Pregunta si el estado se entiende sin ver el color.</td>
+              <td>Solo rojo/verde comunica informacion importante.</td>
+            </tr>
+            <tr>
+              <td>Imagenes e iconos</td>
+              <td>Revisa si cada imagen informa, decora o actua como control.</td>
+              <td>Faltan <code>alt</code>, nombres accesibles o texto visible.</td>
+            </tr>
+            <tr>
+              <td>Mensajes dinamicos</td>
+              <td>Comprueba que resultados y errores importantes se anuncian o quedan asociados.</td>
+              <td>La interfaz cambia, pero no queda claro que ha cambiado.</td>
+            </tr>
+            <tr>
+              <td>Herramientas</td>
+              <td>Usa validacion HTML, Lighthouse, WAVE o axe como apoyo, no como unica prueba.</td>
+              <td>La herramienta no avisa, pero la interfaz sigue siendo confusa al usar teclado o lector.</td>
+            </tr>
+            <tr>
+              <td>Movimiento</td>
+              <td>Revisa animaciones, parpadeos y cambios bruscos.</td>
+              <td>La animacion distrae, impide leer o no se puede pausar.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="level2" id="errores-frecuentes-dia-22">
+        <h2>Errores frecuentes</h2>
+        <ul>
+          <li>
+            Confundir accesibilidad con poner el texto mas grande. El tamano
+            ayuda, pero tambien importan estructura, teclado, contraste y
+            significado.
+          </li>
+          <li>
+            Usar solo color para explicar estados: rojo para error y verde para
+            acierto sin texto adicional deja fuera a muchos usuarios.
+          </li>
+          <li>
+            Crear botones con <code>div</code> cuando existe
+            <code>&lt;button&gt;</code>, perdiendo semantica y comportamiento de
+            teclado.
+          </li>
+          <li>
+            Escribir formularios sin <code>label</code>. El usuario ve el campo,
+            pero la tecnologia de apoyo no recibe una descripcion fiable.
+          </li>
+          <li>
+            Pensar que diseno inclusivo es hacer una version especial. Lo mejor
+            es que la version principal ya sea clara para mas personas.
+          </li>
+          <li>
+            Quitar el contorno de foco con <code>outline: none</code> sin
+            sustituirlo por una alternativa visible.
+          </li>
+          <li>
+            Usar iconos sin nombre accesible. Si el boton solo tiene un icono,
+            debe tener texto visible o un nombre como <code>aria-label</code>.
+          </li>
+          <li>
+            Usar <code>role="button"</code> en un <code>div</code> sin programar
+            teclado, foco y comportamiento. Si existe <code>&lt;button&gt;</code>,
+            lo correcto es usar el boton real.
+          </li>
+          <li>
+            Añadir <code>tabindex="0"</code> y pensar que ya esta resuelto. El
+            foco permite llegar al elemento, pero Enter y Espacio tambien deben
+            activar el control si se comporta como boton.
+          </li>
+          <li>
+            Poner <code>aria-hidden="true"</code> en contenido util. Eso puede
+            ocultarlo a una persona que navega con tecnologia de apoyo.
+          </li>
+          <li>
+            No actualizar estados dinamicos. Si un menu se abre, el atributo
+            <code>aria-expanded</code> debe cambiar al mismo tiempo que cambia
+            la pantalla.
+          </li>
+          <li>
+            Creer que ARIA arregla una interfaz confusa. ARIA solo comunica
+            informacion; no mejora textos malos, orden visual raro ni controles
+            que no funcionan.
+          </li>
+          <li>
+            Crear interfaces que solo se entienden leyendo instrucciones. Una
+            buena interfaz guia con estructura, textos y feedback.
+          </li>
+        </ul>
+      </section>
+      <section class="level2" id="preguntas-con-respuesta-dia-22">
+        <h2>Preguntas con respuesta</h2>
+        <dl>
+          <dt><strong>Que diferencia hay entre accesibilidad y usabilidad?</strong></dt>
+          <dd>
+            Accesibilidad trata de que la interfaz pueda usarse; usabilidad
+            trata de que se use de forma clara, eficiente y con pocos errores.
+          </dd>
+          <dt><strong>Que es el diseno universal?</strong></dt>
+          <dd>
+            Es el punto donde accesibilidad y usabilidad se cruzan: una solucion
+            pensada para funcionar bien para la mayor variedad posible de
+            personas y contextos.
+          </dd>
+          <dt><strong>Por que el diseno inclusivo debe aparecer al principio?</strong></dt>
+          <dd>
+            Porque si se piensa al final, normalmente solo se parchean problemas.
+            Si se piensa al principio, guia la estructura, los textos, los
+            controles y la navegacion.
+          </dd>
+          <dt><strong>Que significa que una interfaz sea funcional?</strong></dt>
+          <dd>
+            Que cada decision visual ayuda a completar una tarea: leer, elegir,
+            confirmar, corregir o avanzar.
+          </dd>
+          <dt><strong>Por que no basta con que el diseño sea bonito?</strong></dt>
+          <dd>
+            Porque la belleza no garantiza que la interfaz se pueda percibir,
+            manejar, entender o corregir. Una pagina bonita puede excluir.
+          </dd>
+          <dt><strong>Que prueba rapida detecta muchos problemas?</strong></dt>
+          <dd>
+            Intentar completar la tarea solo con teclado y comprobar que siempre
+            se ve el foco, se entienden los mensajes y no se depende solo del
+            color.
+          </dd>
+          <dt><strong>Cuando conviene usar ARIA?</strong></dt>
+          <dd>
+            Cuando el HTML semantico no basta para comunicar un nombre, un
+            estado o una relacion. Primero se elige el elemento correcto;
+            despues se añade ARIA solo si aporta informacion real.
+          </dd>
+          <dt><strong>Que relacion hay entre DOM y arbol de accesibilidad?</strong></dt>
+          <dd>
+            El DOM organiza el documento para que el navegador lo muestre,
+            aplique CSS y ejecute JavaScript. El arbol de accesibilidad traduce
+            esa interfaz a informacion util para tecnologias de apoyo: nombre,
+            rol, descripcion, relacion y estado.
+          </dd>
+          <dt><strong>Que diferencia hay entre <code>aria-label</code> y <code>aria-labelledby</code>?</strong></dt>
+          <dd>
+            <code>aria-label</code> escribe manualmente el nombre accesible.
+            <code>aria-labelledby</code> reutiliza un texto visible mediante su
+            <code>id</code>. Si ya existe un texto visible adecuado,
+            <code>aria-labelledby</code> suele ser mas mantenible.
+          </dd>
+          <dt><strong>Que no hace ARIA?</strong></dt>
+          <dd>
+            No cambia el diseño, no abre paneles, no valida formularios y no
+            convierte automaticamente un <code>div</code> en boton accesible.
+            El comportamiento debe existir en HTML y JavaScript.
+          </dd>
+        </dl>
+      </section>
+      <section class="level2" id="cierre-del-dia-22">
+        <h2>Cierre del dia</h2>
+        <p>
+          La conclusion inicial del dia es clara: accesibilidad no es un extra y
+          usabilidad no es solo comodidad. Cuando ambas se combinan, aparece el
+          diseno universal: interfaces mas justas, mas comprensibles y mas
+          resistentes a situaciones reales de uso. La norma practica queda asi:
+          si una pagina no se puede usar con teclado, no se entiende sin
+          instrucciones, no explica sus errores o depende solo del color, todavia
+          no esta terminada.
         </p>
       </section>
     </section>
