@@ -766,6 +766,183 @@ DIARIO_CURSOWEBM: hoja incrustada diario_cursowebm.css
         padding: 10px 12px;
       }
 
+      .micro-lesson .signal-idea {
+        --signal-bg: #eefaf9;
+        --signal-color: var(--teal);
+      }
+
+      .micro-lesson .signal-rule {
+        --signal-bg: #f0f8ee;
+        --signal-color: var(--green);
+      }
+
+      .micro-lesson .signal-code {
+        --signal-bg: #eef4ff;
+        --signal-color: var(--blue);
+      }
+
+      .micro-lesson .signal-warning {
+        --signal-bg: #fff6e7;
+        --signal-color: var(--amber);
+      }
+
+      .micro-lesson .signal-check {
+        --signal-bg: #fff1f4;
+        --signal-color: var(--rose);
+      }
+
+      .micro-lesson .signal-idea,
+      .micro-lesson .signal-rule,
+      .micro-lesson .signal-code,
+      .micro-lesson .signal-warning,
+      .micro-lesson .signal-check {
+        background: linear-gradient(90deg, var(--signal-bg), #ffffff 76%);
+        border-left: 8px solid var(--signal-color);
+        padding: 12px 14px;
+      }
+
+      .micro-lesson .signal-idea dt,
+      .micro-lesson .signal-rule dt,
+      .micro-lesson .signal-code dt,
+      .micro-lesson .signal-warning dt,
+      .micro-lesson .signal-check dt {
+        background: var(--signal-color);
+        border-radius: 999px;
+        color: #ffffff;
+        display: inline-flex;
+        letter-spacing: 0.06em;
+        margin-bottom: 8px;
+        padding: 4px 9px;
+      }
+
+      .micro-lesson.cognitive-signals {
+        background:
+          linear-gradient(135deg, rgba(20, 184, 166, 0.22), transparent 42%),
+          linear-gradient(315deg, rgba(36, 84, 214, 0.18), transparent 44%),
+          #101828;
+        border: 0;
+        box-shadow: 0 22px 46px rgba(16, 24, 39, 0.22);
+        gap: 16px;
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        margin-top: 16px;
+        padding: 18px;
+      }
+
+      .micro-lesson.cognitive-signals > div {
+        background: linear-gradient(180deg, #ffffff, var(--signal-bg));
+        border: 0;
+        border-top: 7px solid var(--signal-color);
+        box-shadow: 0 14px 30px rgba(16, 24, 39, 0.18);
+        grid-column: span 4;
+        min-height: 150px;
+        padding: 18px 16px 16px;
+        position: relative;
+      }
+
+      .micro-lesson.cognitive-signals .signal-code,
+      .micro-lesson.cognitive-signals .signal-check {
+        grid-column: span 6;
+      }
+
+      .micro-lesson.cognitive-signals > div::before {
+        background: var(--signal-color);
+        border-radius: 999px;
+        color: #ffffff;
+        content: attr(data-step);
+        display: inline-grid;
+        font-size: 0.74rem;
+        font-weight: 950;
+        height: 30px;
+        letter-spacing: 0.04em;
+        place-items: center;
+        position: absolute;
+        right: 12px;
+        top: 12px;
+        width: 30px;
+      }
+
+      .micro-lesson.cognitive-signals dt {
+        background: transparent;
+        border-radius: 0;
+        color: var(--ink);
+        display: block;
+        font-size: 0.9rem;
+        letter-spacing: 0.04em;
+        line-height: 1.15;
+        margin: 0 38px 10px 0;
+        padding: 0;
+      }
+
+      .micro-lesson.cognitive-signals dd {
+        color: var(--ink);
+        font-size: 0.94rem;
+        line-height: 1.5;
+      }
+
+      .micro-lesson.cognitive-signals .signal-code dd {
+        display: grid;
+        gap: 10px;
+      }
+
+      .micro-lesson.cognitive-signals .signal-code-list {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      .micro-lesson.cognitive-signals code {
+        background: rgba(255, 255, 255, 0.78);
+        border-color: rgba(36, 84, 214, 0.18);
+        white-space: nowrap;
+      }
+
+      .micro-lesson.cognitive-row {
+        background: #ffffff;
+        border: 1px solid #c9dcf3;
+        box-shadow: 0 12px 28px rgba(16, 24, 39, 0.08);
+        gap: 12px;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        margin-top: 14px;
+      }
+
+      .micro-lesson.cognitive-row > div {
+        min-height: 130px;
+      }
+
+      .micro-lesson.cognitive-row dt {
+        font-size: 0.72rem;
+      }
+
+      .micro-lesson.cognitive-row dd {
+        color: var(--ink);
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 1100px) {
+        .micro-lesson.cognitive-signals > div,
+        .micro-lesson.cognitive-signals .signal-code,
+        .micro-lesson.cognitive-signals .signal-check {
+          grid-column: span 6;
+        }
+
+        .micro-lesson.cognitive-row {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 680px) {
+        .micro-lesson.cognitive-signals > div,
+        .micro-lesson.cognitive-signals .signal-code,
+        .micro-lesson.cognitive-signals .signal-check {
+          grid-column: 1 / -1;
+        }
+
+        .micro-lesson.cognitive-row {
+          grid-template-columns: 1fr;
+        }
+      }
+
       .micro-lesson dt {
         color: var(--teal);
         font-size: 0.76rem;
@@ -3794,7 +3971,7 @@ DIARIO_CURSOWEBM: indice editorial generado
             href="#dia-22---accesibilidad-usabilidad-y-diseno-universal"
             id="toc-dia-22---accesibilidad-usabilidad-y-diseno-universal"
           >
-            Dia 22 - Accesibilidad, usabilidad y diseno universal
+            Día 22 - Accesibilidad, usabilidad y diseño universal
           </a>
         </li>
       </ul>
@@ -13854,32 +14031,32 @@ function pintarMapa(lat, lon) {
       class="level1 day-section"
       id="dia-22---accesibilidad-usabilidad-y-diseno-universal"
     >
-      <h1 data-day-date="08/06/2026">Dia 22 - Accesibilidad, usabilidad y diseno universal</h1>
+      <h1 data-day-date="08/06/2026">Día 22 - Accesibilidad, usabilidad y diseño universal</h1>
       <p>
-        El dia empieza con una idea base: una pagina no esta bien hecha solo
-        porque se ve bonita. Tambien debe poder usarse por personas distintas,
-        en situaciones distintas y con dispositivos distintos. Ahi entran
+        El día empieza con una idea base: una página no está bien hecha solo
+        porque se ve bonita. También debe poder usarse por personas distintas,
+        en situaciones distintas y con dispositivos distintos. Ahí entran
         <strong>accesibilidad</strong>, <strong>usabilidad</strong>,
-        <strong>diseno inclusivo</strong> y <strong>diseno universal</strong>.
+        <strong>diseño inclusivo</strong> y <strong>diseño universal</strong>.
       </p>
       <section class="level2" id="objetivo-del-dia-22">
-        <h2>Objetivo del dia</h2>
+        <h2>Objetivo del día</h2>
         <p>
           Entender que una interfaz funcional no se mide solo por colores,
-          animaciones o distribucion visual. Se mide por si una persona puede
+          animaciones o distribución visual. Se mide por si una persona puede
           percibirla, entenderla, moverse por ella, corregir errores y completar
-          la tarea sin depender de una unica forma de uso.
+          la tarea sin depender de una única forma de uso.
         </p>
       </section>
       <section class="level2" id="mapa-de-estudio-dia-22">
-        <h2>Mapa de estudio del dia</h2>
+        <h2>Mapa de estudio del día</h2>
         <div class="concept-visual" aria-label="Relacion entre accesibilidad, usabilidad y diseno universal">
           <span class="concept-visual-node">Accesibilidad</span>
           <span class="concept-visual-arrow" aria-hidden="true">+</span>
           <span class="concept-visual-node">Usabilidad</span>
           <span class="concept-visual-arrow" aria-hidden="true">&rarr;</span>
-          <span class="concept-visual-node">Diseno universal</span>
-          <span class="concept-visual-note">El diseno universal aparece cuando la accesibilidad y la usabilidad se cruzan: la interfaz puede usarse por mas personas y ademas resulta clara, eficaz y comoda.</span>
+          <span class="concept-visual-node">Diseño universal</span>
+          <span class="concept-visual-note">El diseño universal aparece cuando la accesibilidad y la usabilidad se cruzan: la interfaz puede usarse por más personas y además resulta clara, eficaz y cómoda.</span>
         </div>
         <ul>
           <li>
@@ -13888,18 +14065,48 @@ function pintarMapa(lat, lon) {
             motoras, auditivas, cognitivas o temporales.
           </li>
           <li>
-            <strong>Usabilidad:</strong> que la pagina sea facil de aprender,
-            rapida de usar, predecible y poco propensa a errores.
+            <strong>Usabilidad:</strong> que la página sea fácil de aprender,
+            rápida de usar, predecible y poco propensa a errores.
           </li>
           <li>
-            <strong>Diseno inclusivo:</strong> disenar pensando desde el inicio
+            <strong>Diseño inclusivo:</strong> diseñar pensando desde el inicio
             en usuarios reales, diversos y con contextos de uso diferentes.
           </li>
           <li>
-            <strong>Diseno funcional:</strong> cada elemento de la interfaz debe
+            <strong>Diseño funcional:</strong> cada elemento de la interfaz debe
             ayudar a completar una tarea; si solo decora y confunde, resta.
           </li>
         </ul>
+      </section>
+      <section class="level2" id="ruta-de-estudio-dia-22">
+        <h2>Ruta de estudio recomendada</h2>
+        <p>
+          El tema se estudia de lo general a lo concreto. Primero se entiende
+          qué hace usable y accesible una interfaz; después se baja a HTML,
+          ARIA, ejemplos y comprobaciones reales.
+        </p>
+        <ol>
+          <li>
+            <strong>Base conceptual:</strong> accesibilidad, usabilidad, diseño
+            inclusivo, diseño universal y principios POUR.
+          </li>
+          <li>
+            <strong>Usabilidad práctica:</strong> claridad, feedback, control de
+            usuario, carga cognitiva y manejo de errores.
+          </li>
+          <li>
+            <strong>HTML nativo primero:</strong> elegir etiquetas que ya tienen
+            significado y comportamiento antes de añadir ARIA.
+          </li>
+          <li>
+            <strong>WAI-ARIA:</strong> usar roles, propiedades y estados solo
+            cuando una interfaz dinámica necesita comunicar más información.
+          </li>
+          <li>
+            <strong>Ejemplos y pruebas:</strong> revisar formularios, errores,
+            foco, contraste, teclado, lector de pantalla y herramientas de apoyo.
+          </li>
+        </ol>
       </section>
       <section class="level2" id="conceptos-base-dia-22">
         <h2>Conceptos base</h2>
@@ -14045,6 +14252,170 @@ function pintarMapa(lat, lon) {
           </tbody>
         </table>
       </section>
+      <section class="level2" id="heuristicas-nielsen-dia-22">
+        <h2>Heuristicas de Nielsen aplicadas a una interfaz real</h2>
+        <p>
+          Las heuristicas de Nielsen son reglas de diagnostico: ayudan a mirar
+          una pagina y detectar por que una persona se pierde, duda, se equivoca
+          o no sabe si su accion ha funcionado. En este tema interesan cuatro
+          ideas especialmente practicas: feedback del sistema, control de
+          usuario, carga cognitiva y manejo de errores.
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Heuristica</th>
+              <th>Pregunta que debe responder la interfaz</th>
+              <th>Ejemplo claro</th>
+              <th>Fallo que se evita</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Feedback del sistema</td>
+              <td>El usuario sabe que ha pasado despues de actuar?</td>
+              <td>Al enviar un formulario aparece "Guardando...", despues "Datos guardados" o el error concreto.</td>
+              <td>Pulsar varias veces porque la pagina parece no responder.</td>
+            </tr>
+            <tr>
+              <td>Control de usuario</td>
+              <td>Puede cancelar, volver, cerrar, corregir o deshacer?</td>
+              <td>Un modal tiene boton Cerrar, un formulario permite cancelar y una accion peligrosa pide confirmacion.</td>
+              <td>Sentirse atrapado en una pantalla o perder datos por una accion accidental.</td>
+            </tr>
+            <tr>
+              <td>Carga cognitiva</td>
+              <td>La pagina reduce lo que hay que recordar?</td>
+              <td>Los campos tienen etiquetas visibles, ayudas junto al campo y opciones agrupadas por secciones.</td>
+              <td>Obligar al usuario a memorizar instrucciones, requisitos o pasos anteriores.</td>
+            </tr>
+            <tr>
+              <td>Manejo de errores</td>
+              <td>La interfaz previene el fallo y ayuda a recuperarse?</td>
+              <td>El error se muestra junto al campo, explica la causa y conserva lo que ya se habia escrito.</td>
+              <td>Mensajes genericos como "error" que no dicen que hacer.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>Ejemplo integrado: una accion que responde, deja salir y explica</h3>
+        <p>
+          Este ejemplo une las cuatro heuristicas. El usuario ve el estado de la
+          accion, conserva control para cancelar, no tiene que recordar el
+          formato porque la ayuda esta junto al campo y, si falla, recibe un
+          mensaje concreto asociado al dato que debe corregir.
+        </p>
+        <div
+          class="sourceCode code-panel language-html"
+          data-language="html"
+          data-language-label="HTML"
+          id="cb-dia22-nielsen-html"
+        >
+          <div aria-hidden="true" class="code-language-badge">HTML</div>
+          <pre
+            class="sourceCode html"
+          ><code class="sourceCode html">&lt;form id="alta-usuario" novalidate&gt;
+    &lt;h3&gt;Alta de usuario&lt;/h3&gt;
+
+    &lt;label for="correo-nielsen"&gt;Correo electronico&lt;/label&gt;
+    &lt;input
+        id="correo-nielsen"
+        name="correo"
+        type="email"
+        autocomplete="email"
+        aria-describedby="ayuda-correo-nielsen error-correo-nielsen"
+    &gt;
+    &lt;p id="ayuda-correo-nielsen"&gt;
+        Usa un correo con arroba y dominio. Ejemplo: nombre@dominio.com
+    &lt;/p&gt;
+    &lt;p id="error-correo-nielsen" hidden&gt;&lt;/p&gt;
+
+    &lt;div class="acciones-formulario"&gt;
+        &lt;button type="submit"&gt;Guardar&lt;/button&gt;
+        &lt;button type="button"&gt;Cancelar&lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;p id="estado-nielsen" aria-live="polite"&gt;
+        Esperando datos.
+    &lt;/p&gt;
+&lt;/form&gt;</code></pre>
+        </div>
+        <div
+          class="sourceCode code-panel language-javascript"
+          data-language="javascript"
+          data-language-label="JavaScript"
+          id="cb-dia22-nielsen-js"
+        >
+          <div aria-hidden="true" class="code-language-badge">JavaScript</div>
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript">const formulario = document.querySelector("#alta-usuario");
+const correo = document.querySelector("#correo-nielsen");
+const errorCorreo = document.querySelector("#error-correo-nielsen");
+const estado = document.querySelector("#estado-nielsen");
+
+/**
+ * Muestra feedback visible y anunciable para que el usuario sepa
+ * en que punto esta la accion: esperando, guardando, correcto o error.
+ */
+function informarEstado(mensaje) {
+    estado.textContent = mensaje;
+}
+
+/**
+ * Comprueba el correo de forma simple antes de enviar.
+ * Asi se previene el error y se evita una respuesta generica tardia.
+ */
+function correoValido(valor) {
+    return valor.includes("@") &amp;&amp; valor.includes(".");
+}
+
+formulario.addEventListener("submit", (evento) =&gt; {
+    evento.preventDefault();
+
+    if (!correoValido(correo.value)) {
+        correo.setAttribute("aria-invalid", "true");
+        errorCorreo.hidden = false;
+        errorCorreo.textContent = "El correo debe incluir arroba y dominio.";
+        informarEstado("Revisa el correo antes de guardar.");
+        return;
+    }
+
+    correo.removeAttribute("aria-invalid");
+    errorCorreo.hidden = true;
+    informarEstado("Guardando datos...");
+
+    setTimeout(() =&gt; {
+        informarEstado("Datos guardados correctamente.");
+    }, 600);
+});</code></pre>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Linea de pensamiento</th>
+              <th>Donde se ve en el ejemplo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Feedback del sistema</td>
+              <td><code>estado-nielsen</code> informa "Esperando datos", "Guardando datos" y "Datos guardados".</td>
+            </tr>
+            <tr>
+              <td>Control de usuario</td>
+              <td>Hay una accion secundaria de cancelar y el envio no bloquea la pagina sin explicacion.</td>
+            </tr>
+            <tr>
+              <td>Carga cognitiva</td>
+              <td>El formato del correo se recuerda junto al campo, no en una instruccion lejana.</td>
+            </tr>
+            <tr>
+              <td>Manejo de errores</td>
+              <td>El error aparece junto al campo, marca el dato con <code>aria-invalid</code> y conserva lo escrito.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
       <section class="level2" id="patrones-accesibles-dia-22">
         <h2>Patrones que deben aparecer desde el primer codigo</h2>
         <p>
@@ -14057,6 +14428,28 @@ function pintarMapa(lat, lon) {
           hace falta comunicar un nombre, un estado o una relacion que el HTML
           por si solo no expresa con suficiente claridad.
         </p>
+        <dl class="micro-lesson cognitive-row">
+          <div class="signal-idea">
+            <dt>Idea clave</dt>
+            <dd>HTML ya trae significado y comportamiento accesible en muchos elementos.</dd>
+          </div>
+          <div class="signal-rule">
+            <dt>Regla práctica</dt>
+            <dd>Si existe una etiqueta nativa adecuada, úsala antes de inventar un control.</dd>
+          </div>
+          <div class="signal-code">
+            <dt>Ejemplo</dt>
+            <dd><code>&lt;button&gt;</code> para acciones y <code>&lt;a href&gt;</code> para navegación.</dd>
+          </div>
+          <div class="signal-warning">
+            <dt>Error frecuente</dt>
+            <dd>Crear falsos botones con <code>&lt;div onclick&gt;</code> y perder teclado.</dd>
+          </div>
+          <div class="signal-check">
+            <dt>Comprueba</dt>
+            <dd>Llega con Tab, activa con Enter o Espacio y revisa que el nombre se entiende.</dd>
+          </div>
+        </dl>
         <table>
           <thead>
             <tr>
@@ -14144,6 +14537,115 @@ function pintarMapa(lat, lon) {
           ARIA solo comunica el estado. Por eso la norma profesional es:
           <strong>no uses ARIA para arreglar HTML mal elegido</strong>.
         </p>
+        <dl class="micro-lesson cognitive-row">
+          <div class="signal-idea">
+            <dt>Idea clave</dt>
+            <dd>ARIA añade información semántica al árbol de accesibilidad.</dd>
+          </div>
+          <div class="signal-rule">
+            <dt>Regla práctica</dt>
+            <dd>Úsalo solo para nombre, relación o estado que HTML no comunique bien.</dd>
+          </div>
+          <div class="signal-code">
+            <dt>Ejemplo</dt>
+            <dd><code>aria-label</code>, <code>aria-labelledby</code>, <code>aria-expanded</code>.</dd>
+          </div>
+          <div class="signal-warning">
+            <dt>Error frecuente</dt>
+            <dd>Poner ARIA para tapar un HTML mal elegido en vez de corregir la estructura.</dd>
+          </div>
+          <div class="signal-check">
+            <dt>Comprueba</dt>
+            <dd>Pregunta si el componente ya tendría sentido usando solo HTML nativo.</dd>
+          </div>
+        </dl>
+        <h3>Por que ARIA aparece en aplicaciones modernas</h3>
+        <p>
+          En una pagina estatica, HTML suele bastar: titulos, parrafos, enlaces,
+          botones y formularios ya tienen significado propio. En una aplicacion
+          moderna, JavaScript crea piezas que cambian sin recargar: pestañas,
+          menus desplegables, avisos en tiempo real, carruseles o arboles de
+          carpetas. Ahi ARIA actua como puente entre lo que cambia visualmente y
+          lo que debe entender una tecnologia de apoyo.
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Componente moderno</th>
+              <th>Problema si solo se ve visualmente</th>
+              <th>ARIA que puede aportar sentido</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Pestañas</td>
+              <td>No queda claro que boton activa que panel.</td>
+              <td><code>tablist</code>, <code>tab</code>, <code>tabpanel</code>, <code>aria-selected</code>, <code>aria-controls</code>.</td>
+            </tr>
+            <tr>
+              <td>Menu desplegable</td>
+              <td>Se abre visualmente, pero no se comunica si esta expandido.</td>
+              <td><code>aria-expanded</code> y <code>aria-controls</code>.</td>
+            </tr>
+            <tr>
+              <td>Chat o avisos en tiempo real</td>
+              <td>Aparecen mensajes nuevos sin mover el foco.</td>
+              <td><code>aria-live="polite"</code> para avisos normales.</td>
+            </tr>
+            <tr>
+              <td>Carrusel</td>
+              <td>El contenido cambia solo y puede desorientar.</td>
+              <td>Nombre claro, controles reales, estado visible y region anunciable solo si el cambio es relevante.</td>
+            </tr>
+            <tr>
+              <td>Arbol de carpetas</td>
+              <td>No se entiende la jerarquia ni que ramas estan abiertas.</td>
+              <td>Roles de arbol y estados como <code>aria-expanded</code>.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>Las 5 reglas W3C antes de usar ARIA</h3>
+        <p>
+          Estas reglas evitan el error mas peligroso: crear una interfaz que
+          parece accesible porque tiene atributos ARIA, pero que en realidad ha
+          perdido comportamiento nativo, teclado o nombre accesible.
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Regla tecnica</th>
+              <th>Riesgo si se incumple</th>
+              <th>Decision correcta</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>No usar ARIA si HTML ya lo resuelve.</td>
+              <td>Sobrecarga de codigo y perdida de foco, teclado o comportamiento nativo.</td>
+              <td>Usar <code>&lt;button&gt;</code> antes que <code>&lt;div role="button"&gt;</code>.</td>
+            </tr>
+            <tr>
+              <td>No cambiar semantica nativa sin necesidad.</td>
+              <td>Un titulo, enlace o seccion deja de cumplir su funcion original.</td>
+              <td>No convertir un <code>h1</code> o <code>h2</code> en boton.</td>
+            </tr>
+            <tr>
+              <td>Todo control interactivo debe funcionar con teclado.</td>
+              <td>La interfaz queda bloqueada para quien no usa raton.</td>
+              <td>Garantizar foco, Enter, Espacio y estado actualizado.</td>
+            </tr>
+            <tr>
+              <td>No ocultar elementos visibles que reciben foco.</td>
+              <td>El foco llega a un elemento que el lector de pantalla no anuncia.</td>
+              <td>No aplicar <code>aria-hidden="true"</code> a controles o contenido util.</td>
+            </tr>
+            <tr>
+              <td>Todo elemento interactivo debe tener nombre accesible.</td>
+              <td>El usuario oye "boton" pero no sabe que accion ejecuta.</td>
+              <td>Usar texto visible, <code>aria-label</code> o <code>aria-labelledby</code>.</td>
+            </tr>
+          </tbody>
+        </table>
         <div class="concept-visual" aria-label="Ruta desde HTML hasta tecnologia de apoyo">
           <span class="concept-visual-node">HTML</span>
           <span class="concept-visual-arrow" aria-hidden="true">&rarr;</span>
@@ -14292,6 +14794,12 @@ function pintarMapa(lat, lon) {
     HTML estructura el contenido.
 &lt;/section&gt;</code></pre>
         </div>
+        <p>
+          En una implementación real de pestañas también habría que programar
+          la navegación con teclado y actualizar <code>aria-selected</code>,
+          <code>hidden</code> y el panel activo. Los roles explican la estructura,
+          pero no hacen que el componente funcione por sí solo.
+        </p>
         <h3>Propiedades ARIA: naming y relaciones</h3>
         <p>
           Las propiedades ARIA describen el elemento. Las mas importantes para
@@ -14376,6 +14884,28 @@ function pintarMapa(lat, lon) {
           <code>false</code>, la informacion que recibe el lector de pantalla es
           incorrecta.
         </p>
+        <dl class="micro-lesson cognitive-row">
+          <div class="signal-idea">
+            <dt>Idea clave</dt>
+            <dd>Un estado ARIA dice cómo está ahora mismo un componente dinámico.</dd>
+          </div>
+          <div class="signal-rule">
+            <dt>Regla práctica</dt>
+            <dd>Si cambia la pantalla, cambia también el atributo ARIA equivalente.</dd>
+          </div>
+          <div class="signal-code">
+            <dt>Ejemplo</dt>
+            <dd><code>aria-expanded="false"</code> pasa a <code>true</code> al abrir.</dd>
+          </div>
+          <div class="signal-warning">
+            <dt>Error frecuente</dt>
+            <dd>Abrir visualmente un menú y dejar el lector de pantalla en estado cerrado.</dd>
+          </div>
+          <div class="signal-check">
+            <dt>Comprueba</dt>
+            <dd>Abre y cierra con teclado y revisa que el estado cambia a la vez.</dd>
+          </div>
+        </dl>
         <table>
           <thead>
             <tr>
@@ -14419,11 +14949,18 @@ function pintarMapa(lat, lon) {
             <tr>
               <td><code>aria-live</code></td>
               <td>Que una zona puede anunciar cambios.</td>
-              <td>Resultado, confirmacion o error dinamico.</td>
+              <td>Resultado, confirmacion, error dinamico o aviso urgente.</td>
               <td>El texto cambia sin recargar la pagina.</td>
             </tr>
           </tbody>
         </table>
+        <p>
+          En regiones vivas conviene empezar por <code>aria-live="polite"</code>:
+          el aviso espera a que la persona termine su accion actual. El valor
+          <code>assertive</code> interrumpe y debe reservarse para situaciones
+          criticas, porque usado en exceso aumenta la carga cognitiva y puede
+          hacer la pagina molesta.
+        </p>
         <div
           class="sourceCode code-panel language-html"
           data-language="html"
@@ -14586,31 +15123,36 @@ function pintarMapa(lat, lon) {
         </p>
       </section>
       <section class="level2" id="microleccion-verificable-dia-22">
-        <h2>Microleccion verificable</h2>
-        <dl class="micro-lesson">
-          <div>
-            <dt>Problema real</dt>
-            <dd>Una pagina puede verse moderna y aun asi ser dificil o imposible de usar para parte del alumnado.</dd>
+        <h2>Resumen verificable antes del laboratorio</h2>
+        <dl class="micro-lesson cognitive-signals">
+          <div class="signal-idea" data-step="01">
+            <dt>Idea clave</dt>
+            <dd>Una página puede verse moderna y aun así ser difícil o imposible de usar para parte del alumnado.</dd>
           </div>
-          <div>
-            <dt>Idea simple</dt>
-            <dd>Accesibilidad pregunta si se puede usar; usabilidad pregunta si se puede usar bien.</dd>
+          <div class="signal-rule" data-step="02">
+            <dt>Regla práctica</dt>
+            <dd>Primero HTML nativo; después ARIA solo si hace falta comunicar nombre, estado o relación.</dd>
           </div>
-          <div>
-            <dt>Codigo o mecanismo</dt>
-            <dd>HTML semantico, etiquetas <code>label</code>, textos alternativos, foco visible, contraste suficiente, mensajes claros y ARIA solo para nombres, estados o relaciones que HTML no comunica por si solo.</dd>
+          <div class="signal-code" data-step="03">
+            <dt>Código útil</dt>
+            <dd>
+              <span class="signal-code-list">
+                <code>&lt;label&gt;</code>
+                <code>&lt;button&gt;</code>
+                <code>aria-describedby</code>
+                <code>aria-expanded</code>
+                <code>aria-live</code>
+              </span>
+              <span>Solo tienen valor si explican una acción real de la interfaz.</span>
+            </dd>
           </div>
-          <div>
-            <dt>Resultado visible</dt>
-            <dd>La interfaz se entiende antes, requiere menos esfuerzo y no excluye a quien usa teclado, lector de pantalla o pantalla pequena.</dd>
+          <div class="signal-warning" data-step="04">
+            <dt>Cuidado</dt>
+            <dd>ARIA no crea comportamiento: si un panel se abre, JavaScript debe abrirlo y actualizar el estado accesible al mismo tiempo.</dd>
           </div>
-          <div>
-            <dt>Error frecuente</dt>
-            <dd>Creer que accesibilidad es una mejora final. Si se deja para el final, suele salir cara y parcial.</dd>
-          </div>
-          <div>
-            <dt>Mini comprobacion</dt>
-            <dd>Prueba si puedes completar la tarea sin raton, sin depender solo del color, con zoom alto y entendiendo cada error del formulario.</dd>
+          <div class="signal-check" data-step="05">
+            <dt>Mini comprobación</dt>
+            <dd>Completa la tarea sin ratón, con foco visible, sin depender solo del color, con zoom alto y entendiendo cada error del formulario.</dd>
           </div>
         </dl>
       </section>
@@ -14817,6 +15359,107 @@ textarea {
           que cambiar.
         </p>
       </section>
+      <section class="level2" id="herramientas-evaluacion-accesibilidad-dia-22">
+        <h2>Herramientas para evaluar accesibilidad y usabilidad</h2>
+        <p>
+          Las herramientas ayudan a encontrar problemas, pero no sustituyen la
+          prueba humana. Un informe puede decir que no hay errores y, aun asi,
+          la pagina puede seguir siendo dificil de usar si el foco se pierde, el
+          mensaje no se entiende o el usuario no sabe que debe hacer.
+        </p>
+        <dl class="micro-lesson cognitive-row">
+          <div class="signal-idea">
+            <dt>Idea clave</dt>
+            <dd>Una herramienta detecta sintomas; la decision final exige probar la tarea real.</dd>
+          </div>
+          <div class="signal-rule">
+            <dt>Regla práctica</dt>
+            <dd>Combina inspeccion manual, herramienta automatica y prueba con teclado.</dd>
+          </div>
+          <div class="signal-code">
+            <dt>Ejemplo</dt>
+            <dd><code>name</code>, <code>role</code>, <code>aria-expanded</code>, contraste y foco.</dd>
+          </div>
+          <div class="signal-warning">
+            <dt>Error frecuente</dt>
+            <dd>Confiar solo en la puntuacion de una herramienta y no usar la pagina.</dd>
+          </div>
+          <div class="signal-check">
+            <dt>Comprueba</dt>
+            <dd>Corrige un aviso, repite la accion con teclado y verifica que el error desaparece.</dd>
+          </div>
+        </dl>
+        <table>
+          <thead>
+            <tr>
+              <th>Herramienta</th>
+              <th>Para que sirve</th>
+              <th>Como se usa</th>
+              <th>Que no debe sustituir</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>DevTools</td>
+              <td>Inspeccionar el arbol de accesibilidad, nombre, rol, estado, atributos ARIA, orden de fuente y estilos reales.</td>
+              <td>Abre DevTools, entra en Elements, selecciona el nodo y revisa la pestaña Accessibility. Comprueba si el boton tiene nombre, si el campo tiene descripcion y si el desplegable cambia de estado.</td>
+              <td>La prueba de uso: DevTools dice que existe un boton, pero no confirma que el flujo completo sea comprensible.</td>
+            </tr>
+            <tr>
+              <td>WAVE</td>
+              <td>Ver errores y alertas sobre la pagina con marcas visuales encima del propio contenido.</td>
+              <td>Usa la extension o introduce la URL en la herramienta web. Recorre errores, alertas, estructura, contraste y etiquetas. No mires solo el numero total: abre cada aviso y decide si afecta al alumno.</td>
+              <td>El criterio humano sobre textos: WAVE puede detectar que hay <code>alt</code>, pero no siempre sabe si ese texto explica bien la imagen.</td>
+            </tr>
+            <tr>
+              <td>Lighthouse</td>
+              <td>Obtener un informe rapido de calidad general: accesibilidad, rendimiento, buenas practicas y SEO.</td>
+              <td>En DevTools abre Lighthouse, selecciona Accessibility y ejecuta el informe. Revisa cada auditoria fallida, el elemento afectado y la recomendacion asociada.</td>
+              <td>La auditoria completa: una puntuacion alta no garantiza que teclado, mensajes y tarea real funcionen bien.</td>
+            </tr>
+            <tr>
+              <td>axe DevTools</td>
+              <td>Detectar problemas de accesibilidad con reglas automatizadas y localizar los nodos afectados.</td>
+              <td>Instala la extension, abre DevTools, entra en axe DevTools y ejecuta el escaneo. Revisa impacto, regla incumplida, elemento afectado y sugerencia de correccion.</td>
+              <td>Las comprobaciones guiadas o manuales: hay errores de comprension, foco o contenido que no se resuelven con un escaneo automatico.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>Orden recomendado de trabajo</h3>
+        <ol>
+          <li>
+            <strong>Primero usa la pagina:</strong> completa la tarea con raton
+            y despues solo con teclado.
+          </li>
+          <li>
+            <strong>Despues inspecciona con DevTools:</strong> revisa nombre,
+            rol, estado, foco, orden de lectura y CSS aplicado.
+          </li>
+          <li>
+            <strong>Pasa WAVE:</strong> localiza errores visibles, alertas,
+            estructura y contraste sobre la propia pantalla.
+          </li>
+          <li>
+            <strong>Ejecuta Lighthouse:</strong> revisa el informe de
+            accesibilidad y corrige auditorias concretas, no solo la nota.
+          </li>
+          <li>
+            <strong>Contrasta con axe DevTools:</strong> confirma reglas
+            automaticas y nodos afectados, especialmente en formularios y
+            componentes dinamicos.
+          </li>
+          <li>
+            <strong>Cierra con prueba manual:</strong> vuelve a probar teclado,
+            zoom, errores, foco visible y lector de pantalla cuando proceda.
+          </li>
+        </ol>
+        <p>
+          La regla final es sencilla: si una herramienta marca un error, se
+          corrige y se vuelve a probar. Si ninguna herramienta marca errores, no
+          se da por terminado hasta comprobar que una persona puede completar la
+          tarea sin perderse.
+        </p>
+      </section>
       <section class="level2" id="revision-rapida-dia-22">
         <h2>Revision rapida antes de entregar una pagina</h2>
         <p>
@@ -14894,6 +15537,16 @@ textarea {
               <td>La herramienta no avisa, pero la interfaz sigue siendo confusa al usar teclado o lector.</td>
             </tr>
             <tr>
+              <td>Lector de pantalla</td>
+              <td>Prueba una ruta importante con el lector adecuado al sistema: Ubuntu/Linux usa Orca, Windows usa NVDA y macOS usa VoiceOver. En Ubuntu, Orca puede activarse con <code>Super + Alt + S</code>.</td>
+              <td>Se anuncian botones sin nombre, cambios invisibles o controles sin estado.</td>
+            </tr>
+            <tr>
+              <td>Prueba sin raton</td>
+              <td>Completa la tarea con Tab, Shift+Tab, Enter, Espacio y Escape cuando proceda.</td>
+              <td>Hay controles que se ven, pero no se alcanzan o no se activan con teclado.</td>
+            </tr>
+            <tr>
               <td>Movimiento</td>
               <td>Revisa animaciones, parpadeos y cambios bruscos.</td>
               <td>La animacion distrae, impide leer o no se puede pausar.</td>
@@ -14962,6 +15615,19 @@ textarea {
             Crear interfaces que solo se entienden leyendo instrucciones. Una
             buena interfaz guia con estructura, textos y feedback.
           </li>
+          <li>
+            No dar feedback despues de una accion. Si el usuario pulsa Guardar
+            y no ocurre nada visible, la interfaz parece rota aunque el codigo
+            este trabajando.
+          </li>
+          <li>
+            Aumentar la carga cognitiva con ayudas separadas del campo,
+            instrucciones largas o botones con nombres ambiguos.
+          </li>
+          <li>
+            No ofrecer salida clara. Cerrar, cancelar, volver o deshacer son
+            controles que reducen miedo a equivocarse.
+          </li>
         </ul>
       </section>
       <section class="level2" id="preguntas-con-respuesta-dia-22">
@@ -14972,7 +15638,7 @@ textarea {
             Accesibilidad trata de que la interfaz pueda usarse; usabilidad
             trata de que se use de forma clara, eficiente y con pocos errores.
           </dd>
-          <dt><strong>Que es el diseno universal?</strong></dt>
+          <dt><strong>Qué es el diseño universal?</strong></dt>
           <dd>
             Es el punto donde accesibilidad y usabilidad se cruzan: una solucion
             pensada para funcionar bien para la mayor variedad posible de
@@ -14999,6 +15665,29 @@ textarea {
             Intentar completar la tarea solo con teclado y comprobar que siempre
             se ve el foco, se entienden los mensajes y no se depende solo del
             color.
+          </dd>
+          <dt><strong>Que aporta el feedback del sistema?</strong></dt>
+          <dd>
+            Informa de que la accion se ha recibido y en que estado esta:
+            esperando, cargando, correcto o con error. Sin feedback, el usuario
+            no sabe si debe esperar, repetir o corregir.
+          </dd>
+          <dt><strong>Como se reduce la carga cognitiva en una interfaz?</strong></dt>
+          <dd>
+            Mostrando la informacion cuando hace falta: etiquetas visibles,
+            ayudas junto al campo, grupos claros, botones concretos y errores
+            conectados al dato que hay que corregir.
+          </dd>
+          <dt><strong>Por que el control de usuario mejora la usabilidad?</strong></dt>
+          <dd>
+            Porque permite salir, cancelar, corregir o deshacer sin sentirse
+            atrapado. Una interfaz con control reduce miedo y errores.
+          </dd>
+          <dt><strong>Que diferencia hay entre prevenir errores y manejar errores?</strong></dt>
+          <dd>
+            Prevenir errores es guiar antes de que ocurran. Manejar errores es
+            explicar la causa, conservar los datos utiles y mostrar el siguiente
+            paso cuando el fallo ya ha ocurrido.
           </dd>
           <dt><strong>Cuando conviene usar ARIA?</strong></dt>
           <dd>
@@ -15033,7 +15722,7 @@ textarea {
         <p>
           La conclusion inicial del dia es clara: accesibilidad no es un extra y
           usabilidad no es solo comodidad. Cuando ambas se combinan, aparece el
-          diseno universal: interfaces mas justas, mas comprensibles y mas
+          diseño universal: interfaces más justas, más comprensibles y más
           resistentes a situaciones reales de uso. La norma practica queda asi:
           si una pagina no se puede usar con teclado, no se entiende sin
           instrucciones, no explica sus errores o depende solo del color, todavia
@@ -15265,15 +15954,34 @@ DIARIO_CURSOWEBM: controladores de laboratorios interactivos
               day.querySelector(':scope section[id^="objetivo-del-dia"] p') ||
               day.querySelector(':scope section[id^="mapa-de-estudio-dia"] p') ||
               intro;
-            const features = [
+            const defaultFeatures = [
               ["Mapa", day.querySelector(':scope section[id^="mapa-de-estudio-dia"]')],
-              ["Microleccion", day.querySelector(":scope .micro-lesson")],
-              ["Codigo", day.querySelector(":scope .sourceCode")],
+              ["Microlección", day.querySelector(":scope .micro-lesson")],
+              ["Código", day.querySelector(":scope .sourceCode")],
               ["Laboratorio", day.querySelector(":scope .interactive-lab")],
               ["Errores", day.querySelector(':scope section[id^="errores-frecuentes"]')],
               ["Preguntas", day.querySelector(':scope section[id^="preguntas-con-respuesta"]')],
               ["Cierre", day.querySelector(':scope section[id^="cierre-del-dia"]')],
             ];
+            const day22Features = [
+              ["Mapa", day.querySelector(':scope section[id^="mapa-de-estudio-dia"]')],
+              ["Ruta de estudio", day.querySelector(":scope #ruta-de-estudio-dia-22")],
+              ["Conceptos base", day.querySelector(":scope #conceptos-base-dia-22")],
+              ["Principios POUR", day.querySelector(":scope #principios-wcag-dia-22")],
+              ["Usabilidad y Nielsen", day.querySelector(":scope #heuristicas-nielsen-dia-22")],
+              ["HTML nativo", day.querySelector(":scope #patrones-accesibles-dia-22")],
+              ["WAI-ARIA", day.querySelector(":scope #concepto-aria-dia-22")],
+              ["Código", day.querySelector(":scope .sourceCode")],
+              ["Herramientas", day.querySelector(":scope #herramientas-evaluacion-accesibilidad-dia-22")],
+              ["Laboratorio", day.querySelector(":scope .interactive-lab")],
+              ["Errores", day.querySelector(':scope section[id^="errores-frecuentes"]')],
+              ["Preguntas", day.querySelector(':scope section[id^="preguntas-con-respuesta"]')],
+              ["Cierre", day.querySelector(':scope section[id^="cierre-del-dia"]')],
+            ];
+            const features =
+              day.id === "dia-22---accesibilidad-usabilidad-y-diseno-universal"
+                ? day22Features
+                : defaultFeatures;
             const card = document.createElement("aside");
             card.className = "day-study-card";
             card.setAttribute("aria-label", "Ficha de estudio del capitulo");
