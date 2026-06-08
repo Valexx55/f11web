@@ -23,163 +23,143 @@ ETC
 <!doctype html>
 <!-- idioma de la página -->
 <html lang="es">
-  <!-- sección head, cabecefra, información de contro, descripción, archivos css, js -->
+<!-- sección head, cabecefra, información de contro, descripción, archivos css, js -->
 
-  <head>
-    <!-- charset tabla de equivalencia símbolos y números -->
-    <meta charset="utf-8" />
-    <!-- título que aparece en la pestaña del navegador -->
-    <title>Primera práctica curso web</title>
-    <!-- ruta relativa (en el mismo directorio) -->
-    <link rel="stylesheet" href="main.css" />
-  </head>
-  <!-- sección visible dentro de la página -->
+<head>
+  <!-- charset tabla de equivalencia símbolos y números -->
+  <meta charset="utf-8" />
+  <meta name="description" content="Esta página muestra los contenidos del curso IFCD210 de Aplicaciones Web">
+  <!-- título que aparece en la pestaña del navegador -->
+  <title>Primera práctica curso web</title>
+  <!-- ruta relativa (en el mismo directorio) -->
+  <link rel="stylesheet" href="main.css" />
+</head>
+<!-- sección visible dentro de la página -->
 
-  <body>
-      
+<body>
 
-      <!-- seccion de indices -->
-      <nav>
-        <ul>
-          <li><a href="#seccion-html">HTML</a></li>
-          <li><a href="#seccion-css">CSS</a></li>
-          <li><a href="#seccion-js">JavaScript</a></li>
-          <li><a href="#seccion-java">Java</a></li>
-          <li><a href="#seccion-base-de-datos">Base de Datos</a></li>
-        </ul>
-      </nav>
+
+  <header>
+    <!-- seccion de indices -->
+    <nav>
+      <ul>
+        <li><a href="#seccion-html">HTML</a></li>
+        <li><a href="#seccion-css">CSS</a></li>
+        <li><a href="#seccion-js">JavaScript</a></li>
+        <li><a href="#seccion-java">Java</a></li>
+        <li><a href="#seccion-base-de-datos">Base de Datos</a></li>
+      </ul>
+    </nav>
 
 
     <!-- h1 tiene que haber solo uno por página: título principal -->
     <h1>Curso de HTML y CSS</h1>
     <p>VAMOS A HACER PÁGIANAS WEB CHULAS :)</p>
+  </header>
 
-    <div id="seccion-html">
-      <img
-        src="https://raw.githubusercontent.com/mdn/beginner-html-site/gh-pages/images/firefox-icon.png"
-        alt="Icono de Firefox"
-        width="200px"
-      /><h2>1. - HTML</h2>
-      <p>HTML creamos la estructura de páginas web</p>
-      <!-- esto es una ruta absoluta -->
+  <main>
+    <section id="seccion-html">
       
-      <section>
+      <h2>1. - HTML</h2>
+      <p>HTML creamos la estructura de páginas web</p>
+      <img src="https://raw.githubusercontent.com/mdn/beginner-html-site/gh-pages/images/firefox-icon.png"
+        alt="Icono de Firefox"  />
+      <!-- esto es una ruta absoluta -->
+
+      <!-- <section> -->
         <h3>Enlaces de interés</h3>
         <ul>
           <li>
-            <a href="https://developer.mozilla.org/es/docs/Web/HTML"
-              >Documentación HTML - MDN</a
-            >
+            <a href="https://developer.mozilla.org/es/docs/Web/HTML">Documentación HTML - MDN</a>
           </li>
         </ul>
-      </section>
-      <section>
+      <!-- </section>
+      <section> -->
         <h3>Temas principales</h3>
         <ol>
           <li>Estructura del documento</li>
           <li>Etiquetas básicas</li>
           <li>Etiquetas avanzadas...</li>
         </ol>
-      </section>
-    </div>
+      <!-- </section> -->
+    </section>
 
-    <div id="seccion-css">
+    <section id="seccion-css">
       <h2>2. - CSS</h2>
       <p>Damos estilo a nuestras páginas</p>
       <!-- esto es una ruta relativa estamos en el mismo directorio -->
-      <img src="img/css.png" alt="Imagen CSS" width="200px" />
-      <section>
+      <img src="img/css.png" alt="Imagen CSS" />
         <h3>Enlaces de interés</h3>
         <ul>
           <li>
-            <a href="https://developer.mozilla.org/es/docs/Web/CSS"
-              >Documentación CSS - MDN</a
-            >
+            <a href="https://developer.mozilla.org/es/docs/Web/CSS">Documentación CSS - MDN</a>
           </li>
         </ul>
-      </section>
-      <section>
         <h3>Temas principales</h3>
         <ol>
           <li>Selectores</li>
           <li>Propiedades</li>
           <li>Diseño responsive...</li>
         </ol>
-      </section>
-    </div>
+    </section>
 
-    <div id="seccion-js">
+    <section id="seccion-js">
       <h2>3. - JS</h2>
       <p>Con JavaScript damos interactividad a nuestras páginas</p>
       <!-- esto es una ruta relativa estamos en el mismo directorio -->
-      <img src="img/js.png" alt="Imagen JS" width="200px" />
-      <section>
+      <img src="img/js.png" alt="Imagen JS" />
         <h3>Enlaces de interés</h3>
         <ul>
           <li>
-            <a href="https://developer.mozilla.org/es/docs/Web/JavaScript"
-              >Documentación JavaScript - MDN</a
-            >
+            <a href="https://developer.mozilla.org/es/docs/Web/JavaScript">Documentación JavaScript - MDN</a>
           </li>
         </ul>
-      </section>
-      <section>
         <h3>Temas principales</h3>
         <ol>
           <li>Variables</li>
           <li>Funciones</li>
           <li>Eventos...</li>
         </ol>
-      </section>
-    </div>
+    </section>
 
-    <div id="seccion-java">
+    <section id="seccion-java">
       <h2>4. - JAVA</h2>
       <p>Con Java desarrollamos aplicaciones robustas</p>
       <!-- esto es una ruta relativa estamos en el mismo directorio -->
-      <img src="img/java.png" alt="Imagen JAVA" width="200px" />
-      <section>
+      <img src="img/java.png" alt="Imagen JAVA"  />
         <h3>Enlaces de interés</h3>
         <ul>
           <li>
             <a href="https://www.oracle.com/java/">Sitio oficial de Java</a>
           </li>
         </ul>
-      </section>
-      <section>
         <h3>Temas principales</h3>
         <ol>
           <li>Clases, objetos</li>
           <li>Herencia...</li>
         </ol>
-      </section>
-    </div>
+    </section>
 
-    <div id="seccion-base-de-datos">
+    <section id="seccion-base-de-datos">
       <h2>5 BASE DE DATOS</h2>
       <p>Con bases de datos almacenamos y gestionamos información</p>
       <!-- esto es una ruta relativa estamos en el mismo directorio -->
-      <img
-        src="img/base-de-datos.png"
-        alt="Imagen BASE DE DATOS"
-        width="200px"
-      />
-      <section>
+      <img src="img/base-de-datos.png" alt="Imagen BASE DE DATOS"  />
         <h3>Enlaces de interés</h3>
         <ul>
           <li>
             <a href="https://www.mysql.com/">Sitio oficial de MySQL</a>
           </li>
         </ul>
-      </section>
-      <section>
         <h3>Temas principales</h3>
         <ol>
           <li>SQL</li>
           <li>Diseño de bases de datos</li>
           <li>Gestión de datos...</li>
         </ol>
-      </section>
-    </div>
-  </body>
+    </section>
+
+  </main>
+</body>
+
 </html>
