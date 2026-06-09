@@ -1,0 +1,72 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;      
+    align-items: center;          
+    background-color: #f9f9f9;
+    font-family: system-ui, sans-serif;
+}
+
+main {
+    text-align: center;
+}
+
+h1 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.contenedor {
+    display: grid;
+    grid-template-columns: repeat(3, 100px); 
+    grid-template-rows: repeat(3, 100px);    
+    gap: 8px; /* Separación clara para baja visión */
+}
+
+.cuadrito {
+    width: 100px;
+    height: 100px;
+    cursor: pointer; 
+    border: 4px solid #000000;
+    border-radius: 8px;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 0;
+    transition: transform 0.1s ease;
+}
+
+/* Indicador de foco ultra-visible para teclado */
+.cuadrito:focus-visible {
+    outline: 5px solid #0056b3;
+    outline-offset: 3px;
+    transform: scale(1.05); /* Ayuda visual extra */
+}
+
+/* Estilo cuando está bloqueado (Negro) */
+.cuadrito[aria-disabled="true"] {
+    cursor: not-allowed;
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+
+/* Ocultar elementos visualmente pero mantenerlos para lectores de pantalla */
+.solo-lector-pantalla {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Mantiene la semántica ARIA sin romper el diseño CSS Grid del contenedor */
+.fila {
+    display: contents;
+}
