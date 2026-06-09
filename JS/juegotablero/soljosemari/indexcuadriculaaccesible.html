@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tablero de Colores</title>
+    <!-- Aquí enlazamos con el archivo de los colores (CSS) -->
+    <link rel="stylesheet" href="estilos.css">
+    <script src="index.js"></script>
+</head>
+
+<body>
+    
+
+    <main>
+
+        <h1>Tablero de colores</h1>
+
+        <p id="instrucciones">
+            Pulsa sobre un cuadro para cambiarlo de su color original al negro
+        </p>
+
+        <!-- con aria-label describimos la naturaleza del elmento o el significado- qué es
+         y con aria-describedby, referenciamos por el id, al elemento que contiene la descripción
+         son parecidos. más cómo es
+         también puedo usar aria-description para la descripción literal -->
+        <div class="contenedor" aria-label="tablero">
+            <button type="button" aria-pressed="false" aria-describedby="instrucciones" aria-label="Cuadro 1" id="cuadro1" class="cuadrito" onclick="volverNegro('cuadro1')"></button>
+            <button type="button" aria-pressed="false" aria-describedby="instrucciones" aria-label="Cuadro 2" id="cuadro2" class="cuadrito" onclick="volverNegro('cuadro2')"></button>
+            <button type="button" aria-pressed="false" aria-describedby="instrucciones" aria-label="Cuadro 3" id="cuadro3" class="cuadrito" onclick="volverNegro('cuadro3')"></button>
+            <button type="button" aria-pressed="false" aria-describedby="instrucciones" aria-label="Cuadro 4" id="cuadro4" class="cuadrito" onclick="volverNegro('cuadro4')"></button>
+            <button type="button" aria-pressed="false" aria-describedby="instrucciones" aria-label="Cuadro 5" id="cuadro5" class="cuadrito" onclick="volverNegro('cuadro5')"></button>
+            <button type="button" aria-pressed="false" aria-describedby="instrucciones" aria-label="Cuadro 6" id="cuadro6" class="cuadrito" onclick="volverNegro('cuadro6')"></button>
+            <button type="button" aria-pressed="false" aria-describedby="instrucciones" aria-label="Cuadro 7" id="cuadro7" class="cuadrito" onclick="volverNegro('cuadro7')"></button>
+            <button type="button" aria-pressed="false" aria-describedby="instrucciones" aria-label="Cuadro 8" id="cuadro8" class="cuadrito" onclick="volverNegro('cuadro8')"></button>
+            <button type="button" aria-pressed="false" aria-describedby="instrucciones" aria-label="Cuadro 9" id="cuadro9" class="cuadrito" onclick="volverNegro('cuadro9')"></button>
+        </div>
+        <p id="estadoTablero" aria-live="polite">
+            <em>El tablero tiene 0 cuadros negros de 9</em>
+        </p>
+    </main>
+
+</body>
+
+</html>
