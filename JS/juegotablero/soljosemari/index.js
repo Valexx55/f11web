@@ -1,10 +1,18 @@
+//TODO: partiendo de este ejemplo, crear el tablero y los botones de manera programática. Es decir, con JS, no desde HTML
+//Definir los listener (onclick), también con JS
+//para cada botón, indicad el type, el aria-pressed, el aria describedby el aria-label igual con JS
+// OPCIONAL: MEJORAR LA ACCESIBILIDAD Y USABILIDAD
+let numCuadrosNegro = 0;
+
 function volverNegro(idDelCuadro) {
     
     // 1. Buscamos el cuadro exacto en la página web usando su ID
     let elCuadroQueTocaste = document.getElementById(idDelCuadro);
+    numCuadrosNegro = numCuadrosNegro +1;
     
     // 2. Le cambiamos el color de fondo a negro
     elCuadroQueTocaste.style.backgroundColor = "black";
+    elCuadroQueTocaste.setAttribute("aria-pressed", true);
     
     if (estanTodosEnNegro())
     {
@@ -13,17 +21,27 @@ function volverNegro(idDelCuadro) {
         console.log("No están todos en negro");
     }
 
+    cambiarMensaje();
+
+}
+
+function cambiarMensaje()
+{
+  let ptablero = document.getElementById("estadoTablero")
+  ptablero.textContent = "El tablero tiene "+ numCuadrosNegro+ " cuadros negros de 9"
 }
 
 function estanTodosEnNegro ()
 {
     let todosEnNegro = false;
 
-        let listaDivs = document.getElementsByClassName('cuadrito');
-        //listaDivs.length
-        for (let n = 0; n < listaDivs.length; n++)
+        todosEnNegro = (numCuadrosNegro == 9);
+
+        if (numCuadrosNegro == 9)
         {
-            console.log('Color ' + n + ' es ' + listaDivs[n].style.backgroundColor);
+          todosEnNegro = true;
+        } else {
+          todosEnNegro = false;
         }
 
     return todosEnNegro;
